@@ -1,90 +1,140 @@
 package days06;
 
-public class Ex04 {                                 //ì•”ê¸°.ì´í•´í•˜ê¸°**
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import com.util.DBConn;
+
+import days03.emp.empDTO;
+
+public class Ex04 {
 
 	public static void main(String[] args) {
-		// ê¸°ë³¸í˜• 8ê°œëŠ” ë°˜ë“œì‹œ ì´ˆê¸°í™”í•œ í›„ ì‚¬ìš©.
-		// int i;
-		// System.out.println(i);
-		
-		// ë¡œë˜ 
-		// 1 ~ 45 
-		// * ìžë™           / ìˆ˜ë™
-		// ì°¸ì¡°í˜• : ë°°ì—´, í´ëž˜ìŠ¤ , ì¸í„°íŽ˜ì´ìŠ¤
-		//            ì´ˆê¸°í™” í•˜ì§€ ì•Šì•„ë„ ê·¸ ìžë£Œí˜•ì˜ ê¸°ë³¸ê°’ìœ¼ë¡œ ì´ˆê¸°í™”ë˜ì–´ìžˆë‹¤.
-		int [] lottos = new int[6];
-		
-	    fillUpLottos(lottos);  // ë¡œë˜ ë²ˆí˜¸ ì±„ì›Œë„£ëŠ” í•¨ìˆ˜
-		printLottos(lottos);  // ë¡œë˜ ë²ˆí˜¸ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
-	}
- 
+		// up_selectEmp_30 > °Ë»ö ÇÁ·Î½ÃÀú »ý¼º
+		// - pCursor ¾Æ¿ôÇ²¿ë
+		// - open for ±¸¹®~
+		// up_deleteEmp_30 > »ç¿ø »èÁ¦ ÇÁ·Î½ÃÀú »ý¼º
+		// - pempno ÀÎÇ²¿ë
 
-	private static void fillUpLottos(int[] lottos) {
-		//  0		1		*2		3		4		5
-		// [5] 	[10]	[0]	[0]	[0]	[0]
-		int index = 0;
-		while (index < lottos.length) {
-			int lottoNumber = (int)(Math.random()*45+1);
-			// ì¤‘ë³µì´ ë˜ë©´    true
-			// ì¤‘ë³µì´ ì•ˆë˜ë©´ false
-			if( !isDuplicationCheck(lottos, lottoNumber, index) ) {
-				lottos[index] = lottoNumber;
-				index++;
-			}
-		}
-	}
+		empDTO dto = null;
+		Connection con = null;
+		CallableStatement cstmt = null;
+		ResultSet rs = null;
+		String sql = " { call up_select_emp_30(?) }";
 
-		/*
-		for (int i = 0; i < lottos.length; i++) {
-			int number = (int)(Math.random()*45+1);
-		    // i = 0
-			//ì¤‘ë³µë˜ë©´  true
-			//ì¤‘ë³µì•ˆë˜ë©´ false
-			// if( ì¤‘ë³µì²´í¬ì¡°ê±´ì‹ == true) {
-			// if( ì¤‘ë³µì²´í¬ì¡°ê±´ì‹ ) {
+		ArrayList<empDTO> list = null;
+
+		try {
+			con = DBConn.getConnection();
+			cstmt = con.prepareCall(sql);
+			cstmt.registerOutParameter(1, oracle.jdbc.OracleTypes.CURSOR);
+			//cstmt.executeQuery();
+			rs = (ResultSet) cstmt.getObject(1);
+
+			if (rs.next()) {
+				list = new ArrayList<>();
+				do {
+					dto = new empDTO();
+					dto.setEmpno(rs.getInt(1));
+					dto.setEname(rs.getString(2));
+					dto.setJob(rs.getString(3));
+					dto.setMgr(rs.getInt(4));
+					dto.setHiredate(rs.getString(5));
+					dto.setSal(rs.getInt(6));
+					dto.setComm(rs.getInt(7));
+
+					list.add(dto);
+				} while (rs.next());
+			} // if
+
+			rs.close();
+			cstmt.close();
 			
-			//if( ì¤‘ë³µì²´í¬ì¡°ê±´ì‹ == false ) {
-			if( !ì¤‘ë³µì²´í¬ì¡°ê±´ì‹  ) {
-				ê·¸ ë°©ì— ì±„ì›Œë„£ê¸°.
-				lottos[i] = number ;
-			}else {
-			   i--;	
+			dispList(list);
+			
+			//-----------------------------
+			
+			Scanner scanner = new Scanner(System.in);
+			
+			
+			System.out.println("> »èÁ¦ÇÒ »ç¿øÀ» Ã¼Å©ÇÏ¼¼¿ä? ");
+			
+			String d_empnos = scanner.next();
+//			d_empnos.split(","); 
+			String [] d_empnoArr = d_empnos.split(","); //°ªÀ» ÄÞ¸¶(,)·Î ¹ÞÀ» ¿¹Á¤ > µû¶ó¼­ ÄÞ¸¶¸¦ ±âÁØÀ¸·Î ÀÚ¸¥´Ù.
+			
+			
+			int d_empno = 0;
+			sql = "{ call up_deleteEmp_30(?) }";
+			cstmt = con.prepareCall(sql);
+
+/*
+			//¼º´ÉÀÌ ÁÁÁö ¾ÊÀº ÄÚµù
+			for (String no : d_empnoArr) {
+				d_empno = Integer.parseInt(no);
+				cstmt.setInt(1, d_empno);
+				int cnt = cstmt.executeUpdate();
+				
+				if ( cnt == 1 ) {
+					System.out.println("?> »èÁ¦ ¿Ï·á!!");
+				}
+			}*/
+			
+			
+			for (String no : d_empnoArr) {
+				d_empno = Integer.parseInt(no);
+				cstmt.setInt(1, d_empno);
+				
+//				int cnt = cstmt.executeUpdate();
+				
+				cstmt.addBatch(); //½ÇÁ¦ Äõ¸®¹®À» ¼öÇàÇÏÁö ¾Ê°í Æ¯Á¤ ¸Þ¸ð¸®¿¡ ÀûÀçÇÑ´Ù.
+				//±âÁ¸ foreach¹®Àº ¸Å for¹® ¸¶´Ù Äõ¸®¹®À» ¾ò°í ½ÇÇàÀ» ÇÏ±â ¶§¹®¿¡ µ¥ÀÌÅÍ°¡ ¸¹À¸¸é ´À·ÁÁø´Ù.
+				//batch¹®Àº Äõ¸®¸¦ Ã³À½¿¡ ¾ò°í addbatch·Î Ãß°¡¸¦ ÇØ ÀÏ°ýÃ³¸®ÇÏ±â ¶§¹®¿¡ ¼Ó´õ°¡ ´õ ºü¸£´Ù.
+				//batch ¾²±â Àü¿¡ ¿ÀÅäÄ¿¹ÔÀ» false·Î ÇØÁà¾ß exception¹ß»ý½Ã rollbackÀÌ °¡´ÉÇÏ´Ù.
+				
+/*				if ( cnt == 1 ) {
+					System.out.println("?> »èÁ¦ ¿Ï·á!!");
+				}*/
+				
 			}
-		}	
-			*/	
-			  
-		
-		/*
-		for (int i = 0; i < lottos.length; i++) {
-			lottos[i] = (int)(Math.random()*45+1);
+			
+			
+			int [] cnts = cstmt.executeBatch(); // ÀûÀçµÈ Äõ¸®¹®À» ½ÇÇØÇÏ´Â ¸Þ¼Òµå, Ãß°¡µÈ ¸í·ÉÀÇ Ã³¸® °á°ú¸¦ È®ÀÎÇÒ ¼ö ÀÖ´Ù.
+
+				
+			cstmt.close();
+			
+			//-----------------------------
+
+			
+			DBConn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		*/
-  
-	private static boolean isDuplicationCheck(
-			int[] lottos, int lottoNumber, int index) {
-		
-		for(int i=0; i<index; i++) {
-			if( lottos[i] == lottoNumber) return true;
-		}
-		 
-		return false;
+
 	}
 
-	private static void printLottos(int[] lottos) {
-		// ë°°ì—´ëª….length == ë°°ì—´í¬ê¸° == 6
-		for (int i = 0; i < lottos.length; i++) {
-			//System.out.println(lottos[i]);
-			System.out.printf("%-3d", lottos[i]);
+	private static void dispList(ArrayList<empDTO> list) {
+
+		if (list == null) {
+			System.out.println("> »ç¿øÀÌ Á¸Àç X");
+			return;
 		}
-		System.out.println();
-		/*
-		System.out.println(lottos[0]);
-		System.out.println(lottos[1]);
-		System.out.println(lottos[2]);
-		System.out.println(lottos[3]);
-		System.out.println(lottos[4]);
-		System.out.println(lottos[5]);
-		*/
+
+		Iterator<empDTO> ir = list.iterator();
+
+		while (ir.hasNext()) {// ÀÚµ¿À¸·Î »ý¼º °¡´É
+			empDTO dto = (empDTO) ir.next();
+			System.out.println(dto);
+			// ir.next(); >> È£ÃâµÉ ¶§¸¶´Ù ¿¤¸®¸ÕÆ®¸¦ ¼ø¼­´ë·Î ¸®ÅÏÇÑ´Ù.
+//			System.out.printf("> %d\t%s\t%s\t%d\t%tF\t%s\t%s\n", empDTO.getEmpno(), empDTO.getEname(), empDTO.getJob(), empDTO.getMgr(), empDTO.getHiredate(), empDTO.getSal(), empDTO.getComm());
+			
+		}
 	}
 
 }

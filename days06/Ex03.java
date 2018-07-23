@@ -1,35 +1,64 @@
 package days06;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.util.Scanner;
+
+import com.util.DBConn;
+
 public class Ex03 {
 
 	public static void main(String[] args) {
-		// 1 ~ 45 ëžœë¤í•œ ì •ìˆ˜ -> 6ê°œ
-		// > Mathí´ëž˜ìŠ¤ : ì‚°ìˆ ì  ê³„ì‚° ê¸°ëŠ¥(í•¨ìˆ˜)ë“¤ì´ êµ¬í˜„ëœ í´ëž˜ìŠ¤
-		// Math.max(a, b);
-		// Math.min(a, b);
+		// È¸¿ø°¡ÀÔ ÇÒ ¶§ ID Áßº¹Ã¼Å©ÇÏ´Â ÇÁ·Î½ÃÀú¸¦ ¸¸µé¾î¼­ 
+		// up_idcheck
+		//			1) id  		in
+		// 			2) result		out  1(»ç¿ë°¡´É) & -1(»ç¿ëºÒ°¡´É)
+		// ID »ç¿ë¿©ºÎ Ãâ·ÂÇÏ´Â ÀÚ¹Ù Å×½ºÆ®
+		// EMP Å×ÀÌºí¿¡ EMPNO(ID)
+		int empno;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("> Áßº¹ Ã¼Å©ÇÒ empno(ID) ÀÔ·Â :  ");
+		empno = sc.nextInt();
 		
-		// 0.0 <=  double Math.random() < 1.0
-		// 0.0*45 <=  double Math.random()*45 < 1.0*45
-		// 1 <=   (int)(Math.random()*45)+1 < 46
-		
-		// 3 ~ 42      -2
-		// 1 ~ 40
-		// 3 <=  (int)(Math.random()*40)+3 < 43
-		
-		// 1 <=   ì •ìˆ˜  <= 45
-		/*
-		int lottoNumber ;
-		for (int i = 0; i < 1000; i++) {
-			lottoNumber = (int)(Math.random()*45+1);
-			//System.out.println(  lottoNumber );
-			if( 0>lottoNumber || lottoNumber > 45) 
-				System.out.println("***");
+		Connection con = DBConn.getConnection();
+		String sql = " { call up_idcheck(?,?) } ";
+		CallableStatement cstmt = null;
+		try {
+			
+			cstmt = con.prepareCall(sql);
+		    cstmt.setInt(1, empno);
+			
+			//oracle.jdbc.OracleTypes.INTEGER
+			cstmt.registerOutParameter(2, java.sql.Types.INTEGER);
+			
+			//½ÇÇà			
+			cstmt.executeQuery();
+			int result = (int) cstmt.getObject(2); //out¸Å°³º¯¼ö¸¦ ´ã¾Æ¼­result¿¡~
+			if(result ==0) {
+				System.out.println("»ç¿ë °¡´ÉÇÑ idÀÔ´Ï´Ù.");
+			}else {
+				System.out.println("ÀÌ¹Ì Á¸ÀçÇÏ´Â IDÀÔ´Ï´Ù.");
+			}
+			cstmt.close();
+			DBConn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		*/
-         
 	}
 
 }
 
-	
 
+/*
+ create or replace procedure up_idcheck
+(
+    pid in emp.empno%type
+    , presult out number
+)
+is
+begin
+   select count(*) into presult   -- 1
+   from emp
+   where empno = pid;
+end;
+ */

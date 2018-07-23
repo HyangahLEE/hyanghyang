@@ -1,38 +1,57 @@
 package days06;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import com.util.DBConn;
+
 public class Ex05 {
 
-/*	Call by Name    
-	Call by Value
-	Call by Reference*/
-	
-	
 	public static void main(String[] args) {
-		int x = 10, y =20;
-		System.out.printf("> x=%d, y=%d\n",x,y);
-		
-		
-		/*
-		{
-			int temp = x;                // x,y ë°”ê¾¸ëŠ” í•¨ìˆ˜ì‹
-			x = y;
-			y = temp;
-		}
-        */
-		// í•¨ìˆ˜ í˜¸ì¶œ
-		swapXY(x,y);
-		
-		// ë‘ ê¸°ì–µê³µê°„ì˜ ê°’ì„ ë°”ê¾¸ëŠ” í•¨ìˆ˜ ì„ ì–¸
-		
-		System.out.printf("> x=%d, y=%d\n",x,y);
-	}
 
-	private static void swapXY(int x, int y) {
-		int temp = x;
-		x = y;
-		y = temp;
+		String sql = " { call up_insertDept(?,?,?) } ";
+		Connection con = null;
+		CallableStatement cstmt = null;
+		int cnt = 0;
+
+		try {
+			con = DBConn.getConnection();
+			//Æ®·£Àè¼Ç Ã³¸®ÇÏ±â
+			//1) ¿ÀÅäÄ¿¹Ô - false Ã³¸®
+			con.setAutoCommit(false);
+			
+			// #1¹ø Ã³¸®
+			cstmt = con.prepareCall(sql);
+			cstmt.setInt(1, 70);
+			cstmt.setString(2, "ÃÑ¹«ºÎ");
+			cstmt.setString(3, "¼­¿ï");
+			cnt = cstmt.executeUpdate();
+			System.out.println("> ÃÑ¹«ºÎ : " + cnt);
+			
+			// # 2¹ø Ã³¸®
+			cstmt = con.prepareCall(sql);
+			cstmt.setInt(1, 70);
+			cstmt.setString(2, "¿µ¾÷ºÎ");
+			cstmt.setString(3, "´ëÀü");
+			cnt = cstmt.executeUpdate();
+			System.out.println("> ¿µ¾÷ºÎ : " + cnt);
+			
+			con.commit();// 1¹ø°ú 2¹øÀÌ ¸ðµÎ ¿À·ù ¾øÀÌ ¼öÇàÀÌ µÇ¸é commit
+						
+			cstmt.close();
+			DBConn.close();
+						
+		} catch (Exception e) {
+			
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
+
 	}
 
 }
-
-	

@@ -1,43 +1,39 @@
 package days06;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import com.util.ConnFactory;
+import com.util.DBConn;
+
 public class Ex07 {
 
 	public static void main(String[] args) {
-		/*
-		int x = 100;		
-		System.out.println(x);		// 100
-		changeX(x);		
-		System.out.println(x);    // 100
-        */
+		//	jdbc.properties
+		// JDBC config file
 		
-		/*
-		int [] m = new int[2];
-		m[0] = 10;
-		m[1] = 20;
-		*/
-		// *** ë°°ì—´ì˜ ì´ˆê¸°í™” ***
-		int [] m = {10 , 20};
-		// Call By Reference
-		dispM(m);  // ë°°ì—´, í´ë˜ìŠ¤ , ì¸í„°í˜ì´ìŠ¤  
-		             changeM(m);
-		dispM(m);
-	}
-	
-	private static void changeM(int[] m) { // x , y
-		 int temp = m[0];
-		 m[0] = m[1] ;
-		 m[1] = temp;
-	}
-
-	private static void dispM(int[] m) {
-		for (int i = 0; i < m.length; i++) {
-			System.out.printf("[%d] ", m[i]);
-		}
-		System.out.println();
-	}
-	
-	public static void changeX(int x) {
-		x = 200;
+		//1. Connection °´Ã¼
+		//Connection con = DBConn.getConnection();
+		
+		//2. XXXFactory Å¬·¡½º - XXX¸¦ ¸¸µé ¼ö ÀÖ´Â °øÀå
+		
+		//½Ì±ÛÅæ
+		//connFactoty conn = new ConnFactory xxxxxxxxx
+		ConnFactory factory = ConnFactory.getDefaultFactory(); //new ·Î »ı¼ºÀÚ ¸»°í ¸ğµÎ´Ù ¶È°°Àº °øÀå¿¡¼­ ©¾î³½°Å¸¦ °¡Á®¿À°Ú´Ù.
+		Connection con;
+		try {
+			con = factory.createConnection(); //== getConnection();
+			System.out.println(con);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		
+		
+		// [ Connection Pool ] // ¹Ì¸® ÀÏÁ¤ÇÑ ¼ö¸¸Å­ ¹Ì¸® »ı¼ºÇÏ¿© Ä¿³Ø¼ÇÀ» ºô·ÁÁÖ°í ´Ù½Ã¹İÈ¯¹Ş¾Æ¼­ Ä¿³Ø¼ÇÀ» °ü¸®
+		// ÀåÁ¡ : µğºñ ¿¬°á ½Ã°£À» ÁÙÀÏ ¼ö ÀÖ´Ù. 
+		
 	}
 
 }

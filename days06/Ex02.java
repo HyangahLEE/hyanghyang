@@ -1,61 +1,100 @@
 package days06;
 
-public class Ex02 {     //1.ë¡œë˜ë°œìƒ ex02.java ì•”ê¸°
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import com.util.DBConn;
+
+public class Ex02 {
 
 	public static void main(String[] args) {
-	//ë¡œë˜ ìš”êµ¬ë¶„ì„
-		// 1 ~ 45
 
-		int [] lottos = new int[6];
-		
-		printLottos(lottos);   //ë¡œë˜ë²ˆí˜¸ì¶œë ¥í•¨ìˆ˜
-	}
+		//ÇÁ·Î½ÃÀú id/pwd ·Î±×ÀÎ -
 
-	private static void printLottos(int[] lottos) {
-	        	// ë°°ì—´ëª….length == ë°°ì—´í¬ê¸° == 6
-		for (int i = 0; i < lottos.length; i++) {
-			lottos[i] = (int)(Math.random()*45+1);
-			System.out.printf("%-3d",lottos[i]);
-				
+		String id,pwd;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("> ·Î±×ÀÎ Ã¼Å©(id,pwd) ÀÔ·Â?");
+		id= sc.next();
+		pwd = sc.next();
+		String sql = "{ call up_logon(?,?,?) }";
+
+		Connection con = DBConn.getConnection();
+		CallableStatement cstmt = null;
+		try {
+
+			cstmt = con.prepareCall(sql);
+
+			cstmt.setString(1, id);
+			cstmt.setString(2, pwd);
+			//oracle.jdbc.OracleTypes.INTEGER
+			cstmt.registerOutParameter(3, java.sql.Types.INTEGER);
+			//½ÇÇà			
+			cstmt.executeQuery();
+			int result = (int) cstmt.getObject(3); //out¸Å°³º¯¼ö¸¦ ´ã¾Æ¼­result¿¡~
+			if(result ==1) {
+				System.out.println("·Î±×ÀÎ ¼º°ø");
+
+
+			}else if(result ==0) {
+				System.out.println("ºñ¹Ğ¹øÈ£ È®ÀÎÇÏ¼¼¿ä.");
+			}else if (result == -1) {
+				System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â IDÀÔ´Ï´Ù.");
+			}
+			cstmt.close();
+			DBConn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 		
 	}
+
 }
 
-/*public class Ex01 {
 
-	   public static void main(String[] args) {
-	      int [] lottos = new int[6];      
-	       fillUpLottos(lottos);  
-	      printLottos(lottos);  
-	      
-	   }
+/*
+ * create or replace procedure up_logon
+(
+    pid        in emp.empno%type
+    , ppwd     in emp.ename%type
+    , presult out number
+)
+is
+  vid number(1); -- 1   0
+  vpwd emp.ename%type;
+begin
+   select count(*) into vid   -- 1
+   from emp
+   where empno = pid;
 
-	   private static void printLottos(int[] lottos) {
-	      for (int i = 0; i < lottos.length; i++) { 
-	         System.out.printf("%-3d", lottos[i]);
-	      }
-	      System.out.println();
-	   }
+   if vid = 1 then  -- id Á¸ÀçÇÑ´Ù¸é
+     select ename into vpwd
+     from emp
+     where empno = pid;
 
-	   private static void fillUpLottos(int[] lottos) { 
-	      int index = 0;
-	      while (index < lottos.length) {
-	         int lottoNumber = (int)(Math.random()*45+1); 
-	         System.out.println(lottoNumber);
-	         if( !isDuplicationCheck(lottos, lottoNumber, index) ) {
-	            lottos[index] = lottoNumber;
-	            index++;
-	         }
-	      } 
-	   }
+     if vpwd = ppwd  then
+       presult := 1;
+     else
+       presult := 0;
+     end if;
+   else
+     presult := -1;
+   end if;
+-- exception
+end;
+--
+var vresult number;
 
-	   private static boolean isDuplicationCheck(
-	         int[] lottos, int lottoNumber, int index) {      
-	      for(int i=0; i<index; i++) {
-	         if( lottos[i] == lottoNumber) return true;
-	      }       
-	      return false;
-	   }
-
-	}*/
+begin
+  up_logon(7369,'XXX',:vresult);
+  if( :vresult = -1 ) then
+     dbms_output.put_line('ID(empno)°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.');
+  elsif :vresult = 0  then
+    dbms_output.put_line('PWD(ename)°¡ Æ²·È½À´Ï´Ù.');
+  elsif :vresult = 1  then
+     dbms_output.put_line('·Î±×ÀÎ ¼º°ø.');
+  end if;
+end; 
+ * */

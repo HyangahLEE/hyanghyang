@@ -1,49 +1,102 @@
 package days06;
 
-import java.io.IOException;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+import com.util.DBConn;
+
+import days03.emp.empDTO;
 
 public class Ex01 {
 
-	public static void main(String[] args) throws IOException {
-		// í•œë¼ì¸ì— 10ê°œì”© ì¶œë ¥....
-	    int lineNumber = 1;
-		for (int i = 0; i < 256; i++) {
-			// if( i%10==0)	System.out.printf( "%d : ",  i/10+1 );
-			if( i%10==0)	System.out.printf("%d : ",  lineNumber++);
-			System.out.printf("[%c]", (char)i);
-			if( i%10 == 9 ) System.out.println();
-			if( i%100 == 99 ) {
-				System.out.print("> ê³„ì†í•˜ë ¤ë©´ ì—”í„°ì¹˜ì„¸ìš”.");
-				System.in.read();  
-				System.in.skip( System.in.available() );// 13,10
+	public static void main(String[] args) {
+		//p447 open for¹®
+		Scanner sc = new Scanner(System.in);
+		System.out.println("> °Ë»öÇÒ ename ÀÔ·Â ?");
+		String ename  = sc.next();
+		//
+		Connection con = DBConn.getConnection();
+		CallableStatement cstmt = null;
+		ResultSet rs = null;
+		empDTO dto = null;
+
+		ArrayList<empDTO> list = null;
+		try {
+			//"{call ÇÁ·Î½ÃÁ®¸í(¸Å°³º¯¼ö)}"
+			String sql = "{ call up_selectSearchEname(?,?) } ";
+			cstmt = con.prepareCall(sql);
+			// ?  ? ¸Å°³º¯¼ö °ªÀ» ¼³Á¤...
+			//****** pCursor out sys_refcursor -> °ªÀÌ ¾ÈÀ¸·Î µé¾î°¡´Â°Ô ¾Æ´Ï¶ó ¾î¶²°ªÀ¸·Î ¹Ş¾Æ¿À´Â°Å±â¶§¹®¿¡ Å¸ÀÔÀ» ÁØ´Ù.
+			cstmt.registerOutParameter(1, oracle.jdbc.OracleTypes.CURSOR);
+			cstmt.setString(2, ename); 
+			cstmt.executeQuery(); //Æò¼Ò¿¡´Â rs·Î ¹Ş¾ÒÁö¸¸ ¿©±â¼­´Â outÀ¸·Î ¹Ş±â¶§¹®¿¡ 
+			
+			rs = (ResultSet) cstmt.getObject(1);//Çüº¯È¯ ÇÊ¿ä
+			
+			if(rs.next()) {
+				list = new ArrayList<>();
+				do {
+					dto = new empDTO();
+					dto.setDeptno(rs.getInt(1));
+					dto.setEmpno(rs.getInt(2));
+					dto.setEname(rs.getString(3));
+					dto.setJob(rs.getString(4));
+					list.add(dto);
+				} while (rs.next());
+				
 			}
+			
+			rs.close();
+			cstmt.close();
+			DBConn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		//°Ë»ö °á°ú Ãâ·ÂÇÏ´Â ¸Ş¼Òµå 
+		dispList(list);
+
+	}
+
+	private static void dispList(ArrayList<empDTO> list) {
 		
-		// 1 : 0   1 2 3 4 5 6 7 8  9  ê°œí–‰
-		// 2 : 10 1 2 3 4 5 6 7 8 19 ê°œí–‰
-		// 3 : 20 1 2 3 4 5 6 7 8 29 ê°œí–‰
-		
-		//  0 ~ 99
-		// 100~ 199
-		// 
-		
-		/*
-		System.out.print("> kor  ì…ë ¥ : ");
-		int kor = System.in.read();   // 9 0 enter
-		// '9' ->  ascii -> 57 ì¶œë ¥
-		System.out.println( "kor=" + kor );
-		*/
-		
-		// ASCII ì¶œë ¥
-		/*
-		for (int i = 0; i < 256; i++) {
-			System.out.printf("%d - %c\n", i , i);
-		}
-		*/
-		// 48 - '0'
-		// 65 - 'A'   90 - 'Z'
-		// 97 - 'a'   122 - 'z'
-		 
+	//Connection con = DBConn.getConnection();
+	if(list ==null) {
+		System.out.println("»ç¿ø Á¸Àç x");
+		return;
 	}
 	
+		Iterator<empDTO> ir = list.iterator();
+		while (ir.hasNext()) {
+			empDTO dto =  ir.next();
+			System.out.printf("%d %d %s %s\n",dto.getDeptno(), dto.getEmpno(),dto.getEname(),dto.getJob());
+			
+		}
+		
+		
+	}
+
 }
+
+
+/*
+ * create or replace PROCEDURE up_selectSearchEname
+(
+    pCursor out sys_refcursor,
+  pename in emp.ename%type
+
+)IS
+    vsql varchar2(1000);
+BEGIN
+    vsql := 'select deptno, empno, job from emp ';
+    vsql := vsql ||' where ename like :1 ';
+
+    open pCursor for vsql
+    using '%'|| pename||'%';
+END;*/
+ 
