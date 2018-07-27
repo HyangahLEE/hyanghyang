@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<style>
+	table{
+	width:200px;
+	height:200px;
+	}
+	table ,td{
+	border: solid 1px gray;
+	}
+	#tbl_test, #tbl_test td{
+	border-color: orange;
+	}
+	#tbl_test{
+	/*border-spacing: 0;->2px*/ 
+	/*border-spacing: 0;-> css에서는 px 무조건!!!!!!!!!!*/
+	border-collapse: collapse; /*1px*/
+	}
+	#tbl_test02{
+	val
+	}
+</style>
+</head>
+<body>
+<table>
+	<tr>
+		<td align="left" valign="top">1</td>
+		<td align="right" valign="top">2</td>
+	</tr>
+		
+	<tr>
+		<td align="left" valign="bottom">3</td>
+		<td align="right" valign="bottom">4</td>
+	</tr>
+</table>
+<hr>
+<table>
+	<tr >
+		<td rowspan="2"></td>
+		<td ></td>
+	</tr>
+		
+	<tr>
+		<td ></td>
+	</tr>
+</table>
+<hr>
+<table>
+	<tr>
+		<td colspan="2"></td>
+	</tr>
+		
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+<hr>
+<!-- <table id="tbl_test" cellspacing="10px"> -->
+<!-- <table id="tbl_test" cellpadding="10px"> -->
+<table id="tbl_test">
+	<tr>
+		<td><img src="http://music.phinf.naver.net/20170221_282/1487670375696A8s8X_JPEG/110976.jpg" width="200px" height="200px"></td>
+		<td><img src="http://blogfiles9.naver.net/MjAxNjEyMDhfMjMz/MDAxNDgxMTk4MzMyNDE5.rmOlD3e3nn52DBMuFktT9ngPIQy4TOtyO4DmSLhKGHIg.jqQkBepA8ve64EhB5xz5q5_H0K2F5ZqKkhnxkTJYRzYg.GIF.sapphi2000/G9%B9%DA%BA%B8%B0%CB%C3%D4%BF%B5_39.gif" width="200px" height="200px"></td>
+	</tr>
+		
+	<tr>
+		<td><img src="http://cafefiles.naver.net/MjAxNjEyMDlfMjUg/MDAxNDgxMjY4ODIxNDM2.hcsRqPMpr2EE171mU5m7kHWhdQdH67y4G76NkZEWahQg.sOhVybrLbQYlxnluVASOjIn6eNyjtotPjlwZSYfroCAg.GIF.asaa0000/externalFile.gif" width="200px" height="200px"></td>
+		<td><img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fpost.phinf.naver.net%2FMjAxNzAxMzFfMTM5%2FMDAxNDg1ODQyNzI2MjI2.1NAwDdflwshDdxvgL-LkA7BKXJ-lKI_C0ZA4Q99CQwEg.xfvul5ScFUHYrwqv_ezDOU-ncncTH1IUlFAB5YGgKJog.PNG%2FIokDwras_MsPblNZsKzLM7G663Vk.jpg&type=b400" width="200px" height="200px"></td>
+	</tr>
+</table>
+<hr>
+<table id="tbl_test02">
+	<tr>
+		<td width="150px" valign="top">12345</td>
+		<td width="150px">가나다라마</td>
+	</tr>
+	<tr>
+		<td>td안에 숫자 알파벳은 개행 ㄴㄴ </td>
+		<td >한글은 자동개행이 일어난다.</td>
+	</tr>
+</table>
+</body>
+</html>

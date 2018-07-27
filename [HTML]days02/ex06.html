@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<style>
+ul {
+	list-style-type: none;
+	background-color: pink;
+	margin: 0;
+	padding: 0;
+	overflow: hidden; /*넘치면 숨겨라*/
+}
+
+li {
+	float: left;
+}
+
+li a {
+	color: gray;
+	display: block; /* li블럭모드 -> 인라인 모드, a 인라인모드 -> 블럭모드*/
+	text-align: center;
+	padding: 8px 16px;
+	text-decoration: none;
+	
+}
+
+li a:hover {
+	background-color: pink;
+	color: white;
+	font-weight:  bold;
+	text-transform: uppercase;
+	
+}
+/* #alink{
+ background-color: red;
+ color: green;
+ display: block;
+ width:300px; /*원래가 인라인모드일때는 width속성 안먹는다. 그래서 블럭모드로 바꿔줘라*/
+}
+*
+/
+</style>
+</head>
+<!-- <body>
+<a href="#" id="alink">naver</a>  -->
+<h3>Navigation menu :</h3>
+<ul>
+	<li><a href="#home">HOME</a></li>
+	<li><a href="#news">NEWS</a></li>
+	<li><a href="#contact">CONTACT</a></li>
+	<li><a href="#about">ABOUT</a></li>
+</ul>
+</body>
+</html>

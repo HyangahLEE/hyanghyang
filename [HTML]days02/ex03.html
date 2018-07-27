@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>후헤헤헤헤</title>
+<style>
+/*table 선택자(selector) {스타일 적용}*/
+ table,tr,td{
+ 	/*border: solid 1px gray;*/
+ 	border-collapse: collapse;
+ 	margin : 0 auto; /* 여백 auto 자동 설정*/
+  }
+  
+  th{
+   background-color:black;
+   color: white;
+  }
+  tbody td{ /*tbody의 자식 td*/
+   border-bottom: 2px dotted gray;
+  }
+  tr:nth-chile(even){
+  	background-color: #eee;
+  }
+  tr:nth-chile(odd){
+  	background-color: pink;
+  }
+  
+  
+</style>
+</head>
+<body>
+	<!-- HTML TABLES
+		tr : table row 행
+		td : table data == cell 열
+	 -->
+	<table style="width:500px; ">
+	<caption>DEPT INFO</caption>
+	
+	<thead>
+	<tr>
+	 	<!-- table header cell -->
+		<th><input type="checkbox">deptno</input></th>
+		<th>dname</th>
+		<th>loc</th>
+	</tr>
+	</thead>
+	<!-- 
+	<tr>
+		<td width="150px" align="center"><b>deptno</b></td>
+		<td width="150px" align="center"><b>dname</b></td>
+		<td width="150px" align="center"><b>loc</b></td>
+	</tr> -->
+	<tbody>
+	<tr>
+		<td><input type="checkbox">10</input></td>
+		<td>Accounting</td>
+		<td>new york</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox">20</input></td>
+			<td>research</td>
+		<td>dallas</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox">30</input></td>
+		<td>sales</td>
+		<td>chicago</td>
+	</tr>
+	</tbody>
+	
+	<tfoot>
+	<tr>
+		<td colspan="3">
+		<button type="button" style="margin: 0 auto;" >삭제</button>
+		</td>
+	</tr>
+	</tfoot>
+	</table>
+</body>
+</html>
