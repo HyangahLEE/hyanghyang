@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<fieldset>
+		<legend>로그인 폼</legend>
+		<!-- 여러개 선택 가능 : multiple -->
+		<form action="">
+		첨부파일 : 
+		<input type="file" name="attachedFile" />
+		<hr>
+		<input type="number" min="1" max="12" value="1"/>
+			<input type="color" /> <input type="date" max="2050-12-31" min="1950-01-01" /> <input type="time" />
+			<input type="datetime-local" /> <input type="email" autocomplete="off" />
+			<!--
+text	한 줄짜리 텍스트 입력 필드
+password	비밀번호를 입력할 수 있는 필드(*** 형태로 표시)
+hidden	사용자에게 보이지 않지만 서버로 넘어가는 필드
+search	검색 필드 생성
+tel	전화번호 입력 필드
+url	URL 주소를 입력할 수 있는 필드
+email	메일 주소를 입력할 수 있는 필드 생성
+number	숫자를 조절할 수 있는 화살표 생성 / 숫자만 입력 가능
+range	숫자를 조절할 수 있는 슬라이드 막대 생성
+button	버튼 생성
+submit	form action에 해당되는 서버 URI로 전송시킬 버튼 생성
+file	파일을 첨부할 수 있는 버튼 생성
+reset	리셋 버튼 생성
+image	이미지 버튼 생성
+checkbox	체크박스 생성, 다중 선택 가능
+radio	라디오 버튼 생성, 단일 선택 가능(다중 선택 불가)
+color	색상 표 생성
+datetime	국제 표준시로 설정된 날짜 및 시간(연, 월, 일, 시, 분, 초, 분할초) 생성
+datetime-local	사용자 지역 기준 날짜 및 시간(연, 월, 일, 시, 분, 초, 분할초) 생성
+date	사용자 지역 기준 날짜(연, 월, 일) 생성
+month	사용자 지역 기준 날짜(연, 월) 생성
+week	사용자 지역 기준 날짜(연, 주) 생성
+time	사용자 지역 기준 시간(시, 분, 초, 분할초) 생성
+ -->
+			<hr>
+			<input type="button" onclick="window.alert('삐빅-');" value="일반버튼1" /><br>
+				<button type="submit">
+					<span>일반버튼2</span>
+				</button> <br>
+			<hr>
+			<input list="movies" />
+			<datalist id="movies">
+			<option value="영화1"></option>
+			<option value="영화2"></option>
+			<option value="영화3"></option>
+			<option value="영화4"></option>
+			</datalist>
+			<hr>
+			<select name="" id="">
+				<optgroup label="영화">
+					<option value="">영화1</option>
+					<option value="">영화2</option>
+					<option value="">영화3</option>
+					<option value="">영화4</option>
+
+				</optgroup>
+				<optgroup label="TV">
+					<option value="">영화1</option>
+					<option value="">영화1</option>
+					<option value="">영화1</option>
+					<option value="">영화1</option>
+				</optgroup>
+			</select>
+			<hr>
+			<select name="items" id="" size="4" multiple="multiple">
+				<option>item01</option>
+				<option>item02</option>
+				<option>item03</option>
+				<option selected>item04</option>
+			</select>
+			<hr>message:
+			<input type="text" value="message" readonly="readonly" /> <br>
+				message: <input type="text" value="message" disabled="disabled" />
+		</form>
+	</fieldset>
+</body>
+</html>

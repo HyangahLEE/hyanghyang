@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML FORMS</title>
+</head>
+<body>
+
+<!-- #logon>input*2 -->
+<form action="ex03_logon.jsp" method="get"><!--  입력된 값을 가지고 서버로 가기 위해서는 form 태그가 필요하다. -->
+<div id="logon">
+<table style="width: 300px">
+	<tr>
+		<td>id :</td>
+		<td><input type="text" name="user_id" tabindex="1" placeholder="id를 입력하세요." autofocus="autofocus" /></td>
+		<!-- values="dlgiddk20" -->
+	</tr>
+	<tr>
+		<td>password :</td>
+		<td><input type="password" name="user_pwd" maxlength="10" tabindex="2" /></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type="submit" value="로그인"/>
+			<input type="button" value="회원가입" onclick="location.href='ex03_joinMember.html'"/>
+		</td>
+	</tr>
+</table>
+
+</div>
+</form>
+</body>
+</html>

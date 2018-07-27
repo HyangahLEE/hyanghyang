@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<style>
+#table {
+	border: solid 1px gray;
+	padding: 10px;
+	border-radius: 20px;
+	border-bottom: 1px;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+	<form action="">
+		<table id="table">
+			<tr>
+				<td colspan="2">v 필수 입력사항입니다.</td>
+
+			</tr>
+			<tr>
+				<td>성명</td>
+				<td><input type="text" autofocus="auto" name="app_name2"
+					maxlength="12" />(공백없이 입력)</td>
+			</tr>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="id2" size="10" maxlength="8" />(영문최소4자,
+					최대8자)</td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="pwd" maxlength="10" size="10" /></td>
+			</tr>
+			<tr>
+				<td>비밀번호 확인</td>
+				<td><input type="password" name="repwd" maxlength="10"
+					size="10" /></td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td><input type="radio" name="gender" value="1"
+					checked="checked" />남자 <input type="radio" name="gender" value="2" />여자</td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input type="text" name="phone01" size="4" maxlength="3" />-<input
+					type="text" name="phone02" size="5" maxlength="3" />-<input
+					type="text" name="phone03" size="5" maxlength="3" /></td>
+			</tr>
+			<tr>
+				<td>휴대폰</td>
+				<td><input type="text" name="hp" size="14" maxlength="13" /></td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td>동이름 입력 <input type="text" />
+				<button type="text"
+						style="background-color: black; color: white; border: 0; margin-left: 10px">우편번호
+						검색</button></td>
+			</tr>
+			<tr>
+				<td>이메일</td>
+				<td><input type="text" /></td>
+			</tr>
+			<tr>
+				<td>메일 수신</td>
+				<td><input type="checkbox" name="ckbemail" checked="checked" />메일
+					수신을 받겠습니까?</td>
+			</tr>
+			<tr>
+				<td>관심 카테고리</td>
+				<td><input type="checkbox" name="interested" value="1" />음악</td>
+			
+				<td><input type="checkbox" name="interested" value="2" />전시/공연</td>
+			
+				<td><input type="checkbox" name="interested" value="3" />연극</td>
+			
+				<td><input type="checkbox" name="interested" value="4" />영화</td>
+			
+				<td><input type="checkbox" name="interested" value="5" />보컬</td>
+		
+				<td><input type="checkbox" name="interested" value="6" />음주</td>
+		
+				<td><input type="checkbox" name="interested" value="7" />댄스</td>
+			</tr>
+			<tr>
+				<td>자기소개</td>
+				<td><textarea name="msg" rows="5" cols="40"></textarea></td>
+			</tr>
+			<tr>
+				<td>부서 선택</td>
+				<td><select name="deptno" id="">
+						<option value="10" selected="selected">영업</option>
+						<option value="20">회계</option>
+						<option value="30">경영</option>
+						<option value="40">전산</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit">회원가입</button>
+					<input type="reset" value="취소">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

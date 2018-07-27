@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- 자식> / 동등 + / 다시 부모^
+html>head>+body -->
+<!-- html>head>meta+title^body -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<!--multiplication(*): ul>li*3 -->
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+<!--문자열({}) : ul>li*5>{item}  -->
+<ul>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+</ul>
+<!--순번($) : ul>li*5>{item$}  -->
+<ul>
+	<li>item1</li>
+	<li>item2</li>
+	<li>item3</li>
+	<li>item4</li>
+	<li>item5</li>
+</ul>
+<!--grouping(()) : div>(header>ul>li*2>a)+footer>p-->
+<div>
+	<header>
+		<ul>
+			<li><a href=""></a></li>
+			<li><a href=""></a></li>
+		</ul>
+	</header>
+	<footer>
+		<p></p>
+	</footer>
+</div>
+<!-- dl>(dt+dd)*3 -->
+ <dl>
+ 	<dt></dt>
+ 	<dd></dd>
+ 	<dt></dt>
+ 	<dd></dd>
+ 	<dt></dt>
+ 	<dd></dd>
+ </dl>
+<!-- 속성([]): td[align="center" colspan="3"] -->
+<td align="center"></td>
+<td align="center" colspan="3"></td>
+
+<!-- ul>li*5>{item$$$} -->
+<ul>
+	<li>item001</li>
+	<li>item002</li>
+	<li>item003</li>
+	<li>item004</li>
+	<li>item005</li>
+</ul>
+
+<!-- a{naver}=a>{click} -->
+<a href="">naver</a> 
+
+<!-- a{click}>b{hear}==a>{click}+b{hear}-->
+<a href="">click<b>hear</b></a>
+
+<!-- p>{click}+a{here}+{ to continue} -->
+<p>click<a href="">here</a> to continue</p>
+
+<!-- p>lorem -->
+<!-- 3단어 : p>lorem3 -->
+<p>Lorem ipsum dolor.</p>
+
+<!-- ul#list.item.test>li*5>lorem1 -->
+<ul id="list" class="item test">
+	<li>Lorem.</li>
+	<li>Velit!</li>
+	<li>Iusto.</li>
+	<li>Mollitia!</li>
+	<li>Optio.</li>
+</ul>
+
+<!-- ul+ -->
+<ul>
+	<li></li>
+</ul>
+<!-- table+ -->
+<table>
+	<tr>
+		<td></td>
+	</tr>
+</table>
+
+<!-- div#out>div#in =#out>#in-->
+<div id="out">
+	<div id="in"></div>
+</div>
+
+<!-- table>#row$*4>.test -->
+<table>
+	<tr id="row1">
+		<td class="test"></td>
+	</tr>
+	<tr id="row2">
+		<td class="test"></td>
+	</tr>
+	<tr id="row3">
+		<td class="test"></td>
+	</tr>
+	<tr id="row4">
+		<td class="test"></td>
+	</tr>
+</table>
+
+<!-- span: em>.info -->
+<em><span class="info"></span></em>
+
+</body>
+</html>
