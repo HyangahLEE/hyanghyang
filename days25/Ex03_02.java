@@ -52,10 +52,10 @@ public class Ex03_02 {
 			e.printStackTrace();
 		} finally {
 			try {
-				bis.close();
+				bis.close(); //순서 기억...  바깥닫고
 				bos.close();
 				
-				fis.close();
+				fis.close(); //안에닫고
 				fos.close();				
 			} catch (IOException e) { 
 				e.printStackTrace();
