@@ -10,7 +10,7 @@ public class Ex08 {
 				FileInputStream in = new FileInputStream("student.dat");
 				ObjectInputStream ois = new ObjectInputStream(in)
 				) { 
-			     Student s = (Student) ois.readObject();
+			     Student s = (Student) ois.readObject();//역직렬화.
 			     System.out.println(s.getName() +" : " + s.getAvg());
 			     
 			     System.out.println("= END =");
