@@ -33,6 +33,10 @@ public class Ex09 {
 		//ㅁ. 0번째 요소 , 1번째 요소 ~ 4번째 요소
 		//   index(첨자값)  0  1  2 3 4
 		//   배열명[첨자값]
+		// ㅂ. 배열의 크기를 얻어오는 방법
+		// 배열명.length
+		// ㅅ. 가장 작은 index(아랫 첨자값) : 0             lowerBound             / (get)lowerBound
+		//     가장 작은 index(윗 첨자값) : 배열.length - 1      UpperBound     / (get)UpperBound
 		kors[0] = 90;
 		kors[1] = 94;
 		kors[2] = 92;
@@ -45,7 +49,14 @@ public class Ex09 {
 		System.out.printf("%d\n",kors[2] );
 		System.out.printf("%d\n",kors[3] );
 		System.out.printf("%d\n",kors[4] );
-
+		// kors[5] = 92;
+		
+		kors = null;  // 가비지 메모리(쓰레기)     힙영역은 할당되어 있으나 스택에 참조할 주소가 없다. 
+		
+		// java.lang.ArrayIndexOutOfBoundsException
+		//               배열첨자가 범위를 벗어났다.
+		
+		
 		//  배열명.length    암기***
 		System.out.println(kors.length);
 
