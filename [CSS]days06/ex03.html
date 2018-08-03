@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+[type]{ /* [type] */
+border: solid 1px red;
+}
+input[type=text]{
+width: 300px
+}
+/* id 속성값이 last~~ 배경색핑크 */
+[id^=last]{ /* begin  */
+background-color: pink;
+}
+/* id 속성의 속성값 ~~name 으로 끝나는 것의 배경색 */
+[id$=name]{
+background-color: lightblue;
+}
+/* nam이 들어가는 속성값 */
+[id*=nam]{
+background-color: fuchsia;
+}
+
+
+/*class 속성값이  name 단어 포함 */
+[class~=name]{
+background-color: yellow;
+}
+/* class 속성값이 name으로 시작하되 - */
+[class|=name]{
+background-color: hotpink;
+}
+/* p요소의 text(content) */
+p:empty {
+	background-color: aqua;
+	width: 200px;
+	height: 30px;
+}
+input:checked{
+width: 50px;
+height: 50px;
+}
+input:disabled {
+	border: solid 3px red;
+}
+input:focus{
+background-color: lime;
+}
+</style>
+</head>
+<body>
+<!-- input : 같은 그룹으로 묶으려면 name을 똑같이 준다  -->
+<input type="radio" name="gender" value="1"/>남자<br>
+<input type="radio" name="gender" value="0"/>여자<br>
+<input type="checkbox" name="aa" checked="checked"/>자전거<br>
+<input type="checkbox" name="aa"/>비행기<br>
+
+<p>lorem</p>
+<p>lorem</p>
+<p></p>
+<p></p>
+<p>lorem</p>
+
+<div id="box">Lorem ipsum dolor.</div>
+<input  autofocus="autofocus"/>
+<br>
+<input  />
+<br>
+<input type="text" id="lastrecord"/>
+<br>
+<input type="text" id="lastname" class="last name"/>
+<br>
+<input type="text" id="firstname" class="first name"/>
+<br>
+<input type="text" id="name" class="name"/>
+<br>
+<input type="text" id="name" class="name hong"/>
+<br>
+<input type="password" disabled="disabled" />
+<br>
+</body>
+</html>

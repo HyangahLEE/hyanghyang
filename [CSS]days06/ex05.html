@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* 	:not(p){ p가아닌 모든것  
+	border: solid 1px blue;
+	}
+	*{
+	padding: 10px;
+	} 
+*/	
+div, p{ 
+width: 200px;
+height: 20px;
+margin: 5px;
+padding: 5px;
+}
+div{
+border: solid 1px fuchsia;
+text-align: right;
+}
+p{ 
+border: solid 1px blue;
+}
+/* > 2번째 p태그 찾아와서 배경색을 녹색  */
+/* p:first_child */
+/* p:first-of-type */
+p:nth-child(2){
+background: green;
+}
+div:nth-of-type(2){ /* div가 어디에 있든 (자식의 번호와 상관없이) 두번째 */
+background: green;
+}
+p:nth-child(5), div:nth-of-type(5){
+background-color: aqua;
+}
+</style>
+
+<style type="text/css">
+b:only-child{
+background-color: silver;
+}
+b:only-of-type{/* b태그 아무리 많아도 상관 ㄴㄴ */
+background-color: silver;
+}
+</style>
+
+</head>
+<body>
+<h3>test<b>xxx</b>test</h3>
+<h3>test<b>xxx</b>test<span>span1</span></h3>
+<h3>test<b>xxx</b>test<b>yyy</b></h3>
+<h3>test_test</h3>
+
+<p>p element 1</p>
+<p>p element 2</p>
+	<div>div element 1</div>
+<p>p element 3</p>
+	<div>div element 2</div>
+	<div>div element 3</div>
+<p>p element 4</p>
+	<div>div element 4</div>
+	<div>div element 5</div>
+<p>p element 5</p>
+
+
+
+
+
+<!-- 
+<div id="box1">Lorem ipsum dolor.</div>
+<div id="box2">At ipsum incidunt!</div>
+<div id="box3">Itaque repellendus explicabo!</div>
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Assumenda labore obcaecati tempora quis!</p>
+<p>Aliquam ullam voluptas commodi odit.</p> -->
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>animation 애니메이션</title>
+<style>
+div{
+position:absolute;
+ width: 100px;
+ height: 100px;
+ background: orange;
+ 
+ animation-name : sample;
+ animation-duration : 4s;
+ animation-delay: 2s;
+ animation-iteration-count:5; /* infinite */
+ animation-direction:reverse; /* normal, reverse, alternate,alternate-reverse */
+ animation-timing-fuction:linear; /* ease ease-in ease-out ease-in-out linear */
+ 
+ -webkit-animation-name : sample;
+ -webkit-animation-duration : 4s;
+ -webkit-animation-iteration-count:5;
+ 
+ 
+ animation : sample02 4s linear 2s infinite reverse;
+}
+
+@keyframes sample02{
+ 0%{background : pink; left:0; top:0; }
+ 25%{background : blue; left:200px; top:0; }
+ 50%{background : lightblue; left:200px; top:200px; }
+ 75%{background : darkblue; left:0; top:200px; }
+ 100%{background : hotpink; left:0; top:0; }
+}
+
+@keyframes sample{
+ 0%{background : pink; }
+ 25%{background : blue;}
+ 50%{background : lightblue;}
+ 75%{background : darkblue;}
+ 100%{background : hotpink;}
+
+/*  from { background : red;} 
+ to {background: yellow;} */
+}
+@-webkit-keyframes sample{
+ /* from { background : red;} 
+ to {background: yellow;} */
+}
+</style>
+</head>
+<body>
+<!-- [animation]
+		1. 애니메이션을 사용하면 요소가 A스타일에서 B스타일로 점차 변경된다.
+		2. 원하는 만큼 CSS속성을 변경 할 수 있다 .
+		3. 애니메이션을 사용하려면 먼저 키프레임 부터 지정해야한다.
+		@keyframes
+ -->
+ <div></div>
+</body>
+</html>
+
+

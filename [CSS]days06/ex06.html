@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+font-family: Verdana;
+font-size: 0.9em;
+}
+div#header, div#footer{
+padding: 10px;
+color: white;
+background: black;
+text-align: center;
+}
+#content{
+margin: 5px;
+padding: 10px;
+background: lightgray;
+}
+div.article{
+margin: 5px;
+padding: 10px;
+background: white;
+}
+div#menu ul{
+padding: 0;
+}
+div#menu ul li{
+display: inline;
+margin: 5px;
+}
+</style>
+</head>
+<body>
+<!--  	html5 시멘틱(Semantics) 요소 ==의미가 있는 요소
+	
+#header
+ #menu
+ #content>.article*2>h2>{title}^p*2>lorem
+ #footer -->
+
+	<div id="header">
+		<h1>Top</h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li>menu1</li>
+			<li>menu2</li>
+			<li>menu3</li>
+		</ul>
+	</div>
+	<div id="content">
+	<h2>Sports Section</h2>
+		<div class="article">
+			<h2>title</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Officia consectetur dolorum quidem deleniti voluptatibus iure non
+				excepturi tempora quibusdam aspernatur nam porro nihil perferendis
+				itaque sunt neque harum! Magni numquam.</p>
+			<p>Pariatur architecto aspernatur voluptates est commodi ut
+				obcaecati ipsam corporis quod voluptate delectus itaque aliquid.
+				Porro eaque consequatur veniam laudantium repudiandae voluptatem
+				dolor eum dolores ipsum repellat? Voluptates praesentium veniam.</p>
+		</div>
+		<div class="article">
+			<h2>title</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Commodi velit nisi quas error ducimus accusantium quisquam
+				consectetur ipsa nihil dolores aut dolorem amet explicabo?
+				Consequuntur quam laborum veritatis? Laudantium cumque?</p>
+			<p>Ratione nostrum reprehenderit quas delectus alias possimus
+				distinctio aliquid consectetur veritatis dignissimos quis recusandae
+				ducimus esse eum sit vero sint! Nisi quisquam dolore culpa
+				perspiciatis accusantium mollitia ratione maiores quibusdam.</p>
+		</div>
+	</div>
+	<div id="footer">
+		<p>&copy; 2018 . Sist 5 Class</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div,p{
+padding: 5px;
+border: solid 1px gray;
+}
+p::before{
+content: "p-";
+color: red;
+
+}
+p:first-child{ /* 모든것의 첫번째 자식인 'p'태그 만약 div가 body뒤에 첫번째 왔더라면 적용 안댐*/
+background-color: yellow;
+}
+p:first-of-type{/* 모든것의 첫번째 자식이 아니더라고 처음으로 p태그가 나오는 태그 !p가 무조건  처음으로 안와도 된당*/
+ background: orange;
+}
+p:last-child {
+	background: lightblue;
+}
+</style>
+</head>
+<body>
+<div> div- box</div>
+<p>Lorem ipsum dolor.</p>
+<div>
+	<p>Lorem ipsum dolor sit amet.</p>
+	<p>Iste quod quisquam expedita officia!</p>
+	<p>Velit illo atque hic voluptatibus!</p>
+	<div> div- box</div>
+</div>
+<p>Velit illo atque hic voluptatibus!</p>
+
+</body>
+</html>

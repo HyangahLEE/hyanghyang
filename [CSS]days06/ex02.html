@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*{ /* 모든 요소를 선택자로 사용 */ }
+p{ /* element */
+border: solid 1px red;
+}
+#msg{/* #id명 */
+font-weight: 900;
+}
+.intro{/* .class명 */
+border: solid 2px green;
+}
+div, p{ /* element, element */
+padding: 0;
+margin: 0;
+}
+div span{ /* div안에 모든span 태그 */
+background: red;
+color: lightblue;
+}
+div > span{ /* 직계자식 1개 */
+background: red;
+color: lightblue;
+}
+ul + p{ /* ul태그 바로 뒤에 오늘 p태그만 */
+background:blue;
+color: lightblue;
+}
+ul ~ p{ /* ul태그 바로 뒤에 형제레벨 p태그 */
+background:blue;
+color: lightblue;
+}
+</style>
+</head>
+<body>
+<div class="intro">
+	<p>Lorem ipsum <span>dolor</span> sit.</p>
+	<p id="msg">Eius asperiores maiores inventore.</p>
+	<p>Voluptas incidunt <span>magnam</span> labore.</p>
+	<p>Corporis reiciendis in nulla.</p>
+</div>
+<ul>
+	<li>Lorem.</li>
+	<li>Ea?</li>
+	<li>Impedit!</li>
+	<li>Quidem.</li>
+	<li>Laboriosam.</li>
+</ul>
+<p>Lorem ipsum dolor sit amet.</p>
+<div>
+<p>Lorem ipsum dolor sit amet.</p>
+</div>
+</body>
+</html>
