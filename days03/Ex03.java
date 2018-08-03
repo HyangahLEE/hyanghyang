@@ -19,14 +19,15 @@ public class Ex03 {
 		//  java.util.IllegalFormatConversionException:
 		//                                  d  x  s
 		//  d != java.lang.Character
+		// a 입력 후 enter = (13) + (10)  = \r \n 
 		System.out.printf("%c\n",one);
 
 		/*
-		//System.in.read(); // 13
-		//System.in.read(); // 10
-		
-		// System.in.skip(2);  
+		//System.in.read(); //13 버림 읽은 후 실행하지 않으면 버림
+		//System.in.read(); //10 버림 읽은 후 실행하지 않으면 버림
+		// System.in.skip(2); // 2바이트 색략
 		System.in.skip( System.in.available() );
+		// 바이트 단위로 입력값 생략         / 입력가능한 범위 전체
 		
 		// a enter(\r13 \n10)
 		System.out.print("> 한 문자 입력 : ");	 
