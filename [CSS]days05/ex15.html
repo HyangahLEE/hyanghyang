@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 텍스트 효과</title>
+<style>
+p.test1 {
+	white-space: nowrap; /* 개행 하지말아라   */
+	width: 200px;
+	text-overflow: clip; /* 넘치면 걍 자름 */
+	border: solid 1px black; /* 숫자는 그냥 뚫고 가지만 문자는 width에 따라 개행  */
+	overflow: hidden;
+}
+
+p.test2 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /* 문자열보다 크면 ...으로 나타내기 */
+	width: 200px;
+	border: solid 1px black;
+}
+
+p:hover {
+	overflow: visible;
+}
+</style>
+<style type="text/css">
+p.test3{
+width: 200px;
+border: solid 1px black;
+
+word-wrap : break-word; /* 길이가 긴 단어 개행해라   */
+word-break: break-all; /* 단어고 뭐고 다 개행해라 */
+}
+</style>
+</head>
+<body>
+<!-- 길이가 아주 긴 단어(word)가 있을 경우 -->
+	<p class="test3">Lorem ipsum dolor sit amet, consectetur
+		adipisicing elit. Explicabodsaisanmwidkskchsidwkdks repudiandae et aut dolor dolore vitae
+		harum debitis nam facilis officiis.</p>
+	<hr>
+	<p class="test1">Lorem ipsum dolor sit amet, consectetur
+		adipisicing elit. Enim nam doloremque possimus eaque et delectus.</p>
+	<p class="test2">Dicta vitae tenetur deleniti amet! Similique harum
+		ullam inventore placeat suscipit unde mollitia maxime veritatis.</p>
+</body>
+</html>

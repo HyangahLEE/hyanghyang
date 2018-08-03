@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2D/ 3D 변환(transform)</title>
+<style>
+   body{
+      margin: 0;
+      padding: 0;
+   }
+   div{
+      border : solid 1px gray;
+      background: yellow;
+      width : 300px;
+      height: 100px;
+      
+      /* 이동 CSS*/
+      transform : translate(50px, 100px);
+      -webkit-transform : translate(50px, 100px);
+      -ms-transform : translate(50px, 100px);      /* IE 9이하 */
+            
+      /*회전 CSS */
+      transform : rotate(-20deg);
+      
+      /* 크기 CSS */
+       transform: scale(0.5,3);
+      -webkit-transform: scale(0.5,3);
+      -ms-transform: scale(0.5,3); 
+      
+      /* 비틀기 screwX  x축 기반*/
+      transform : skewX(90deg); 
+        /* transform : skewY(90deg); */
+      
+      transform : skew(20deg, 10deg);
+      transform : skew(20deg);
+      
+      /* matrix(scaleX, skewY, skewX, scaleY, translateX, translateY ) */
+      
+      transform:matrix(1, -0.3, 0, 1, 0, 0);
+   }
+   
+</style>
+</head>
+<body>
+
+<div>move(50,100)</div>
+	<!-- 
+	-webkit- 크롬/ 사파리/ 오페라
+	-ms- 	 IE
+	-moz- 	 파이어폭스
+	
+    2D 변환 
+       translate() 이동 / rotate() 회전
+       scale() 크기 / skewX , y() 비틀기
+       matrix()  행렬 형태 -->
+</body>
+</html>

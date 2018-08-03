@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배경 이미지 위치 지정 속성(background-origin) /position xxx</title>
+<style>
+div {
+	border: solid 10px black;
+	padding: 35px;
+	background: url("../images/img_flwr.gif") no-repeat;
+	margin-bottom: 10px;
+}
+/* origin 기준점 : 위치... */
+#box1{
+background-origin: padding-box; /* 디폴트 */
+}
+#box2{
+background-origin: border-box;
+}
+#box3{
+background-origin: content-box;
+}
+
+
+</style>
+</head>
+<body>
+	<div id="box1">
+		<h2>Lorem ipsum.</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
+			dignissimos inventore omnis laudantium amet voluptates eveniet soluta
+			doloremque praesentium quis. Quo magni eum cum assumenda! Ea ad
+			perferendis neque cum.</p>
+	</div>
+	<div id="box2">
+		<h2>Magni suscipit.</h2>
+		<p>Voluptatem et natus obcaecati harum quisquam possimus facilis
+			necessitatibus praesentium est repellat ratione eos delectus in non
+			dicta. Nostrum eligendi iure ad aliquid qui reprehenderit esse at
+			dolorem harum maiores.</p>
+	</div>
+	<div id="box3">
+		<h2>Voluptatem aliquid.</h2>
+		<p>Iure perferendis veritatis quae rem! Ipsum quam nesciunt vero
+			repudiandae reiciendis ratione sed iste nam doloremque aperiam odit
+			velit quaerat beatae accusamus et libero minus quisquam praesentium
+			excepturi tenetur facilis.</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css 웹 글꼴 적용하기</title>
+<style>
+
+@font-face{
+font-family: myFirstFont;
+/* 주의사항 : url(경로 소문자 IE오류) */
+src:url("../images/sansation_light.woff");
+}/* 클라 디바이스에 글꼴이 없으면 다운받아서 사용하라 */
+@font-face{
+font-family: myFirstFont;
+src:url("../images/sansation_bold.woff");
+font-weight: bold;
+}
+*{
+font-family: myFirstFont;
+}
+</style>
+</head>
+<body>
+	<h1>The @font-face Rule</h1>
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex excepturi
+	necessitatibus inventore nam veritatis animi enim dolorem nemo officiis
+	alias. 
+	<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	Sapiente nesciunt facere mollitia laboriosam fuga amet delectus et modi
+	consectetur at quod omnis quae veritatis cupiditate repellat
+	repellendus molestiae neque velit.
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>그림자(Shadow) 효과</title>
+<style>
+h1{
+color: white;
+text-shadow: 2px 2px 5px red, 0 0 3px #0000ff; /* 수평 수직 blur 색 , 멀티 그림자 적용 */
+}
+h2{
+color: white;
+text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+h3{
+color: yellow;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+</style>
+<style type="text/css">
+#lorem{
+width: 300px;
+height: 100px;
+padding: 15px;
+background: yellow;
+box-shadow: 10px 10px 5px gray; /* 수평 수직 색 */
+box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+}
+#boxshadow{
+position: relative;
+-ms-box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 2px 4px rgba(0,0,0,0.5);/* 파이어폭스 */
+-webkit-box-shadow: 1px 2px 4px rgba(0,0,0,0.5);/* 사파리 */
+padding: 10px;
+background: white;
+}
+#boxshadow img{
+/* width: 600px;
+height: 400px; */
+width: 100%;
+border: 1px solid #84419;
+}
+
+#boxshadow::after{
+content: "";
+position: absolute;
+z-index: 1;
+box-shadow: 0 15px 20px rgba(0,0,0,0.3);
+width: 70%;
+left: 15%;
+height: 100px;
+bottom: 0;
+}
+</style>
+</head>
+<body>
+
+
+<!-- <div id="lorem" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque explicabo.</div>
+<hr>
+	그림자(Shadow) 효과
+	1. text-shadow
+	2. box-shadow
+	
+	<h1>Text Shadow Effect</h1>
+	<h2>Text Shadow Effect</h2>
+	<h3>Text Shadow Effect</h3>
+	 -->
+	<div id="boxshadow">
+		<img src="http://imgnews.naver.net/image/433/2017/06/09/0000031387_001_20170609093339194.jpg" alt="" />
+	</div>
+</body>
+</html>

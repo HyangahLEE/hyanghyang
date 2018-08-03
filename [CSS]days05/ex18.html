@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>transform-origin속성 (기준점)</title>
+<style>
+#div1{
+position: relative;
+height: 200px;
+width: 200px;
+border: solid 1px black;
+margin: 100px;
+padding: 10px;
+}
+
+#div2{
+position: absolute;
+border: solid 1px black;
+background: red;
+padding: 50px;
+transform: rotate(45deg);
+transform-origin: 0% 0%;
+}
+</style>
+</head>
+<body>
+ 	<div id="div1">
+ 		<div id="div2">Hello</div>
+ 	</div>
+</body>
+</html>

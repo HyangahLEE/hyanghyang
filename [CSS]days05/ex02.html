@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>백그라운드 사이즈 (background-size)</title>
+<style>
+div {
+	border: solid 1px gray;
+	margin: 2px;
+	width: 150px;
+	height:120px;
+	background: url("../images/img_flwr.gif");
+}
+.box1{
+background-size: contain; /* 가로에 맞추고 세로는 자동  */
+}
+.box2{
+background-size: cover;/* 부모크기에 맞춰서 꽉 채워라  */
+}
+</style>
+</head>
+<body>
+
+
+	<img src="../images/img_flwr.gif" alt="" />
+	<hr>
+	<div class="box1">
+		<p>Lorem ipsum dolor.</p>
+	</div>
+	<div class="box2">
+		<p>Officia qui asperiores!</p>
+	</div>
+	<div class="box3">
+		<p>Dolores pariatur explicabo.</p>
+	</div>
+</body>
+</html>

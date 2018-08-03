@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>백그라운드 사진</title>
+<style>
+
+#box{
+	background: url("../images/img_flwr.gif") right bottom no-repeat, url("../images/paper.gif") left top repeat;
+
+/* 	background-image: url("../images/img_flwr.gif"),url("../images/paper.gif");
+	background-position: right bottom, left top;
+	background-repeat: no-repeat ,repeat; */
+
+/* 	background-image:url("../images/img_flwr.gif"); 
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	padding: 15px;
+	
+	background-image:url("../images/paper.gif"); 
+	background-position: left top;
+	background-repeat: repeat;
+	padding: 15px; */
+
+}
+#box1, #box2{
+border: solid 1px black;
+padding: 15px;
+background: url("../images/img_flwr.gif") no-repeat; 
+}
+#box2{
+/* 배경사이즈 */
+background-size: 100px 80px;
+}
+</style>
+</head>
+<body>
+	<div id="box1">
+		<h1>Lorem ipsum dolor sit amet.</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Deleniti magnam incidunt possimus qui a minima optio aut vel rem
+			nobis.</p>
+		<p>Cupiditate itaque atque aperiam alias molestias ullam odit hic
+			autem assumenda deleniti! Dicta magnam consequuntur inventore placeat
+			laborum praesentium dolores.</p>
+	</div>
+	<hr>
+	<img src="../images/img_flwr.gif" alt="" />
+	<div id="box2">
+		<h1>Lorem ipsum dolor sit amet.</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Deleniti magnam incidunt possimus qui a minima optio aut vel rem
+			nobis.</p>
+		<p>Cupiditate itaque atque aperiam alias molestias ullam odit hic
+			autem assumenda deleniti! Dicta magnam consequuntur inventore placeat
+			laborum praesentium dolores.</p>
+	</div>
+</body>
+</html>

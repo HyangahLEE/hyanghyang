@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	*{
+	box-sizing: border-box;
+	}
+	body{
+	margin: 0;
+	font-family: arial;
+	font-size: 17px;
+	}
+#myVideo{
+	position : fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+.content{
+position: fixed;
+bottom: 0;
+background-color: rgba(0,0,0,0.5);
+color: #f1f1f1;
+width: 100%;
+padding: 20px;
+}
+#myBtn{
+width: 200px;
+font-size: 18px;
+padding: 10px;
+border: none;
+color: #fff;
+background: #000;
+cursor: pointer;
+}
+#myBtn:hover{
+background: #ddd;
+color: black;}
+</style>
+
+</head>
+<body>
+	<video autoplay="autoplay" muted loop id="myVideo">
+		<source src="../images/rain.mp4" type="video/mp4">
+		Your Browser Does Not Support HTML5 video.
+	</video>
+
+	<!-- .content>h1>{Heading}^p>lorem^button#myBtn>{Pause} -->
+	<div class="content">
+		<h1>Heading</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+			quo sapiente atque eveniet modi fugit nemo omnis quas molestias
+			voluptate magni accusamus enim sunt animi temporibus vero aperiam
+			odio doloremque.</p>
+		<button id="myBtn" onclick="video_play();">Pause</button>
+	</div>
+	
+<script type="text/javascript"> /* script 요소를 만나면 그때 메모리 상에 올라간다. > 객체가 만들어지기 전에 script가 수행될시에 작동안댐 */
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function video_play(){	
+	if(video.paused){
+		video.play();
+		btn.innerHTML="Pause"; /* 태그안에 내용까지 <button id="myBtn" onclick="video_play();">*****Pause*******</button> */
+	}else{
+		video.pause();
+		btn.innerHTML="Play";
+	} 
+}
+</script>
+</body>
+</html>

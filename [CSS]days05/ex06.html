@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>효과주기</title>
+<style>
+.checked{
+color: orange;
+}
+
+.dot{
+
+background: #bbb;
+display: inline-block;/* span요소는 inline모드기 때문에 너비,높이 적용하려면 inline-block이후 적용  */
+width: 30px;
+height: 30px;
+border-radius: 50%;
+}
+.active{
+background: #000;
+}
+
+/* loader */
+.loader{
+border: solid 16px #f3f3f3;
+border-top: solid 16px #3498db;
+width: 120px;
+height:120px;
+border-radius: 50%;
+
+animation: spin 2s linear infinite; /* 내가만든 spin이름의 프레임을 2초동안 같은속도로 무한대로 돌아라 */
+-webkit-animation: spin 2s linear infinite;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* -webkit- Safari브라우저 */
+@-webkit-keyframes spin{
+0%{-webkit-transform:rotate(0deg);}
+100%{-webkit-transform:rotate(360deg);}
+}
+</style>
+
+<style type="text/css">
+img{
+width:150px;
+padding: 5px;
+border: solid 1px gray;
+border-radius: 4px;
+}
+img:hover{
+box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+
+animation: shake 0.5s infinite;
+}
+/* 이미지 흔들기 */
+@keyframes shake{
+ 0%{ transform: translate(1px,1px) rotate(0deg);}
+ 10%{ transform: translate(-1px,-1px) rotate(-1deg);}
+ 20%{ transform: translate(-3px,0px) rotate(1deg);}
+ 30%{ transform: translate(3px,2px) rotate(0deg);}
+ 40%{ transform: translate(1px,-1px) rotate(1deg);}
+ 50%{ transform: translate(-1px,2px) rotate(-1deg);}
+ 60%{ transform: translate(-3px,1px) rotate(0deg);}
+ 70%{ transform: translate(1px,-1px) rotate(-1deg);}
+ 80%{ transform: translate(1px,1px) rotate(1deg);}
+ 90%{ transform: translate(1px,3px) rotate(0deg);}
+ 100%{ transform: translate(1px,-2px) rotate(-1deg);}
+ 
+}
+</style>
+</head>
+<body>
+<img src="../images/img_avatar2.png" alt="" />
+<img src="../images/img_avatar2.png" alt="" />
+<img src="../images/img_avatar2.png" alt="" />
+<img src="../images/img_avatar2.png" alt="" />
+<img src="../images/img_avatar2.png" alt="" />
+<hr>
+<h3>Create A Loader(로딩 이미지)</h3>
+<div class="loader"></div>
+<hr>
+<h3>Round Dots(ex.쇼핑몰 상품보기)</h3>
+<span class="dot"></span>
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<hr>
+<h3>Star Rating(별점)</h3>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+</body>
+</html>

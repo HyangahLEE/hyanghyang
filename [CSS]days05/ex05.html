@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 클라한테 정보를 알려주기 위한것   -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>포스트잇 메뉴</title>
+<style>
+#mySidenav a{
+ position: absolute;
+ padding: 15px;
+ width: 100px;
+ text-decoration: none;
+ font-size: 20px;
+ color: white;
+ 
+ border-radius: 0 5px 5px 0;
+ left: -80px;
+}
+#mySidenav a i{
+float: right;}
+#java{ top: 20px; background: red;}
+#jsp{ top: 80px; background: green;}
+#html{top: 140px; background: blue;}
+#css{top: 200px; background: yellow;}
+
+#mySidenav a:hover{
+left: 0;
+transition: 0.3s; /* left 속성 값이 -80에서 0 으로 변환 될때 0.3초 동안슬라이딩 */
+background-color: black;
+}
+</style>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	<!-- i.fa.fa --><!-- 로고, 마크 붙이기 -->
+		<a href="#" id="java">Java <i class="fa fa-facebook"></i></a> 
+		<a href="#" id="jsp">Jsp <i class="fa fa-twitter"></i></a> 
+		<a href="#" id="html">Html <i class="fa fa-google"></i></a> 
+		<a href="#" id="css">CSS <i class="fa fa-youtube"></i></a>
+	</div>
+
+	<div style="margin-left: 100px;">
+		<h2>Lorem ipsum dolor sit amet.</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Pariatur vel necessitatibus voluptatum dolores rerum facilis
+			cupiditate possimus quisquam fuga consequatur dolore minima sed earum
+			eius id doloribus voluptatibus molestiae ad?</p>
+	</div>
+</body>
+</html>

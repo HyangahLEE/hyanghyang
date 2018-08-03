@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>차은우 말풍선</title>
+<style>
+.tooltip{
+position: relative;
+border-bottom: 1px dotted black;
+display: inline-block;
+}
+
+.tooltip .tooltip-content{
+ visibility: hidden; 
+width: 150px;
+background: black;
+color: white;
+text-align: center;
+padding: 5px 0;
+
+position: absolute;
+z-index: 1;
+left: 50%;
+bottom: 150%;
+margin-left:-75px;
+}
+.tooltip:hover .tooltip-content{
+visibility: visible;
+
+}
+.tooltip .tooltip-content::after{ /* 말풍선 꼬리 위치+만들기 */
+content:"";
+
+position: absolute;
+top: 100%;
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: black transparent transparent transparent ;
+
+
+}
+</style>
+</head>
+<body style="text-align: center">
+<h1>Tooltip</h1>
+<br><br><br><br><br><br><br><br><br><br>
+<div class="tooltip">
+	차은우
+	
+	<div class="tooltip-content">
+	<img src="https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2Fportrait%2F201807%2F20180716101821576-6919934.gif" alt="" />
+	<br>
+	우리은우
+	</div>
+</div>
+</body>
+</html>

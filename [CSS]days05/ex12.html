@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gradient( 그라디언트 ): 선형/ 방사형 2종류</title>
+<style>
+#box1{
+
+height: 200px;
+background-color: red;
+/* 선형 그라디언트  위->아래로*/ 
+/* background: linear-gradient(to right,red,yellow); */
+background: linear-gradient(to left bottom,white,pink);
+background: linear-gradient(-90deg,white,pink);
+
+}
+#box2{
+height: 300px;
+/* background: radial-gradient(red 5%, yellow 15%, green 60%); */
+background: radial-gradient(circle,red 5%, yellow 15%, green 60%);
+
+}
+
+</style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>

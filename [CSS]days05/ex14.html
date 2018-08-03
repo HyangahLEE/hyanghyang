@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>달력</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	//javascript  Date 내장 객체 
+	var d = new Date();
+/* 
+	document.write('현재 년: ' + d.getFullYear() + '<br />');
+	document.write('현재 월: ' + (d.getMonth() + 1) + '<br />');
+	document.write('현재 일: ' + d.getDate() + '<br />');
+	 */
+	$(".header> h1").text(d.getDate());
+	$(".container> p").text(d.getFullYear()+"."+(d.getMonth() + 1));
+});
+</script>
+<style>
+div.card{
+width: 250px;
+text-align: center;
+box-shadow: 0 4px 8px 0 rgba(0,0,0, 0.2), 0 6px 20px 0 rgba(0,0,0, 0.19);
+}
+div.header{
+background: #4caf50;
+color: white;
+padding: 10px;
+font-size: 40px;
+}
+.container{
+padding: 10px;
+}
+
+</style>
+
+</head>
+<body>
+<!-- .card>.header>h1>{2}^^.container>p>{2018.08} -->
+<div class="card">
+	<div class="header">
+		<h1>X</h1>
+	</div>
+	<div class="container">
+		<p>XXXX.YY</p>
+	</div>
+</div>
+</body>
+</html>

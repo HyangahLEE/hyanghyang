@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>display: table 사용예시</title>
+<style>
+.col-container{
+width:100%;
+display: table;
+border: solid 1px gray;
+}
+.col{
+border: solid 1px gray;
+display: table-cell;
+padding: 16px;
+}
+</style>
+</head>
+<body>
+<!-- .col-container>.col*3 -->
+<div class="col-container">
+	<div class="col">
+	<!-- h1>{Column1}^p*1>{hello} -->
+	<h1>Column1</h1>
+	<p>hello</p>
+	</div>
+	<div class="col">
+	<!-- h1>{Column2}^p*5>{hello} -->
+	<h1>Column2</h1>
+	<p>hello</p>
+	<p>hello</p>
+	<p>hello</p>
+	<p>hello</p>
+	<p>hello</p>
+	</div>
+	<div class="col">
+	<!-- h1>{Column3}^p*3>{hello} -->
+	<h1>Column3</h1>
+	<p>hello</p>
+	<p>hello</p>
+	<p>hello</p>
+	</div>
+</div>
+</body>
+</html>
