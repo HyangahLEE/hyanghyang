@@ -34,7 +34,7 @@ class Student implements Comparable<Student>{
 
 	@Override
 	public boolean equals(Object obj) { 
-		if( obj instanceof Student ) {
+		if( obj instanceof Student ) { //참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기 위해서 instanceof
 			Student s = (Student) obj;
 			if( this.no == s.no ) return true;
 		}
@@ -50,10 +50,10 @@ public class Ex08 {
 		// [ JSP/Servlet  사용 ]  
 		// Key     Student      학번, 이름
 		// Value  ArrayList     국,영,수 90,89,77
-		 Hashtable<Student, ArrayList<Integer>> ht =
+		 Hashtable<Student, ArrayList<Integer>> ht =//해쉬테이블..사용``
 				new Hashtable<>(); 
 		
-		// TreeMap<Student, ArrayList<Integer>> ht =
+		// TreeMap<Student, ArrayList<Integer>> ht =  // 트리맵으로 바꿔도 정렬됨..**암기``
 		//					new TreeMap<>();
 		 
 		 Student s1 = new Student(1, "이석화");
