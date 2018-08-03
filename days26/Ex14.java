@@ -23,14 +23,14 @@ public class Ex14 {
 	    	if( i==10) {
 	    		Runnable target = new  Task();
 				// 장보기...  이용우 스레드(일꾼)을 생성해서 독립적으로 장보기시키자.
-	    		Thread 이용우일꾼 = new Thread( target );
+	    		Thread 이용우일꾼 = new Thread( target );//target 업무지시 공간.
 	    		이용우일꾼.setName("t1");
-	    		이용우일꾼.start(); // target.run() 독립적으로 처리...
+	    		이용우일꾼.start(); //일하기 시작해라!  target.run() 독립적으로 처리...
 	    	}
 	    	 
 			System.out.printf("> %s -  청소 %d%% 진행중~\n",
 					Thread.currentThread().getName(),
-					i);
+					i);/메인스레드가 청소하고, 장보기,,완료
 		 }
 	     System.out.println("> 청소 완료!!! ");
 	     // e-마트 .. 장보러갈 일..      [이용우] 스레드 생성 -> 장보기..
