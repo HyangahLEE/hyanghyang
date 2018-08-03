@@ -27,7 +27,7 @@ public class Ex04 {
 			//a      bdgfdsafsafsadf 엔터
 			// System.in.read()
 			// System.in.skip( System.in.available() ==2 )  
-			//  **** dis.available()  ***
+			//  **** dis.available()  ******사용해서 끝까지 출력.
 			while(true) { 
 			    name = dis.readUTF(); // 
 			    kor = dis.readInt();eng = dis.readInt();mat = dis.readInt();
