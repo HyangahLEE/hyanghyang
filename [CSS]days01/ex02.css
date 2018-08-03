@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+table, td{
+		border: solid 1px gray;
+	
+}
+.note{
+	
+	background-color: #ffffcc;
+	border-bottom-left: 6px solid #ffeb3b;
+	width: 100%;
+}
+.panel{
+	margin-top: 16px;
+	margin-bottom: 16px;
+	
+}
+strong, b{
+	font-weight: bold;
+}
+div{
+	
+	width: 100px;/*클래스명 > 태그*/
+	height: 100px;
+}

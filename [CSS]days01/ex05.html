@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<style type="">
+div{
+width: 100px;
+height: 100px;
+}
+#box{
+/* position 속성값: []static] relative absolute fixed; */
+	/* position: relative;
+	left: 10px;
+	right: 10px; */
+	
+	position: absolute;
+	left: 10px;
+	right: 10px;
+}
+#in{width: 30px;
+height: 30px;
+border: solid 1px green;
+position: absolute;
+top: 50px;
+left: 50px;}
+#out{
+position: relative;
+}
+</style>
+</head>
+<body>
+<div style="background-color: red"></div>
+<div id="box" style="background-color: green"></div>
+<div style="background-color: blue"></div>
+<div id="in"></div>
+<div id="out" style="background-color: green"></div>
+
+</body>
+</html>
