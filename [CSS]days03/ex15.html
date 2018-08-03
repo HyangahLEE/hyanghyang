@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input:focus { /* 포커스가 잡혀있을때  */
+	background-color: yellow;
+}
+
+input[type=text]:empty { /* 포커스가 비었을 때 */
+	border: solid 3px green;
+}
+
+p:first-child i:first-child{ /* 자식 요소 중에 첫번째 요소 p */
+	background: yellow;
+}
+p:last-child { /* 자식 요소 중에 마지막 p */
+	background: blue;
+}
+</style>
+</head>
+<body>
+	<p>
+		안뇽 나는 <i>향아</i>야 나는 곧 <i>졸업</i>을 하지 ㅎ하하하하하
+	</p>
+	<p>
+		안뇽 나는 <i>향아</i>야 나는 곧 <i>졸업</i>을 하지 ㅎ하하하하하
+	</p>
+	
+	<hr>
+	<!-- div>input[type=text]*2>br^input[type=submit] -->
+	<div>
+		first name: <input type="text" name="fname"
+			placeholder="firsr name input" autofocus="autofocus"><br />
+		last name : <input type="text"><br /> <input type="submit" />
+	</div>
+	<p>
+		안뇽 나는 <i>향아</i>야 나는 곧 <i>졸업</i>을 하지 ㅎ하하하하하
+	</p>
+</body>
+</html>

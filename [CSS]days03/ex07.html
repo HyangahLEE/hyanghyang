@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h3 {
+	margin: 3px 0;
+}
+/*:가상클래스  ::가상요소 */
+h3::after {
+	content: " 열심히 합시다.!";
+}
+
+h3:hover::before {
+	content: " ★  ";
+	color: red;
+	font-weight: 900;
+}
+::selection{
+ color: red;
+ background-color: blue;
+}
+/* firefox */
+::-moz-selection{
+color: red;
+ background-color: yellow;
+}
+</style>
+</head>
+<body>
+
+	<h3>Lorem.</h3>
+	<h3>Doloribus!</h3>
+	<h3>Quae.</h3>
+	<h3>Eos.</h3>
+	<h3>Dignissimos.</h3>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
+		ipsum doloremque dolores nihil obcaecati sequi quas perspiciatis nobis
+		esse laborum! Laudantium dolorem voluptatem doloremque quae
+		consequuntur nam molestias dolore ex.</p>
+</body>
+</html>

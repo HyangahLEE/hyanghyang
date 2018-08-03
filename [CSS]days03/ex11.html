@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div#box1 {
+	border: solid 3px green;
+	text-align: center; /* 텍스트 가운데 정렬 */
+	width: 500px;
+	margin: 10px auto; /* div 가운데정렬 */
+	padding: 50px 0; /* 1.수직 가운데정렬 */
+}
+
+#box2 {
+	border: solid 2px red;
+	width: 500px;
+	text-align: center;
+	margin: 10px auto;
+	height: 200px;
+	line-height: 200px;
+}
+
+#box3 {
+	height: 200px;
+	border: solid 2px blue;
+	width: 500px;
+	margin: 10px auto;
+	position: relative;
+}
+#box3 > p{
+margin: 0;
+position: absolute;
+left: 50%;
+top: 50%;
+/* left top 0,0축 이동 */
+transform: translate(-50%,-50%);
+-ms-transform: translate(-50%,-50%); /* 익스플로어 */
+}
+img{
+margin: 10px auto;
+display: block;
+}
+.left{float: left}
+.right{float: right}
+
+</style>
+</head>
+<body>
+<span class="left">◀</span>
+<span class="right">▶</span>
+<hr style="clear:both;">
+<img src="../images/img_mountains.jpg" width="40%" alt=""><!-- 인라인모드여서 margin 10px auto안먹는거임 block모드로 바꿔줘야함 -->
+<hr>
+	<h3>3. css3 변환속성 사용</h3>
+	<div id="box3">
+		<p>Lorem ipsum.</p>
+	</div>
+
+	<h3>2. height = line-height</h3>
+	<div id="box2">Lorem ipsum dolor sit amet,</div>
+	<h3>1. padding 속성 사용</h3>
+	<div id="box1">Lorem ipsum.</div>
+</body>
+</html>

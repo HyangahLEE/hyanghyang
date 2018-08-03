@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css + _ ~ > 선택자 설명</title>
+<style>
+div,p{
+padding: 10px;
+}
+div{border:solid 1px red;}
+p{ border: solid 1px green;}
+div p {
+/* 후손 */
+background: pink;
+/* <div>
+ 	<p>Lorem ipsum.</p>
+ 	<span>******<p>Consequatur quod.</p></span>
+ 	<div id="in">Lorem.</div>
+ </div>	 */
+}
+div > p{/*  직ㄱㅖ자식 */
+background: yellow;	
+
+/* <div>
+ 	*****<p>Lorem ipsum.</p>
+ 	<span><p>Consequatur quod.</p></span>
+ 	<div id="in">Lorem.</div>
+ </div> */
+} 
+
+/* div + p { div 요소 바로 뒤에 오는 형제p태그
+background-color: red;
+} */
+/* div ~ p {/*  div태그 뒤에 따라오는 모든 형제 p태그 */
+
+background: red;} */
+</style>
+</head>
+<body>
+ <!-- div>p*2>lorem2^#in>lorem1 -->
+ <div>
+ 	<p>Lorem ipsum.</p>
+ 	<span><p>Consequatur quod.</p></span>
+ 	<div id="in">Lorem.</div>
+ </div>
+ <!-- p*2>lorem3^code>lorem2 -->
+ <p>Lorem ipsum dolor.</p>
+ <p>Voluptatibus amet mollitia.</p>
+ <span><p>Voluptatibus amet mollitia.</p></span>
+ <code>Lorem ipsum.</code>
+ <p>Lorem.</p>
+</body>
+</html>
+
+<p>Lorem.
+   <span></span></p>

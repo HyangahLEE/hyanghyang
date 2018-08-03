@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.header, .footer {
+	background-color: gray;
+	color: white;
+	padding: 15px;
+}
+
+.menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu li {
+	padding: 8px;
+	margin-bottom: 8px;
+	background-color: #33b5e5;
+	color: #ffffff;
+}
+
+.menu li:hover {
+	background-color: #0099cc;
+}
+
+.menu {
+	width: 25%;
+}
+
+.content {
+	width: 75%;
+	height: 900px;
+}
+
+.column {
+	float: left;
+	padding: 15px;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+* {
+	box-sizing: border-box;
+}
+</style>
+<style type="">
+#nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #333;
+	/* 	border: solid 1px gray; */
+	overflow: hidden;
+}
+
+#nav ul li {
+	float: left;
+}
+
+#nav ul li a {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+#nav ul li a:hover {
+	background-color: gray;
+}
+
+.active {
+	background-color: red;
+}
+
+div#nav {
+	position: sticky; /* 스트롤할 때 top 0 위치에 붙여라. */
+	top: 0;
+}
+</style>
+</head>
+<body>
+	<!-- .header>h1>{TOP}^^.clearfix>.column.menu>ul>li*4>{menu$}^^^.column.content>h1>{content}^p*2>lorem10^^^^.footer>p>{BOTTOM}-->
+	<div class="header">
+		<h1>TOP</h1>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#" class="active">News</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+	</div>
+	<div class="clearfix">
+		<div class="column menu">
+			<ul>
+				<li>menu1</li>
+				<li>menu2</li>
+				<li>menu3</li>
+				<li>menu4</li>
+			</ul>
+		</div>
+		<div class="column content">
+			<h1>content</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Dolorum reprehenderit!</p>
+			<p>Beatae obcaecati ducimus officiis optio illum maiores fugit
+				officia esse?</p>
+		</div>
+	</div>
+	<div class="footer">
+		<p>BOTTOM</p>
+	</div>
+
+</body>
+</html>

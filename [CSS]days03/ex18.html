@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>레이아웃 + 반응형 웹</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul.sidenav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	background-color: #f1f1f1;
+	position: fixed; /* 이거 안주면 위에만 나온다!!! */
+	height: 100%;
+	overflow: auto;
+}
+
+ul.sidenav li a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+ul.sidenav li a.active {
+	background-color: #4caf50;
+	color: white;
+}
+/* :not() */
+ul.sidenav li a:hover:not (.active ){
+	background-color: #555;
+	color: white;
+}
+
+div.content {
+	margin-left: 25%;
+	height: 1000px;
+	padding: 1px 16px;
+}
+/* 미디어쿼리 */
+@media screen and (max-width:900px) {
+ul.sidenav{
+width:100%;
+height: auto;
+position: relative;
+}
+ul.sidenav li a{
+float: left;
+padding: 15px;
+}
+div.content{
+margin-left: 0;
+}
+}
+
+@media screen and (max-width:400px) {
+ul.sidenav li a{
+text-align: center;
+float: none;
+}
+}
+</style>
+</head>
+<body>
+	<ul class="sidenav">
+		<li><a href="#" class="active">Home</a></li>
+		<li><a href="#">News</a></li>
+		<li><a href="#">Contact</a></li>
+		<li><a href="#">About</a></li>
+	</ul>
+
+	<!-- .content>h2>lorem2^p*3>lorem15^h3>lorem7 -->
+	<div class="content">
+		<h2>Lorem ipsum.</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
+			quaerat recusandae accusantium omnis eos sequi!</p>
+		<p>Quod ex provident maiores similique ad maxime eligendi a
+			assumenda explicabo amet ut cum inventore!</p>
+		<p>Sequi animi facere quo explicabo amet et reprehenderit debitis
+			tenetur dolor a vitae commodi consequatur.</p>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
+	</div>
+</body>
+</html>

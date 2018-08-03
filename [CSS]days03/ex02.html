@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CSS Position 속성</title>
+<style type="">
+#content{
+margin: 50px auto;
+border: solid 1px gray;
+width: 600px;
+}
+
+#content div{
+width: 100%;
+height: 100px;
+border-style: solid;
+border-width: 1px;
+}
+#content{
+ position: relative; /* 부모가 기준!!!!!!! 자식의 위치를 잡기위해 relative  */
+
+}
+#box1{
+background-color: red;
+}
+#box2{
+border-color: green;
+background-color: green;
+/* position: relative; */
+position : absolute;/* 자식은 무조건 부모의 레이아웃에 따른다.   */
+top:20px;
+left: 20px;
+z-index: -1;/* absolute 여야 z-index쓸수 있다 !!! */
+}
+#box3{
+background-color: blue;
+}
+
+</style>
+</head>
+<body>
+<div id="content">
+	<div id="box1">1</div><!-- #box$*3>{$} -->
+	<div id="box2">2</div>
+	<div id="box3">3</div>
+</div>
+
+</body>
+</html>

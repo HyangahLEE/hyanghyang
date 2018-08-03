@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*{
+ box-sizing: border-box; /* w+p+b+m =너비  안하겠다*/
+}
+.img-container{
+float: left;
+width: 23.33%;
+padding: 10px;
+}
+img{
+width: 100%;
+}
+.clearfix::after{
+content: "";
+clear: both;
+display: table;}
+</style>
+</head>
+<body>
+	<!-- div>.img-container*3>img -->
+	<div class="clearfix">
+		<div class="img-container">
+			<img src="../images/img_5terre.jpg" alt="" />
+		</div>
+		<div class="img-container">
+			<img src="../images/img_forest.jpg" alt="" />
+		</div>
+		<div class="img-container">
+			<img src="../images/img_mountains.jpg" alt="" />
+		</div>
+	</div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		Dolorem soluta ab nostrum explicabo laudantium et perspiciatis.
+		Pariatur labore ipsum voluptates qui autem quisquam repudiandae minima
+		molestiae ab iste cumque harum.</p>
+</body>
+</html>

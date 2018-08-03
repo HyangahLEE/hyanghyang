@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CSS overflow 속성</title>
+<style type="">
+img {
+	position: absolute;
+	clip: rect(0, 60px, 200px, 0);
+}
+div{
+width: 200px;
+height: 100px;
+background-color: #eee;
+border: dotted 1px black;
+
+/* overflow: hidden; */
+/* overflow: scroll; */
+overflow-y : scoll;
+overflow: auto; /* 넘칠때만 스크롤 x,y축 모두 적용 */
+}
+</style>
+</head>
+<body>
+	
+
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
+		saepe tempora nemo assumenda quas fuga culpa repellat accusantium
+		architecto similique? Provident nam assumenda nesciunt at facilis est
+		ex libero ea!</div>
+		<hr>
+		<img src="../images/w3css.gif" alt="" />
+</body>
+</html>
