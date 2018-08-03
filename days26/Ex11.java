@@ -8,15 +8,18 @@ public class Ex11 {
 	public static void main(String[] args)
 			                             throws IOException {
 		// [ RandomAccessFile 클래스]
-		String s = "I Love normal Java";
+		String s = "I Love normal Java";//문자열변수
 		String q = "javabook";
 		
 		String fileName = "random.txt";
 		
-		try( RandomAccessFile raf =
+		try( RandomAccessFile raf = //객체생성. 읽기쓰기.
 				 new RandomAccessFile(fileName, "rw")){
-			// raf.seek(0);
-			raf.writeBytes(s);
+			// raf.seek(pos);
+			// raf.close();
+			// raf.length()
+			// raf.getFilePointer()  파일포인터
+			raf.writeBytes(s);//선언   //I Love normal Java
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -27,9 +30,9 @@ public class Ex11 {
 		
 		try( RandomAccessFile raf =
 				 new RandomAccessFile(fileName, "rw")){ 
-			long pos = 7;
+			long pos = 7; //7위치 찾아서 q쓴다,  //posit 위치.
 			raf.seek( pos ); // FilePointer 이동..
-			raf.writeBytes(q); 
+			raf.writeBytes(q); //  I Love javabooknormal Java
 			
 		}catch(Exception e) {
 			e.printStackTrace();
