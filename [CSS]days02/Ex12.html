@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.list{	
+		list-style-type: none;
+/* 		background-color: white;
+		border : solid 1px red;
+		border-left : solid 10px green;  */
+		padding : 0;
+		border : solid 1px gray;
+		width : 150px;
+		
+	}
+	.list li{
+		/* background-color: aqua; */
+		padding : 8px 16px;
+		border-bottom : solid 1px gray;
+	}
+	.list li:last-child{ /* 마지막 li 태그 */
+		border-bottom : none;
+	}
+	
+	.list li:hover{
+		border-left : solid 10px red;
+	}
+	ul.box{
+		list-style-image: url("../images/board_re.gif")
+	}
+</style>
+</head>
+<body>
+
+<!-- ul.box>li*5>{item$} -->
+ <ul class="box">
+ 	<li>item1</li>
+ 	<li>item2</li>
+ 	<li>item3</li>
+ 	<li>item4</li>
+ 	<li>item5</li>
+ </ul>
+<hr>
+<!-- css 목록 -->
+<!-- ul>li*3>{ item$} -->
+<ul style="list-style-type : hiragana; list-style-position:inside;">
+	<li> item1</li>
+	<li> item2</li>
+	<li> item3</li>
+</ul>
+<!-- ol>li*3>{ item$} -->
+<ol class ="list">
+	<li> item1</li>
+	<li> item2</li>
+	<li> item3</li>
+</ol>
+
+<dl>
+	<dt>Lorem.</dt>
+	<dd>Lorem ipsum dolor.</dd>
+	<dt>Ipsum!</dt>
+	<dd>Quisquam doloremque id.</dd>
+	<dt>Quae.</dt>
+	<dd>Sit quae beatae.</dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#panel, .flip{
+		font-size: 16px;
+		padding: 10px;
+		text-align: center;
+		background-color: aqua;
+		color : white;
+		border : solid 1px gray;
+		margin: 0 auto;
+	}
+	#panel{
+		display: none;
+	}
+	.flip{
+		color: red;
+		cursor: pointer;
+	}
+</style>
+<script type="text/javascript">
+	function panelShow(){
+		//window.alert("클릭!!!");
+			document.getElementById("panel").style.display="block";	
+		/* document.getElementById("panel").style.display="none"; */	
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+<!-- p.flip>{click to show panel}^#panel>p*2>lorem10 -->
+<p class="flip" onclick="panelShow()">click to show panel</p>
+<div id="panel">
+	<p>Lorem ipsum dolor sit amet, consectetur 
+	     adipisicing elit. Quidem explicabo.</p>
+	<p>Dicta quasi veniam ratione repellendus 
+	      pariatur amet vitae eaque. Dolores.</p>
+</div>
+</body>
+</html>

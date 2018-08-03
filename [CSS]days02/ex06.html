@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<style type="">
+div {
+	border: solid 1px gray;
+	background: green;
+}
+
+.box {
+	/* width속성과 max-width속성의 차이점  */
+	/* width: 400px; */
+	/* 	max-width: 400px;  */
+	height: 600px;
+	/* 	min-height: 400px; /* 최소 400까지 유지 400보다 작으면 스크롤바가 생김  최대 600px*/
+	max-height: 600px; */
+	background-color: pink;
+}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+	<hr>
+		<!-- 반응형 웹 구현 단위 : % -->
+		<!-- <div style="width: 500px; height: 200px">test</div> -->
+		<!-- <div style="width: 50%; height: 50%">test</div>  높이는 의미가 없다 -->
+		<!-- <div style="width: 50%; height: 200px">test</div> -->
+</body>
+</html>

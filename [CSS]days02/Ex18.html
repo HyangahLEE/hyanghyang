@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.imgbox{
+		float: left;
+		text-align : center;
+		width : 120px;
+		border : solid 1px gray;
+		margin : 4px;
+		padding : 6px; 
+	}
+	button{
+		width : 100%;
+	}
+</style>
+<script type="text/javascript">
+function remove_click(){
+	document.getElementById("imgbox1").style.display="none";
+}
+function hide_click(){
+	document.getElementById("imgbox2").style.visibility="hidden";
+}
+function resetAll_click(){
+	document.getElementById("imgbox1").style.display="block";
+	document.getElementById("imgbox2").style.visibility="visible";
+}
+</script>
+</head>
+<body>
+<!-- #imgbox$.imgbox*3>{Box $}+br+img[style="width :100%"]+button -->
+
+<div id="imgbox1" class="imgbox">Box 1
+	<br />
+	<img src="../images/img_fjords.jpg" alt="" style="width :100%" />
+	<button onclick="remove_click();">Remove</button>
+</div>
+<div id="imgbox2" class="imgbox">Box 2
+	<br />
+	<img src="../images/img_forest.jpg" alt="" style="width :100%" />
+	<button onclick="hide_click();">Hide</button>
+</div>
+<div id="imgbox3" class="imgbox">Box 3
+	<br />
+	<img src="../images/img_lights.jpg" alt="" style="width :100%" />
+	<button onclick="resetAll_click();">Reset All</button>
+</div>
+</body>
+</html>

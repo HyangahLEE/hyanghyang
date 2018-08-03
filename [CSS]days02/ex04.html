@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>css 여백(margin)</title>
+<style type="">
+/* body, hr, p{
+
+margin: 0;
+}
+ */
+p{
+	/* margin: 100px; */
+	/* margin: 0 100px; */ /* top/bottom 0px 	left/right 100px*/
+	/* margin: 0px 100px 500px; /* top left/right bottom*/ */	
+}
+
+div{
+	border: 1px solid red;
+	margin-left: 100px;	
+
+}
+p.ex1{
+margin-left: inherit; /* div의 속성값을 상속받겠따. */
+}
+</style>
+</head>
+<body>
+<!-- hn 태그 자동의 top/bottom 여백 설정이 되어있다. -->
+<!-- 50px+30px == 50px -->
+<!-- 왼쪽, 오른쪽 여백은 위와 같은 상황이 발생하지 않지만,
+윗쪽, 아랫쪽 여백은 위와 같은 상황이 발생한다.
+여백위 + 여백 아래 -> 큰 여백값으로 설정된다.  -->
+<h1 style="margin-bottom:0 0 50px 0;">Lorem ipsum dolor sit amet.</h1><!-- 
+test<br> -->
+<h2 style="margin-top:30px 0 0 0;">Lorem ipsum dolor sit amet.</h2>
+<hr>
+<h2>inherit value</h2>
+<div>
+	<p class="ex1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo unde.</p>
+</div>
+
+<hr>
+<p>Lorem ipsum.</p>
+<hr>
+</body>
+</html>
+
+
+	<!-- 여백 테두리(border) 밖의 요소 주변에 대한 공간 설정 -->
+	<!-- 	auto 브라우저가 여백 자동계산
+	px, pt, cm 등등
+	%
+	inherit 부모 여백 상속.. -->
