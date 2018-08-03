@@ -29,7 +29,7 @@ public class Ex04 {
 		// 평균 출력 소수점 2자리 출력
 		double age = 98.123456789;
 		System.out.printf("%010.2f \n", age);
-		
+		// String 출력 - 두번째 인수를 자리수 20만큼 왼쪽정렬해서 십진수로 출력 - 두번째 인수를 기호를 16진수로 출력
 		boolean flag = true;
 		System.out.printf("%B", flag);
 	}
