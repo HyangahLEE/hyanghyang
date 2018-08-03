@@ -32,7 +32,7 @@ public class Ex12 {
 		 String pathname = ".\\";
 		
 		File f = new File(pathname);
-		/*
+		/* 절대경로
 		C:\D\Class\JavaClass\javaPro
 		C:\D\Class\JavaClass\javaPro
 		C:\D\Class\JavaClass\javaPro
