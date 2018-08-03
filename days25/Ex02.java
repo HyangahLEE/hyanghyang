@@ -22,9 +22,10 @@ public class Ex02 {
 			// 1byte -> 파일 쓰지(저장)
 			for (int i = 0; i < data.length; i++) {
 				os.write(data[i]); // IOException 예외 처리...
+				
 			}
 			
-			os.flush(); // 
+			os.flush(); // // 잔류하는 모든바이트 출력..
 		} catch (FileNotFoundException e) { 
 			e.printStackTrace();
 		} catch (IOException e) {
