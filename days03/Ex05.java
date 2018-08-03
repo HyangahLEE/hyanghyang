@@ -22,7 +22,8 @@ public class Ex05 {
 		
 		y = 0;
 		System.out.println( x / y);   // Infinity(무한대)  실수 / 0
-		
+		System.out.println(x / y); // 정수/정수 이기 때문에 정수가 출력된다.
+		System.out.println(x % y); // %는 나머지를 구하는 연산자 이다.
 		//리터럴(상수) true, false ,Infinity(실수나눌때)
 		
 	/*	
