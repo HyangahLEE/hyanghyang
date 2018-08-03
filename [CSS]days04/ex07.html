@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	margin: 5px;
+}
+
+body {
+	counter-reset: section; /* 초기화 int i =0 */
+}
+
+div::before {
+	counter-increment: section; /* 숫자 증가  i++*/
+	content: counter(section); /*출력  */
+	background: black;
+	color: white;
+	margin-right: 16px;
+	padding: 1px 10px;
+	border-radius: 50%;
+}
+
+div::after {
+	content: "-Tutorial";
+	color: red;
+	font-style: italic;
+}
+</style>
+</head>
+<body>
+	<div>Java</div>
+	<div>Oracle</div>
+	<div>JDBC</div>
+	<div>Html</div>
+	<div>Jquery</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 갤러리</title>
+<style>
+div.gallery {
+	border: solid 1px #ccc;
+}
+
+div.gallery:hover {
+	border: solid 1px #777;
+}
+
+div.gallery img {
+	width: 100%;
+	height: auto;
+}
+
+div.desc {
+	padding: 15px;
+	text-align: center;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.responsive {
+	padding: 10px;
+	float: left;
+	width: 24.999999%;
+	
+}
+.clearfix::after{
+content:"";
+clear:both;
+display: table;
+}
+</style>
+<style type="text/css">
+ /* 반응형 웹 css */
+ @media only screen and (max-width:700px){
+ 	.responsive {
+	width: 50%;
+}
+ }
+  @media only screen and (max-width:500px){
+ .responsive {
+	width: 100%;
+}
+ }
+</style>
+</head>
+<body>
+	<!-- .responsive>.gallery>a>img^.desc -->
+	<div class="responsive">
+		<div class="gallery">
+			<a href="../images/img_5terre.jpg" target="_blank"><img
+				src="../images/img_5terre.jpg" alt="" width="600" height="400" /></a>
+			<div class="desc">Lorem ipsum dolor sit amet.</div>
+		</div>
+	</div>
+
+	<div class="responsive">
+		<div class="gallery">
+			<a href="../images/img_forest.jpg" target="_blank"><img
+				src="../images/img_forest.jpg" alt="" width="600" height="400" /></a>
+			<div class="desc">Lorem ipsum dolor sit amet.</div>
+		</div>
+	</div>
+
+	<div class="responsive">
+		<div class="gallery">
+			<a href="../images/img_mountains.jpg" target="_blank"><img
+				src="../images/img_mountains.jpg" alt="" width="600" height="400" /></a>
+			<div class="desc">Lorem ipsum dolor sit amet.</div>
+		</div>
+	</div>
+
+	<div class="responsive">
+		<div class="gallery">
+			<a href="../images/img_lights.jpg" target="_blank"><img
+				src="../images/img_lights.jpg" alt="" width="600" height="400" /></a>
+			<div class="desc">Lorem ipsum dolor sit amet.</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div style="padding: 6px">Lorem ipsum dolor sit amet, consectetur
+		adipisicing elit. Modi ullam possimus sint error cumque ducimus rerum
+		vero maiores quasi nulla eaque totam et eos voluptate ea consequuntur
+		aliquam laborum nostrum.</div>
+
+
+</body>
+</html>

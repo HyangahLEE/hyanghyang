@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input[type=text]{
+width: 130px;
+box-sizing: border-box;
+border: solid 2px #ccc;
+border-radius: 4px;
+font-size: 16px;
+background-color: white;
+background-image: url("../images/searchicon.png") ;
+background-repeat: no-repeat;
+padding: 12px 20px 12px 40px;
+background-position: 10px 10px;
+/* 2D CSS3효과 */
+transition : width 0.4s;/* IE */
+-webkit-transition: width 0.4s;/* 그외 브라우저  */
+}
+input[type=text]:focus{
+width: 100%;
+}
+textarea{
+width: 100%;
+height: 150px;
+box-sizing: border-box;
+border-radius: 4px;
+border: solid 2px #ccc;
+background-color: #f8f8f8;
+font-size: 16px;
+padding: 12px 20px;
+
+resize: none;/* 크기조절 x */
+}
+.button{
+background-color: #4caf50;
+border: none;
+color: white;
+padding: 16px 32px;
+text-decoration: noen;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.circlebutton{
+border-radius: 15px;
+}
+</style>
+</head>
+<body>
+
+<form action="">
+<input type="text" name="search" placeholder="Search..." autocomplete="off"/>
+<br>
+<textarea rows="5" cols="20">Lorem ipsum dolor sit amet, consectetur adipisicing.</textarea>
+<br>
+<br>
+<input type="button" class="button circlebutton" value="Button"/>
+<input type="reset" class="button" value="Reset"/>
+<input type="submit" class="button" value="Submit"/>
+<span class="button">button</span>
+<a href="#" class="button">BUTTON</a>
+</form>
+</body>
+</html>

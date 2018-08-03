@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 특이성? 동일한 요소에 여러 개의 CSS규칙이 적용되어 충돌이 일어날 때</title>
+
+<style>
+/* 동일한 규칙: 최신 규칙 */
+h1{
+background-color: red;
+}
+h1,h2,h3,h4,h5{
+background-color: blue;
+}
+/* 선택자 우선순위 : 요소명 < 클래스명 < 아이디명 */
+div#box{
+background: pink;
+}
+div{ /* div#box > div */
+background: red;}
+#box{
+background: yellow;}
+.test{
+background: green;}
+/* head 태그 안의 style 태그 : internal
+   ex10.css : external
+   우선순위 ? 가까운거 먼저 (밑ㅇㅔ있는거 ); */
+p{
+background: aqua;
+}
+</style>
+<link rel="stylesheet" href="ex10.css" />
+</head>
+<body>
+<!-- <img src="http://via.placeholder.com/350x200?text=kenik+image" alt="" />
+ -->
+ <!-- 
+ 1. CSS 특이성? 동일한 요소에 여러 개의 CSS규칙이 적용되어 충돌이 일어날 때
+ 2. 특이성 계층
+ 	ㄱ. 인라인계층 <h1 style="css"></h1>
+ 	ㄴ. #id 
+ 	ㄷ. .class :가상 클래스, 속성 [속성명 =속성값]
+ 	ㄹ. 요소명 , ::가상요소 -->
+ 	<h1>test</h1>
+ 	<div id="box" class="test">Lorem ipsum dolor sit amet.</div>
+ 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quos!</p>
+ </body>
+</html>

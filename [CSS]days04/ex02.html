@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고정된 메뉴바 + ?</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background: #333;
+	/* float: left 쓰면 배경색 사라짐 그래서 overflow: auto 아님 hidden 해줘야함 */
+	width: 100%;
+	overflow: hidden;
+	/* position: fixed; 
+	top: 0;*/
+}
+
+ul>li>a, .dropbtn {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+ul>li {
+	float: left;
+}
+
+.active {
+	background: #4caf50;
+}
+
+ul>li>a:hover:not (.active ) {
+	background-color: gray;
+}
+/* dropdown style */
+li.dropdown {
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	 position: absolute; 
+	background: #f9f9f9;
+	min-width: 160px;
+	z-index: 1;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.dropdown:hover .dropdown-content { /* 마우스 올리면 그 밑에 있는 content를 보여주겠다 */
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background: #f1f1f1;
+}
+
+@media screen and (max-width:900px) {
+	ul {
+		width: 25%;
+		float: none;
+		text-align: center;
+		display: block;
+	}
+	.content {
+		width: 75%;
+		float: right;
+	}
+	* {
+		box-sizing: border-box;
+	}
+}
+
+@media screen and (max-width:400px) {
+	ul li a {
+		text-align: center;
+		float: none;
+	}
+}
+</style>
+</head>
+<body>
+	<ul>
+		<li><a href="#" class="active">Home</a></li>
+		<li><a href="#">News</a></li>
+		<li><a href="#">Contact</a></li>
+		<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+			<div class="dropdown-content">
+				<a href="#">menu1</a>
+				<a href="#">menu2</a>
+				<a href="#">menu3</a>
+			</div></li>
+		<li style="float: right;"><a href="#">About</a></li>
+	</ul>
+
+	<!-- div>h1+h2*2+p*30>{.} -->
+	<div class="content"
+		style="padding: 20px; background: aqua; height: 1500px;">
+		<h1>Title</h1>
+		<h2>Lorem ipsum dolor.</h2>
+		<h2>Lorem ipsum dolor sit amet.</h2>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+		<p>.</p>
+	</div>
+</body>
+</html>
