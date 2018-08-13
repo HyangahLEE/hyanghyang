@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>								<!-- submit 되어질때 return해라  -->
+<form id="form1" action="ex01_ok.jsp" onsubmit="return validateForm()" method="get"> <!-- form태그가 있어야 입력값들이 넘어갈수 있다 ! -->
+name : <input type="text" id="name" name ="name" autofocus="autofocus" required="required"/><br>
+age : <input type="text" id="age" name ="age" required="required"/><br><!-- required 필수 입력사항일때 !!! (html5 new 속성) -->
+<input type="submit" value="submit"/><br>
+</form>
+
+<form action="form2" action ="ex01_ok.jsp">
+<input type="submit" value="submit"/>
+
+</form>
+<script type="text/javascript">
+function validateForm(){
+	//options 컬렉션
+	//forms 컬렉션
+	//alert(document.forms.length); //form의 개수를 나타내어라
+	var name = document.forms["form1"]["name"].value;//form1(name속성값)의 name이라는 input요소를 가져와라
+	//alert(name);
+	if(name.trim().length==0){
+		alert("이름 입력 필수 !");
+		return false; //입력안되었으면 submit되어져서 값이 넘어가면 안되기 때문에 되지말라고false넣어줌 (제출취소) 
+	}
+}
+</script>
+</body>
+</html>

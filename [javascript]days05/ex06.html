@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+   $(document).ready(function() {});
+</script>
+<style></style>
+</head>
+<body>
+
+   <form action="#" id="form1" name="form1">
+      name : <input type="text" id="name" name="name" /><br /> age : <input
+         type="text" id="age" name="age" /><br /> <input type="submit"
+         value="submit" />
+   </form>
+   
+   <hr />
+   
+   <button type="button">TEST</button>
+   <button type="button">TEST2</button>
+
+   <p class="box">Lorem ipsum dolor sit.</p>
+   <p id="demo">
+      Pariatur voluptas <span>iusto</span> repellat.
+   </p>
+   <p class="box">Quibusdam doloribus maxime alias!</p>
+   <p>Voluptate repellat maxime doloribus.</p>
+   <p>Rerum eveniet quasi quam!</p>
+
+   <script>
+   
+   var btns = document.querySelectorAll("button:first-of-type");
+   //alert(btn.length);
+   
+   
+   //* DOM 객체 사용해서 이벤트 등록 *
+   btns[0].onclick = function() {
+      //alert("클릭!");
+      var frm = document.forms["form1"];
+      //alert(frm.length); //3 >> 자식태그인 input의 갯수가 출력됨
+      
+      var result = "";
+      for (var i = 0; i < frm.length; i++) {
+         result += frm.elements[i].value + " / ";
+      }
+      document.getElementById("demo").innerText = result; //aa / gg / submit /
+   }
+   
+   // HTML DOM Level 3
+   // 더 많은 객체, 컬렉션, 속성 추가
+   // css selector(선택자)로 html 요소 찾는 DOM 메서드
+   // document.queryslectorAll   
+     /* html 요소 찾을 때 id / tagname / className */
+   
+       //document.getElementById("demo");
+      //document.getElementByTagName("p");
+      //document.getElementByClassName("box");
+   
+   
+   	          
+     // var pTags = document.querySelectorAll("p.box");
+     // var pSpanTags = document.querySelectorAll("p > span");
+      //alert(pSpanTags.length);
+   
+      /* html 컬렉션을 사용해서 요소를 찾아올 수 있다. */
+      // options
+      // forms
+   
+    // var tags = document.body.elements;
+      //alert(tags.length);
+   </script>
+</body>
+</html>

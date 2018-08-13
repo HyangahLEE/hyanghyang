@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>node 들 간의 관계</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<p id="demo">Lorem.</p>
+<script type="text/javascript">
+/*
+브라우저 -> 문서 -> 자동html DOM
+[]노드 (node)
+
+		  [document]
+			[html] - 루트노드(root node)
+	
+      firstNode  lastnode
+		<head> - <body>			형제노드(sibling node)  노드리스트(자식노드들의 집합): childNodes[1](body)
+previousSibling   nextSibling
+
+
+
+>head 노드의 부모노드 : [html] 루트노드 
+					parentNode
+					firstChild
+					lastChild
+					previousSibling
+					nextSibling
+					childNode 노드리스트
+*/
+var pelement = document.getElementById("demo");
+	//element Node = nodeValue 속성x
+	//textNode = nodeValue 속성 o
+	
+//alert(pelement.firstChild); //[object Text]
+//alert(pelement.firstChild.nodeValue);//Lorem
+//alert(pelement.innerText);//Lorem.
+//alert(pelement.lastChild.nodeValue); //Lorem.
+//alert(pelement.childNodes[0].nodeValue)//Lorem.
+
+
+//document.body == body노드
+//alert(document.body.innerHTML); //바디의 내용을 뿌려줌
+//document.documentElement? 루트노드 == html 엘리먼트
+//alert(document.documentElement.innerHTML); //head태그의 내용을 다 뿌려줌
+
+//nodeName 속성
+//1. 이 속성을 읽기 전용
+//2. 태그(요소, 엘리먼트) 노드는 nodeName속성값 대문자로 태그명 P 출력...
+//alert(pelement.nodeName);//P
+//3.textNode 인 경우? nodeName >>> #text
+//alert(pelement.firstChild.nodeName);//[object Text].#text
+//4.속성노드 인 경우 ? nodeName - 속성이름  //곧없어짐
+//5.문서노드 인 경우? #document
+		
+//[nodeValue 속성]
+//1. 요소 노드 : x
+//2. 텍스트 노드 : 텍스트 자체 
+//3. 속성노드 : 속성값.
+
+//[nodeType]
+alert(pelement.nodeType); //1 elementNode
+							//2 attributeNode
+alert(pelement.firstChild.nodeType);//3 textNode
+									//8 commentNode
+									//9 documentNode - <html>의 부모 
+									//10 document_type_node - 문서선언 지시자 (<!DOCTYPE html>)
+							
+									
+
+var a = document.createElement("p");
+var b = document.createTextNode("안녀어어어어엉");
+a.appendChild(b)//<p>안녀어어어어엉</p>
+var c = document.createAttribute("id");
+a.appendChild(c) //<p id="">안녀어어어어엉</p>
+//>보통 a.setAttribute("id", "xxx");
+</script>
+</body>
+</html>

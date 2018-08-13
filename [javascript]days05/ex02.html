@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML DOM</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<!-- 
+[HTML DOM]
+1.DOM ( Document Object Model ) 
+2.js 사용해서 element, style, attribute 등등 동적 페이지 처리.
+  [브라우저 ex.html] -> 요청(request) -> 웹서버+WAS(톰캣)
+  <- 응답(response) <-
+3. 브라우저 자동 응답된 웹페이지(html)를 사용하기 쉽도록 객체(Object)=>document(객체화)를 domtree형태로 메모리 상에 올려놓는다.
+	객체.메소드	객체.필드(속성)
+4. HTML DOM 트리로 구성된 객체
+5. HTML 요소의 내용 변경, 요소 추가 수정 삭제...
+   HTML 요소의 스타일(CSS) 변경
+   HTML DOM 이벤트 처리.
+6. W3C - DOM 표준
+	ㄱ.HTML DOM - HTML 문서에 대한 표준 모델
+	ㄴ. XML DOM - XML 문서에 대한 표준 모델
+	ㄷ. core DOM - 모든 문서 유형에 대한 표준 모델
+
+-->
+<script type="text/javascript">
+document.getElementById("demo").innerHTML="DOM 메소드, attribute"; //document객체의 dom메소드
+//위에 놓으면 아직dom트리 객체를 만들어 놓지 않았기 때문에 p태그가 실행되고 그 다음에 script가 실행되어야 한다.
+</script>
+<p id="demo"></p>
+</body>
+</html>

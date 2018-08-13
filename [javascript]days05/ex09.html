@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.spanbox {
+	display: block;
+	border: solid 1px gray;
+	width: 300px;
+	text-align: center;
+}
+
+div {
+	border: solid 1px gray;
+	width: 300px;
+	background-color: pink;
+	display: none;
+}
+
+.showhide {
+	display: block;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {});
+</script>
+</head>
+<body>
+	<span>item1</span>
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		Eaque dolores cumque neque laudantium ipsum autem est quos dignissimos
+		voluptas soluta debitis sapiente inventore blanditiis molestiae dolore
+		rerum iure culpa dicta!</div>
+	<span>item2</span>
+	<div>Quo voluptates eum dolorum repudiandae pariatur deleniti
+		fugiat facilis fugit illum eos amet dolorem corporis quam maxime
+		ratione animi cumque accusamus eaque quasi ab molestias molestiae
+		eligendi doloribus perspiciatis reiciendis.</div>
+	<span>item3</span>
+	<div>Eum ipsam molestiae illo illum sint voluptatum placeat
+		libero optio. Id neque laborum eius alias cupiditate voluptatibus
+		molestias assumenda repudiandae debitis dolorum. Tempora rerum amet
+		ullam at laudantium quidem asperiores.</div>
+	<span>item4</span>
+	<div>Est cum non quasi obcaecati possimus ipsa magnam quia modi
+		optio placeat sed porro id suscipit nam dolorem ipsam ex nostrum minus
+		aliquid vero dolor culpa quibusdam laborum facilis odit.</div>
+	<span>item5</span>
+	<div>At unde repellendus dcimus quis quod rem mollitia itaque.
+		Explicabo at hic officiis laborum impedit numquam expedita repudiandae
+		minus nihil similique laudantium ea amet asperiores debitis ut aut
+		totam error.</div>
+<script type="text/javascript">
+//var sh = true;
+var spanList = document.getElementsByTagName("span");
+for (var i = 0; i < spanList.length ; i++) {	
+	spanList[i].classList.add("spanbox");	
+	spanList[i].onclick= function(){
+		//dom탐색 - nextSibling
+		//alert(this.nextSibling.nodeValue); //그 문자열 값을 가지고있음
+		alert(this.nextSibling); //objectText
+		//this.nextSibling.classList.add("showhide");
+		
+			//->텍스트 노드 건나뛰고 다음 element노드
+		//this.nextElementSibling.classList.add("showhide");
+		// 어떤거 뒤에 뭐가 있는지 아니까 클릭할때마다 디비에 저장하라고 할수있따.
+		this.nextElementSibling.classList.toggle("showhide");
+		//this.nextElementSibling.classList.toggle("showhide",sh);
+		//sh = !sh;
+	}
+}
+</script>
+</body>
+</html>

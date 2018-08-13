@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {});
+</script>
+</head>
+<body>
+	<!-- #out>{test}+p#in>lorem3 -->
+	<div id="out">
+		test
+		<p id="in" style="border: solid 1px red;">
+			Lorem <span>ipsum</span> dolor.
+		</p>
+	</div>
+	<script type="text/javascript">
+	//id out 객체를 찾아서 자식 p 의 id 속성을 확인...
+	var dtag = document.getElementById("out");
+	//alert(dtag.lastChild.previousSibling.nodeName);//[object HTMLParagraphElement].P
+	//alert(dtag.lastChild.previousSibling.nodeValue);//null;
+	//alert(dtag.lastChild.previousSibling.nodeType);//1
+	
+	alert(dtag.lastChild.previousSibling.attributes.length);
+	var attr_length = dtag.lastChild.previousSibling.attributes.length;
+	for (var i = 0; i <=attr_length ; i++) {	
+		var attr = dtag.lastChild.previousSibling.attributes[i];
+		alert(attr.nodeName + "/"+attr.nodeValue +" / "+ attr.nodeType);
+	}
+	</script>
+</body>
+</html>

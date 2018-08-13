@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 삭제</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<img id="img1" src="https://pbs.twimg.com/profile_images/944827848426057729/6GOg2gTw_400x400.jpg" alt="" />
+<script type="text/javascript">
+	var img = document.getElementById("img1");
+	img.onclick = function(){
+	img.src ="#";
+	//img.src = "http://fimg4.pann.com/new/download.jsp?FileID=45336203";
+	}
+	img.onmouseenter= function(){
+		img.src = "https://pbs.twimg.com/profile_images/944827848426057729/6GOg2gTw_400x400.jpg";
+		
+	}
+	img.onmouseleave= function(){
+		img.src = "http://fimg4.pann.com/new/download.jsp?FileID=45336203";
+	}
+</script>
+</body>
+</html>

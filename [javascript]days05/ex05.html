@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html 요소 추가 ,삭제</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+<style type="text/css">
+#demo{
+width: 300px;
+height: 200px;
+border: dotted 1px gray;
+overflow: auto;
+
+}
+.textbox{
+width: 90%;
+border: solid 1px gray;
+;
+}
+</style>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript">/* 
+	1. document.createElement(element);
+	2. document.removeChild(element);
+	3. document.appendChild(element);
+	4. document.replaceChild(element);
+	5. document.write(text); */
+	
+	//document.write("<a href='#'>hyang</a><br>");
+	/* 
+	var obj = document.createElement("input");
+	obj.setAttribute("type","text");
+	obj.setAttribute("id","txt1");
+	document.body.appendChild(obj); */ //출력!!
+	
+	var cmbNumber = document.createElement("select");
+	for (var i = 1; i <=25; i++) {
+		var option = document.createElement("option");
+		option.setAttribute("value",i);
+		//option.innerText = i;
+		//var textnode = document.createTextNode(i);
+		//option.appendChild(textnode);
+		option.appendChild(document.createTextNode(i));
+		cmbNumber.appendChild(option);
+	}
+	document.body.appendChild(cmbNumber); 
+	
+	//cmbNumber 이벤트 ? onchage 이벤트
+	//> HTML DOM 이벤트 등록
+	cmbNumber.onchange = function(){
+		//cmbNumber.options[cmbNumber.selectedIndex].value;
+		//alert(this.selectedIndex+1);
+		//alert(this.options[this.selectedIndex].value);
+		//alert(this.value);
+		document.getElementById("demo").innerText="";
+		for (var i = 1; i <= this.value; i++) {
+						
+			var obj = document.createElement("input");
+			obj.setAttribute("type","text");
+			obj.setAttribute("id","txt"+i);
+			//obj.className ="textbox";
+			obj.classList.add("textbox","box","text");//DOMTokenList 객체로, 요소의 클래스 명을 돌려줍니다.
+			obj.classList.remove("box");
+			//obj.classList.toggle(클래스명, true/false);
+			obj.onmouseover = function(){
+				this.style.borderColor = "blue";
+			}
+			obj.onmouseout = function(){
+				this.style.borderColor = "red";
+			}
+			document.getElementById("demo").appendChild(obj);
+			
+			var br = document.createElement("br");
+			document.body.appendChild(br);
+			
+			
+			
+		}
+	}
+	
+</script>
+</body>
+</html>

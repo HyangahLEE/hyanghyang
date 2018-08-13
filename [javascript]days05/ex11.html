@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 클라한테 정보를 알려주기 위한것   -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>html dom이벤트 등록</title>
+<style>
+#mySidenav a{
+ position: absolute;
+ padding: 15px;
+ width: 100px;
+ text-decoration: none;
+ font-size: 20px;
+ color: white;
+ 
+ border-radius: 0 5px 5px 0;
+ left: -80px;
+}
+#mySidenav a i{
+float: right;}
+
+/* 
+#java{ top: 20px; background: red;}
+#jsp{ top: 80px; background: green;}
+#html{top: 140px; background: blue;}
+#css{top: 200px; background: yellow;}
+ */
+#mySidenav a:hover{
+left: 0;
+transition: 0.3s; /* left 속성 값이 -80에서 0 으로 변환 될때 0.3초 동안슬라이딩 */
+background-color: black;
+}
+</style>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+	<!-- i.fa.fa --><!-- 로고, 마크 붙이기 -->
+	<!-- 
+		<a href="#" id="java">Java <i class="fa fa-facebook"></i></a> 
+		<a href="#" id="jsp">Jsp <i class="fa fa-twitter"></i></a> 
+		<a href="#" id="html">Html <i class="fa fa-google"></i></a> 
+		<a href="#" id="css">CSS <i class="fa fa-youtube"></i></a> -->
+	</div>
+
+	<div style="margin-left: 100px;">
+		<h2>Lorem ipsum dolor sit amet.</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Pariatur vel necessitatibus voluptatum dolores rerum facilis
+			cupiditate possimus quisquam fuga consequatur dolore minima sed earum
+			eius id doloribus voluptatibus molestiae ad?</p>
+	</div>
+<script type="text/javascript">
+//html dom이벤트 등록 ==< body onload=""> 
+window.onload = function(){
+	
+	var sideMenu = document.getElementById("mySidenav");
+	//DB 사이드메뉴 select +jquery +Ajax;
+	var list = [];
+	list.push({link:"#",id:"java",text:"JAVA", top:20, bgcolor:"red", class:"fa fa-facebook" });
+	list.push({link:"#",id:"jsp",text:"JSP", top:80, bgcolor:"green", class:"fa fa-twitter"});
+	list.push({link:"#",id:"html",text:"HTML", top:140, bgcolor:"blue", class:"fa fa-google"});
+	list.push({link:"#",id:"css",text:"CSS", top:200, bgcolor:"orange", class:"fa fa-youtube"});
+	
+	//
+	for (var i = 0; i < list.length ; i++) {	
+		//list[i].link == list[i]["link"]
+		var atag = document.createElement("a");
+		atag.setAttribute("href", list[i].link);
+		atag.setAttribute("id", list[i].id);
+		//atag.innerHTML = list[i].text;
+		atag.appendChild(document.createTextNode(list[i].text));
+		
+		atag.style.top= list[i].top +"px";
+		atag.style.backgroundColor = list[i].bgcolor;
+		sideMenu.appendChild(atag);
+		
+		var itag = document.createElement("i");
+		var classes = list[i].class.split(" ");
+		itag.classList.add(classes[0],classes[1]);
+		atag.appendChild(itag);
+		
+		//
+		sideMenu.appendChild(atag);
+	}
+	
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM - html 요소 속성 변경...</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+	var ptag = document.getElementById("demo");
+	//1. element.innerHTML or innerText <>내용변경<>
+	ptag.innerHTML = "hyangah";
+	//2. element.attribute = attribute value;
+	//3. element.setAttribute(속성명, 속성값);
+	ptag.setAttribute("name","demo");
+	//4. element.style.property = new style;
+	ptag.style.border = "solid 1px gray";
+	ptag.style.padding = "10px"; //단위중요 ***
+</script>
+</body>
+</html>

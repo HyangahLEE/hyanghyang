@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html element(요소) 찾아가기...</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<p id="demo1">Lorem ipsum dolor sit.</p>
+<p id="demo2" class="box">Quidem voluptatum reiciendis tempora.</p>
+<p id="demo3">Nemo odit impedit recusandae!</p>
+<p id="demo4">Veritatis nisi ad aut.</p>
+<p id="demo5" class="box">Eveniet numquam labore voluptatem?</p>
+
+<!-- html element(요소) 찾아가기... -->
+<script type="text/javascript">
+	//1. document.getElementById(elementId);
+/* 	2.	var ptags = document.getElementsByTagName("p");//태그이름으로 element 가져오겠다.
+	alert(ptags.length); //5
+	for (var i = 0; i < ptags.length; i++) {
+		ptags[i].innerHTML = "test" + i;
+	}
+	 */
+	 //3.
+	 var boxClass = document.getElementsByClassName("box");
+	 for (var i = 0; i < boxClass.length; i++) {
+		 boxClass[i].innerHTML = "class Box " + i;
+		}
+	 //4.
+	document.getElementsByName(elementName);
+</script>
+</body>
+</html>
