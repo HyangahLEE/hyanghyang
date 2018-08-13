@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>전체선택 </title>
+<style>
+table{
+width: 50%;
+margin: auto;
+}
+td,th{
+border: solid 1px gray;
+}
+#member >thead >tr:first-child{
+background: gray;
+color: white;
+}
+tr>td:first-child{
+text-align: center;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('tbody :checkbox').click(function(){
+		if(	$('tbody :checked').length ==$('tbody :checkbox').length){
+			$("#ckbAll").prop("checked",true);
+		}else{
+			$("#ckbAll").prop("checked",false);
+		}
+		
+		
+		//
+		$("#demo").empty();
+		//제이쿼리 선택자: 	:checked -체크된 애들만 가져와라
+		//제이쿼리 함수 : each - 체크된 애들이 여러개 있다면 하나하나씩 반복하겠다.
+		$("tbody :checked").each(function(index,element){
+			//alert(element.id);
+		//$('#demo').append(	element.id+"<br>");
+			$('#demo').append(	$(this).prop("id")+"<br>");
+		})
+		
+		//alert
+		
+	});
+	$("#ckbAll").click(function (){
+		//$("tbody inputp[type=checkbox]")
+		//제이쿼리 선택자 기호 :
+		$("tbody :checkbox").prop("checked",this,checked);
+	});
+	
+});
+</script>
+</head>
+<body>
+<table id="member">
+	<thead>
+		<tr>
+			<th><input type="checkbox" id="ckbAll" /></th>
+			<th>부서명</th>
+			<th>사원명</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th><input type="checkbox" id="7566" class="ck" /></th>
+			<th>영업부</th>
+			<th>이향아</th>
+		</tr>
+		<tr>
+			<th><input type="checkbox" id="7459" class="ck"  /></th>
+			<th>서비스부</th>
+			<th>김이슬</th>
+		</tr>
+		<tr>
+			<th><input type="checkbox" id="7899" class="ck" /></th>
+			<th>총무부</th>
+			<th>송자영</th>
+		</tr>
+	</tbody>
+</table>
+<table>
+<tr>
+	<td style="text-align: center;">
+	<input type="button" id="addEmp" value="사원추가" />
+	<input type="button" id="removeEmp" value="사원삭제" />
+	</td>
+</tr>
+</table>
+<p id="demo"></p>
+</body>
+<script type="text/javascript">
+var table = document.getElementById("member");
+window.onload = function(){
+	
+	var caption = table.createCaption();
+	caption.innerHTML ="emp List";
+}
+
+document.getElementById("addEmp").onclick= function(){
+	//행(tr)추가 후 반환>td*3
+	var tr = table.insertRow();
+	
+	//td*3
+	var ckb_td=tr.insertCell(0);
+	//input추가
+	var ckb = document.createElement("input");
+	ckb.type="checkbox";
+	ckb.className="ck";
+	ckb_td.appendChild(ckb);
+	
+	var dept_td=tr.insertCell(1);
+	var dept = document.createElement("input");
+	dept.type="text";
+	dept_td.appendChild(dept);
+	
+	var name_td=tr.insertCell(2);
+	var name = document.createElement("input");
+	name.type="text";
+	name_td.appendChild(name);
+	
+	
+	/* var tr =	document.createElement("tr");
+	var ckb_td = document.createElement("td");
+	tr.appendChild(ckb_td);
+	var dept_td = document.createElement("td");
+	tr.appendChild(dept_td);
+	var name_td = document.createElement("td");
+	tr.appendChild(name_td); */
+	
+}
+
+document.getElementById("removeEmp").onclick= function(){
+	//p#demo 출력 : 체크된id속성 출력
+	var cks = document.getElementsByClassName("ck");
+	
+	var result = "";
+	for (var i = 0; i < cks.length ; i++) {	
+		if(cks[i].checked){
+			var dept = cks[i].parentNode.nextElementSibling.innerHTML
+			var name = cks[i].parentNode.nextElementSibling.nextElementSibling.innerHTML
+			result += cks[i].id +" / "+dept +" / " +name+"<br>";		
+		}
+	}
+	document.getElementById("demo").innerHTML = result;
+	
+}
+
+document.getElementById("ckbAll").onclick = function(){
+	var cks = document.querySelectorAll("tbody input[type=checkbox]")
+	for (var i = 0; i < cks.length ; i++) {		
+		cks[i].checked = this.checked;
+		
+	}
+	//var cks = document.getElementsByClassName("ck");
+	//cks[0].setAttribute("checked", "checked");
+	
+}
+</script>
+</html>

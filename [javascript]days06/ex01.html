@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>arguments - 매개변수 </title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<button id="btn" type="button" onclick="btn_click();">
+ 실행
+</button>
+<script type="text/javascript">
+//function empInfo(empno,ename,deptno){
+function empInfo(){
+	//arguments 컬렉션-매개변수를 안가지고 있더라고 여기에 담고있다. 
+	//alert(empno + " / " + ename +  " / "+deptno);
+	//alert(arguments.length);
+	var result ="";
+	for (var i = 0; i < arguments.length ; i++) {	
+		result += arguments[i]+"/";
+	}
+	alert(result);
+}
+function btn_click(){
+	empInfo(7777,'admin',10);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>진행바 로딩바</title>
+<style>
+#myProgress{
+width: 100%;
+background: #ddd;}
+#myBar{
+width: 1%;
+height: 30px;
+background: #4caf50;
+text-align: right;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<h3>Progress Bar</h3>
+<div id="myProgress">
+	<div id="myBar"></div>
+</div>
+<button id="btn">진행</button>
+<script type="text/javascript">
+//*** js clouser (클로저) ***
+var bar = document.getElementById("myBar");
+document.getElementById("btn").onclick = function(){
+	var width = 1;
+	var timer = setInterval(frame ,30);
+	
+	//중첩 함수 선언 + 클로저
+	function frame(){
+		if(width >=100){
+			clearInterval(timer);
+			
+		}else{
+			width++;
+			bar.style.width=width+"%";
+			bar.innerHTML = width+"%"
+		}
+		
+	}
+	
+}
+</script>
+</body>
+</html>

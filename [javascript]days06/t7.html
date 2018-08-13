@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.myDiv{
+position: absolute;
+z-index: 9;
+background: #f1f1f1;
+text-align: center;
+border: solid 1px #d3d3d3;
+}
+.myDivHeader{
+padding: 10px;
+cursor: move;
+z-index: 10;
+background: #2396f3;
+color: #fff;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<div id="myDiv1" class="myDiv">
+	<div id="myDiv1Header" class="myDivHeader">Click Here</div>
+	<p>DragDrop</p> <!-- 놓는 순간 -->
+	<p>DragOver</p><!-- 놓을 대상을 잡아서 끌고 들어오면 over/움직이면 move  -->
+	<p>Div</p>
+</div>
+
+<div id="myDiv2" class="myDiv" style="left: 300px">
+	<div id="myDiv2Header" class="myDivHeader">Click Here</div>
+	<p>DragDrop</p> <!-- 놓는 순간 -->
+	<p>DragOver</p><!-- 놓을 대상을 잡아서 끌고 들어오면 over/움직이면 move  -->
+	<p>Div</p>
+</div>
+
+<div id="myDiv3" class="myDiv" style="top: 500px;">
+	<div id="myDiv3Header" class="myDivHeader">Click Here</div>
+	<p>DragDrop</p> <!-- 놓는 순간 -->
+	<p>DragOver</p><!-- 놓을 대상을 잡아서 끌고 들어오면 over/움직이면 move  -->
+	<p>Div</p>
+</div>
+<script type="text/javascript">
+function dragElement(elemt){
+	var pos1= 0, pos2=0; 
+	var pos3 = 0, pos4=0;
+	
+	if(document.getElementById(elemt.id+"Header")){
+		document.getElementById(elemt.id+"Header").onmousedown = dragMouseDown;
+	}else{
+		elemt.onmousedown = dragMouseDown;
+	}
+
+	function dragMouseDown(e){
+		e= e || window.event;
+		pos3= e.clientX;
+		pos4 = e.clientY;
+		document.onmousemove= elementDrag;
+		document.onmouseup =closeDragElement;
+	}
+	function elementDrag(e){
+		e= e || window.event;
+		pos1= pos3-e.clientX;
+		pos2= pos4-e.clientY;
+		
+		pos3= e.clientX;
+		pos4=e.clientY;
+		
+		elemt.style.left= (elemt.offsetLeft-pos1)+"px";
+		elemt.style.top= (elemt.offsetTop-pos2)+"px";
+		
+	}
+	
+	function closeDragElement(){
+		document.onmousemove= null;
+		document.onmouseup =null;
+	}
+}
+
+</script>
+<script type="text/javascript">
+dragElement(document.getElementById("myDiv1"));
+</script>
+</body>
+</html>

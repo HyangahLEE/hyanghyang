@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>타자치기</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<button id="btn">TypeWriter</button>
+<p id="demo"></p>
+<script type="text/javascript">
+var demo = document.getElementById("demo");
+//HTML DOM 			루트노드<html>
+var txt = document.documentElement.innerHTML;
+// <head>~~</body>
+var i = 0;
+var speed = 50;
+//alert(txt);
+
+document.getElementById("btn").onclick = function(){
+	typerwriter();
+}
+function typerwriter(){
+	if(txt.length > i){
+	var oneChar = txt.charAt(i++);
+	demo.innerHTML += oneChar =="\n" ? "<br>": oneChar;	
+	timer = setTimeout(typerwriter, speed);
+	}
+	else{
+		alert("출력완료")
+	clearTimeout(timer);
+	}
+}
+</script>
+</body>
+</html>

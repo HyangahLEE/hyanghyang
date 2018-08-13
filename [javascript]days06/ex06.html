@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>좌표값찍기 + 싸이월드 스티커붙이기</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<img src="../images/item01.gif" alt="" />
+<script type="text/javascript">
+function getRandomInt(min, max){
+	return Math.floor(Math.random()*(max - min + 1)+min);	
+}
+//오른쪽 마우스 눌렀을때 메뉴
+document.oncontextmenu = function(){
+	//alert("오른쪽 마우스는 금지 되었습니다.");
+	return false;
+}
+
+document.onmousedown= function(){
+// console.log(event.type);
+// console.log(event.button);//0(왼) 2(오) 1(휠)
+ if(event.button == 0){//왼쪽
+	// console.log(event.clientX + "," + event.clientY);
+ 	//>xy 좌표값
+ 	document.title= event.clientX + "," + event.clientY;
+ 	var img = document.createElement("img");
+ 	//추가 메소드
+ 	document.body.appendChild(img);
+ 	img.src = "../images/item0"+getRandomInt(1,9)+".gif";
+ 	img.style.position = "absolute";
+ 	img.style.left = (event.clientX)+"px";
+ 	img.style.top = (event.clientY)+"px";
+ 	img.className = "xx";
+ }else if(event.button==1){//휠
+	 //모든이미지 삭제
+	 var imgs = document.getElementsByTagName("img");
+		for (var i = 0; i < imgs.length ; i++) {	
+			document.body.remove(i);		
+		}	 
+	 
+ }else if(event.button==2){//오른쪽
+	 if(event.srcElement.className =="xx"){//원래 있던거는 삭제 하지 않음 xx
+	 document.body.removeChild(event.srcElement);//이벤트를 받은 src삭제
+	 }
+ }
+ 
+}
+</script>
+</body>
+</html>

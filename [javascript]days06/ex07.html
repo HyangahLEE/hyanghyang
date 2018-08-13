@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>드래그 드롭[클로저]</title>
+<style>
+.myDiv{
+position: absolute;
+z-index: 9;
+background: #f1f1f1;
+text-align: center;
+border: solid 1px #d3d3d3;
+}
+.myDivHeader{
+padding: 10px;
+cursor: move;
+z-index: 10;
+background: #2396f3;
+color: #fff;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<h3>자바스크립트 드래그 드롭 (dragdrop) div</h3>
+<div id="myDiv1" class="myDiv">
+	<div id="myDiv1Header" class="myDivHeader">Click Here</div>
+	<p>DragDrop</p> <!-- 놓는 순간 -->
+	<p>DragOver</p><!-- 놓을 대상을 잡아서 끌고 들어오면 over/움직이면 move  -->
+	<p>Div</p>
+</div>
+
+<div id="myDiv2" class="myDiv" style="left: 300px">
+	<div id="myDiv2Header" class="myDivHeader">Click Here</div>
+	<p>DragDrop</p> <!-- 놓는 순간 -->
+	<p>DragOver</p><!-- 놓을 대상을 잡아서 끌고 들어오면 over/움직이면 move  -->
+	<p>Div</p>
+</div>
+
+<div id="myDiv3" class="myDiv" style="top: 500px;">
+	<div id="myDiv3Header" class="myDivHeader">Click Here</div>
+	<p>DragDrop</p> <!-- 놓는 순간 -->
+	<p>DragOver</p><!-- 놓을 대상을 잡아서 끌고 들어오면 over/움직이면 move  -->
+	<p>Div</p>
+</div>
+
+
+<script type="text/javascript">
+//dragElement(document.getElementById("myDiv1")); //id값 넣어주기
+
+//js 클로저
+function dragElement(elemt){
+	var pos1= 0, pos2=0; //좌표(x,y)의  움직인 거리 -(50,50)에서 (200,200)움직였을때 (150,150)
+	var pos3 = 0, pos4=0; // 좌표(x,y)의 움직인 위치 - 00부터 움직인 좌표(200,200)
+	
+	if(document.getElementById(elemt.id+"Header")){
+		//html DOM 마우스 다운 이벤트 등록
+		document.getElementById(elemt.id+"Header").onmousedown = dragMouseDown;
+	}else{
+		elemt.onmousedown = dragMouseDown;
+	}
+	
+	//
+	function dragMouseDown(e){ 
+		e = e || window.event;//크로스브라우징 처리
+		// 1. 마우스 다운 할 때 드래그 시작 위치 값을 저장... body부터의 (0,0)부터의 조ㅘ표위치
+		pos3 = e.clientX; //매개변수 안받으면 event.clientX로 해줌 
+		pos4 = e.clientY; 
+		
+		console.log(pos3 +","+pos4);
+		//클릭한 좌표값 구하고 div를 움직이면 그 마우스는 그대로 있지만 실제적으로는 body에서 움직이는 마우스 무브도 해주겠다.
+		document.onmousemove = elementDrag; //
+		document.onmouseup = closeDragElement; //마우스 띄었을때 이벤트 제거
+	}
+	
+	//중첩 메소드 (마우스 무브)
+	function elementDrag(e){
+		e= e || window.event;
+		//움직인 거리 x,y
+		pos1 = pos3 - e.clientX; 
+		pos2 = pos4 - e.clientY;
+		
+		// 원래위치를 처음위치로 잡아주고 
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		
+		//offsetLeft,offsetTop
+		elemt.style.left = (elemt.offsetLeft - pos1)+"px"; //움직여 놔라 = ( 픽셀이 안붙는 숫자값(정수위치값)  -움직인거리 )움직인만큼
+		elemt.style.top = (elemt.offsetTop - pos2)+"px";
+	}
+	
+	//중첩 메소드 (마우스 업) 
+	function closeDragElement(){
+		document.onmousemove = null;//이벤트 제거
+		document.onmouseup = null; //이벤트 제거
+	}
+	
+}//dragElement닫기
+
+</script>
+<script type="text/javascript">
+dragElement(document.getElementById("myDiv1")); //id값 넣어주기
+dragElement(document.getElementById("myDiv2"));
+dragElement(document.getElementById("myDiv3")); 
+</script>
+</body>
+</html>

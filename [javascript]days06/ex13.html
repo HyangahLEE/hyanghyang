@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+.slidesshow-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+}
+
+.mySlides {
+	display: none;
+}
+
+.prev, .next{
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	border-radius: 0 3px 3px 0;
+	trasition: 0.6s ease;
+	
+}
+
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+	color: red;
+	background-color: rgb(0, 0, 0, 0.8);
+}
+
+.text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	   bottom: 8px;
+	text-align: center;
+	width: 100%;
+}
+
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+	background-color: #717171;
+}
+.fade{
+animation-name:fade;
+animation-duration: 1.5s;
+
+-webkit-animation-name:fade;
+-webkit-animation-duration: 1.5s;
+}
+@keyframes fade{
+from {opacity:0.4}
+to{opacity :1}
+}
+@-webkit-keyframes fade{
+from {opacity:0.4}
+to{opacity :1}
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {});
+</script>
+</head>
+<body>
+	<div class="slidesshow-container">
+	
+		<div class="mySlides fade">
+			<div class="numbertext">1 / 3</div>
+			<img src="../images/img_mountains_wide.jpg" alt=""	style="width: 100%" />
+			<div class="text">Caption one</div>
+		</div>
+
+		<div class="mySlides fade">
+			<div class="numbertext">2 / 3</div>
+			<img src="../images/img_nature_wide.jpg" alt="" style="width: 100%" />
+			<div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides fade">
+			<div class="numbertext">3 / 3</div>
+			<img src="../images/img_snow_wide.jpg" alt="" style="width: 100%" />
+			<div class="text">Caption Three</div>
+		</div>
+
+		<a class="prev" onclick="plusSlides(-1);">&#10094;</a> 
+		<a class="next"	onclick="plusSlides(1);">&#10095;</a>
+	</div>
+	<!-- slidesshow-container  -->
+
+	<br>
+
+	<div style="text-align: center;">
+		<span class="dot" onclick="currentSlide(0);"></span> 
+		<span class="dot" onclick="currentSlide(1);"></span> 
+		<span class="dot" onclick="currentSlide(2);"></span>
+	</div>
+
+
+	<script type="text/javascript">
+     	var slides = document.getElementsByClassName("mySlides");
+	    var dots = document.getElementsByClassName("dot");
+		var slideIndex = 0; //슬라이드 인덱스 번호 (0,1,2)
+		
+		
+		showSlides();
+		
+		
+		//
+		function showSlides(n) {
+			//1/3 > none x
+			for (var i = 0; i < slides.length ; i++) {
+				slides[i].style.display = "none";
+				dots[i].classList.remove("active");
+			}
+			
+			// 2/3 > block active
+			slides[slideIndex].style.display = "block";
+			dots[slideIndex].classList.add("active");
+			
+			slideIndex++;
+			if(slideIndex ==slides.length) slideIndex=0;
+			setInterval(showSlides,2000);
+		}
+		//
+		function plusSlides(n) {
+			slideIndex += n;
+			if(slideIndex == slides.length){
+				//slideIndex= slides.length-1;
+				slideIndex=0;
+			}else if(slideIndex == -1) {
+			//slideIndex =0;
+				slideIndex=slides.length;
+			}else showSlides(slideIndex);
+		
+		}
+		//
+		function currentSlide(n) {
+			showSlides(slideIndex=n);			
+		}
+	</script>
+</body>
+</html>
