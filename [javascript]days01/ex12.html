@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js함수</title>
+<style>
+input[type=text]{
+text-align: center;
+}
+input[type=text]:focus{
+border: solid 1px red;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+정수 1 : <input type="text" id="n1" autofocus="autofocus"/><br>
+연산자 선택 : <!-- select 태그에서는 거의 change이벤트만 사용 -->
+	<select name="operator" id="operator" onchange="op_change()">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+		<option value="%">%</option>
+	</select><br>
+정수 2 : <input type="text" id="n2" onkeydown="n2_keydown();"/><br>
+<hr>
+<span id="demo"></span>
+<script>
+function op_change(){
+	var sel = document.getElementById("operator");
+	var idx = sel.selectedIndex;//선택된 인덱스값.
+	console.log(sel.options[idx].value );//모든 옵션들을 가지고 있는 컬렉션
+	console.log(sel.options[idx].text );
+	
+}
+
+</script>
+<script>
+function sum(n1,n2){
+	return n1+n2;	
+}
+
+function n2_keydown(){
+	if(event.keyCode==13){
+		var n = document.getElementById("n1").value;
+		var m = document.getElementById("n2").value;
+		var result =sum(parseInt(n),parseInt(m));
+	//	var result =sum(Number(n),Number(m));
+		document.getElementById("demo").innerHTML = result;
+	}		
+}
+// [ js 함수 (function) ]
+// ㄱ. 특정 작업을 수향하도록 설계된 코드블럭...
+// ㄴ. 함수 호출. 을 해야 일을 한다. 
+// ㄷ. 함수선언 형식 
+/* 		function 함수명([파라미터...]){
+		 	  실행하고자 하는 코딩블럭.
+   		 return문;  
+}//return 문에 도달하면 함수 실행은 중지하고.. 호출한 곳으로 리턴값을 가지고 반환. */
+
+
+</script>
+<script>
+/*number, String, boolean, object, undefined;*/
+console.log( {} );//객체 object
+console.log( [] );//배열 object
+console.log( null );//널 object
+
+console.log(typeof function btn_exec(){} ); //함수 function
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script>
+	var x = undefined;
+	var y = null; 
+	alert(x == y); //true;
+	alert(x === y); // false
+	
+	//[ js 배열(Array)]
+	
+	//배열 선언 2가지
+	var food = ["Streak","corn","Samgyupsal"];
+	//var food= new Array("Streak","corn","Samgyupsal");
+	
+	//> 출력
+	console.log( food[0]);
+	console.log( food[1]);
+	console.log( food[2]);
+	alert(typeof food); //object
+	//*js에서는 배열 타입이 'object'이다.
+	food = undefined;
+	
+	//js 객체는 {} 중괄호를 사용해서 작성한다. 
+	var person = {name:"향아", age:25, score:100}; //js객체 
+	console.log(person.name + " "+ person.age);
+	console.log(person["name"]+" "+ person["age"]);
+	alert(typeof person); //object
+	person= null; //object;
+	person = undefined; // 객체 비운다. -> undefined;
+</script>
+</body>
+</html>

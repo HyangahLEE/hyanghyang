@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+	<!-- <input type="number" min="0" max="100" value="0"/> -->
+	정수 입력 :
+	<input type="text" id="num" onkeydown="num_keydown();" />
+	<script type="text/javascript">
+		function num_keydown() {
+			if (event.keyCode == 13) {
+				var n = document.getElementById("num").value;
+				/* [js정규표현식] */
+				 var pattern = /^[0-9]+$/; //정수!
+				 // 부호 미사용, 자릿수구분기호 미사용, 소수점 선택:  var regex = /^[0-9]+(\.[0-9]+)?$/;
+				// 부호 미사용, 자릿수구분기호 선택, 소수점 선택 : /^(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+){1}(\.[0-9]+)?$/
+				// 부호 선택, 자릿수구분기호 선택, 소수점 선택: /^[+\-]?(([1-9][0-9]{0,2}(,[0-9]{3})*)|[0-9]+){1}(\.[0-9]+)?$/
+
+				alert(pattern.test(n));
+				//+ : 1~무한대
+				/* if (isNaN(n) == true)
+					alert("숫자가아닙니당~");
+				else
+					alert("숫자이네용"); */
+			}
+
+		}
+	</script>
+
+
+	<script>
+		//1) String -> Number 형변환
+		//var x = "12"; 
+		//var x = ""; //Number("") ==0;
+		//var x = "  "; //Number("  ") ==0;
+		//var x = true;// Number(true) ==1
+		//var x = false;// Number(false) ==0
+		//var x = "12    ";// 12
+		//var x = "12abc";// NaN
+		//	ㄱ. 전역 메소드 Number()
+		//alert(typeof Number(x));
+		//alert(Number(x)+1);
+
+		//	ㄴ. parseInt() 정수number
+		//		parseFloat() 실수number
+		//alert(parseInt(x)+100); //"" NaN
+		//2) Number -> String 형변환
+	</script>
+</body>
+</html>

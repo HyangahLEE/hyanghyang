@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script >
+var x =10;
+var y = 20;
+var i = 10.3;
+var z= 0;
+
+
+document.write((++i)+"<br>"); //11.3
+document.write((i++)+"<br>"); //11.3
+document.write("<hr>");
+document.write(x + y + "<br>");
+document.write(x - y + "<br>");
+document.write(x * y + "<br>");
+document.write(x / y + "<br>"); //0.5
+document.write(x / z + "<br>"); // Infinity (0으로 나눌때)
+document.write(i / z + "<br>"); // Infinity
+//나머지 구하는 연산자 
+document.write(x % y + "<br>");
+document.write(x % z + "<br>"); //NaN
+document.write(i % z + "<br>"); //NaN
+</script>
+</body>
+</html>

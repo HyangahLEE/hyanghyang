@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input[type=text]{
+width: 400px;
+border: solid 1px gray;
+}
+.result{
+	font-weight: bold;
+	background-color: pink;
+	color: gray;
+}
+</style>
+
+<script src="ex03.js"></script> <!-- 참조!!해야한다!  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+//onkeydown, onkeypress
+//자동으로 생성되는 event 객체 : keyCode
+//String 객체 : fromCharCode
+/*  function txtInput_keypress(){//  아스키코드 대소문자 구분 +  + 입력할때마다 상대방창에 계속 입력되고있다.(실시간) 
+	console.log(event.keyCode); //디버깅....
+	
+	if(event.keyCode==13){ 
+	//document.getElementById("txtOutput").value += String.fromCharCode(event.keyCode);
+	//document.getElementById("txtOutput").value = document.getElementById("txtInput").value
+	
+	//p 태그 출력	(innerHTML)
+	//document.getElementById("demo").innerHTML = 
+	//document.getElementById("demo").innerText = "입력받은 값 출력 : <span class='result'>"+ document.getElementById("txtInput").value +"</span>";
+	// Text는 태그 적용 안댐
+		//document.getElementById("demo").innerHTML = "입력받은 값 출력 : <span class='result'>"+ document.getElementById("txtInput").value +"</span>";
+	}
+}
+
+function txtInput_keydown(){ //아스키코드 대소문자 구분x
+	//var kcode= event.keyCode;
+	//document.getElementById("txtOutput").value += String.fromCharCode(event.keyCode);
+	//document.getElementById("txtOutput").value += event.keyCode;
+} */
+ 
+$(document).ready(function(){
+	$("#txtOutput").keydown(function(){
+		if(event.keyCode ==13){
+			//var msg = $("#txtOutput").val(); /* val이 읽어오기도 하고 설정하기도 한다.   */
+			var msg ="<span class='result'>" + $("#txtOutput").val() +"</span>";
+			//$("#txtInput").val(msg);
+			$("#demo").html(msg); //innerHTML
+			//$("#demo").text(msg);	//innerText
+		}
+	});
+});
+</script>
+</head>
+<body>
+<!-- javasctipt 출력 방법
+1.window.alert("경고창"); 경고상자 띄울 때
+2.innerHTML을 사용해서 [html 요소]에 출력.
+3.console.log() 브라우저 F12 콘솔창에 출력
+4.document.write() html출력-->
+<!-- <input type="text" id="txtInput" onkeypress="txtInput_keypress()"/> -->
+ <input type="text" id="txtInput"/>
+<!-- <input type="text" id="txtInput" onkeypress="txtInput_keypress()" onkeydown="txtInput_keydown()"/> --><br>
+<input type="text" id="txtOutput"/>
+<hr>
+<p id="demo"></p>
+<hr>
+<input type="button" value="실행" onclick="disp_message('test')"/>
+</body>
+</html>

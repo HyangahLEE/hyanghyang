@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<!-- js 변수선언 및 사용 -->
+<script>
+	// 변수 선언 후에 값을 초기화 하지 않으면 undefined
+	var name = "향긔향긔"; 
+	
+	//window.alert(name); //window는 가장 최상위 객체 (자바의object객체처럼) 따라서 .alert(name)만 써도댐 
+						//또한 사용자가 만든 모든 함수들 window의 객체로 들어감. 
+	document.getElementById("demo").innerHTML= name;
+	
+	var result = "5"+3+2; // 5+3+2 =>  number10
+	// "5"+3+2 "53"+ 2 => 532 String 
+	var result = 5+3+"2"; //8+"2" =?"82" String
+	alert(typeof result); //typeof 연산자 
+	//document.getElementById("demo").innerHTML = result; 
+	
+	alert( typeof 100); //number
+	alert( typeof 3.14); //number
+</script>
+</body>
+</html>
