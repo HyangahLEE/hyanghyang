@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		var names = [ "향아", "보연", "주이", "디예" ];
+		//document.write(names.toString()); //> 향아,보연,주이,디예
+		//document.write(names.join("★"));
+		names.push("송이"); //>향아,보연,주이,디예,송ㅇ;
+		//document.write(names[names.length-1]);
+		//pop()
+		names.pop(); //배열에서 마지막 요소 제거후 반환하는 메소드 
+		document.write(names.toString()); //>향아,보연,주이,디예
+		// names.shift(); //맨앞의 요소 제거 //>보연,주이,디예
+		//0 요소에 이슬 추가...
+		//names[0] = "이슬" //원래있던 값이 바뀐다.//>이슬,주이,디예
+		//unshift() 값이 밀면서 들어간다.
+		//names.unshift("예림"); //>예림,이슬,주이,디예
+		
+		//배열정렬 sort();
+		names.sort(); //>디예,예림,이슬,주이
+		
+		// reverse() : 반대로 출력
+		// 정렬 후 reverse 하면 des가 된다.*
+		names.reverse();
+		document.write(names.toString());
+		
+		//delete names[1]; // 삭제, 제거 (값만 제거하고 그 방에는 undefined로 채워짐)
+		//document.write(names.toString());  //> ,이슬,예림,디예
+
+		//새로운 값을 추가 ..
+		//names[2] 번째에 1개를 삭제하고 저거 2개를 삽입
+		names.splice(2, 1, "유리", "숭히"); //> ,이슬,유리,숭히,디예
+		names.splice(2, 1);//제거
+
+		//String.concat() 배열병합(merge)
+		var names2 = [ "쟁연", "은슬" ];
+		var result = names.concat(names2);
+		result = names.concat(names2,["꾸엥","배고파"])
+		document.write(result.toString());
+		
+		//병합된 배열을 잘라내기 slice()
+		var xx = result.slice(result.length-2);
+		xx = result.slice(5,7); //어디부터 어디까지 잘라오겠다. 5<=xx<7
+		document.wrtie(xx.toString());
+	</script>
+</body>
+</html>

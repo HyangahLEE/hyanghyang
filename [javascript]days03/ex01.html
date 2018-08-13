@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Js Number</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script type="text/javascript">
+var x = 10;
+//console.log(typeof x);
+var z= 123e5;
+//console.log( z); //12300000
+var x = 999999999999999// 15자리수 까지 표현 가능  이후에는 1000~으로 표현된다. 
+ x = "10";
+ y = 20;
+ //> + 빼고는 자동으로 형변환이 되어져서 계산된다. 
+ console.log( x + y ); //1020
+ console.log( x - y ); //-10
+ console.log( x * y );
+ console.log( x / y );
+ console.log( x % y );
+
+ console.log( 10 / "hyang" ); //NaN
+ console.log( NaN+5 );
+ console.log( NaN+"5" ); "NaN5"
+ console.log( typeof NaN ); //number
+ 
+ console.log( 10/0 );//Infinity
+ console.log( -10/0 );//-Infinity
+ console.log( typeof Infinity ); //number
+
+ var x = 0xFF; //16진수
+ console.log( x ); //255
+ 
+ //toString() > 모든객체에 있다 .
+ x = 10;
+ console.log( x.toString() );
+ console.log( x.toString(2) ); //2진수 문자열
+ console.log( x.toString(8) );//8진수 문자열
+ console.log( x.toString(16) );//16진수 문자열
+ 
+ 
+ </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js Boolean</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	var x = 100;
+	document.write(Boolean(x)+"<br>"); //true
+	x=0;
+	document.write(Boolean(x)+"<br>"); //false
+	x="";
+	document.write(Boolean(x)+"<br>"); //false
+	x=null;
+	document.write(Boolean(x)+"<br>"); //false
+	x=undefined;
+	document.write(Boolean(x)+"<br>"); //false
+	x = 10/"apple" //NaN
+	document.write(Boolean(x)+"<br>"); //false
+</script>
+</body>
+</html>

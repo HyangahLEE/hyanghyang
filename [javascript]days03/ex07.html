@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>달력만들기</title>
+<style>
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important;
+}
+ 
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+</style>
+<script src="ex07.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	var today = new Date();
+	var curr_year =today.getFullYear();
+	var curr_month = today.getMonth()+1;
+	var curr_day= today.getDate();
+	 
+	
+	print_calendar(curr_year,curr_month);
+	
+	//$('ul.days').empty();//모든 자식노드를 제거! 
+	
+	//print_calendar(curr_year,curr_month);
+	
+	function print_calendar(year,month){
+		
+		$("#year").text(year);  curr_year=year;
+		//0000뿌리기
+		$("#month").text(month); curr_month=month;
+		//00에뿌리기
+		
+		$('ul.days').empty();
+		
+		var dayOfWeek = getDayOfWeek(year, month);
+		var lastDay = getLastDay(year,month);
+		
+		//li 생성해서 ul.days 자식으로 추가
+		for (var i = 0; i <dayOfWeek; i++) {
+			$('ul.days').append("<li></li>");
+		}
+		for (var i = 1; i <=lastDay; i++) {
+			if(i==curr_day) $('ul.days').append("<li><span class ='active'>"+i+"</span></li>")
+			else 			$('ul.days').append("<li>"+i+"</li>");
+		}
+	}
+	
+	$(".month li[class]").hover(function(){
+		$(this).css({
+			"color":"red",
+			"cursor":"pointer"
+			});
+	}, 	function(){
+		$(this).css({
+			"color":"white",
+			"cursor":"default"
+			});		
+	}).click(function(){
+		var className = $(this).attr("class");
+		//alert(className + "띠용");
+		var mm = (className == "prev" )? -1 :1;
+		
+		var new_date = new Date(curr_year, curr_month);
+		
+		new_date.setMonth(new_date.getMonth()+mm);
+		var year = new_date.getFullYear();
+		var month = new_date.getMonth();
+		
+	
+		print_calendar(year,month);
+	});
+});
+</script>
+</head>
+<body>
+
+<h1>CSS Calendar</h1>
+
+<div class="month">      
+  <ul>
+    <li class="prev">&#10094;</li>
+    <li class="next">&#10095;</li>
+    <li>
+    
+      <span style="font-size:18px" id="year">0000</span>
+      .
+      <span style="font-size:18px" id= "month">00</span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>Su</li>
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+</ul>
+
+<ul class="days">  
+<li></li>
+<li></li>
+<li></li>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+  <li>11</li>
+  <li>12</li>
+  <li>13</li>
+  <li>14</li>
+  <li>15</li>
+  <li>16</li>
+  <li>17</li>
+  <li>18</li>
+  <li>19</li>
+  <li>20</li>
+  <li>21</li>
+  <li>22</li>
+  <li>23</li>
+  <li>24</li>
+  <li>25</li>
+  <li>26</li>
+  <li>27</li>
+  <li>28</li>
+  <li>29</li>
+  <li>30</li>
+  <li>31</li>
+</ul>
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

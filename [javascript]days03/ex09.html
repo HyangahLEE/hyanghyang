@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		//1. ????.??.1 무슨요일인지 알아야 공백을 넣어준다
+		//2. 마지막 날짜가 며칠까지 있는지 알아야함
+
+		var today = new Date();
+		var curr_year = today.getFullYear();
+		var curr_month = today.getMonth() + 1
+		$("#year").text(curr_year);
+		$("#month").text(curr_month);
+		//> 오늘날짜의 년도와 월
+		// 의 1일이 무슨요일???
+				
+		var ms = today.setDate(1);
+		var dayOfWeek = new Date(ms).getDay();
+
+		var lastDay = getLastDay(curr_year, curr_month);
+		for (var i = 1; i <= 12; i++) {
+			lastDay = getLastDay(curr_year, i);
+			document.write("<li>" + i + "월 " + lastDay + "일 </li>");
+		}
+								//0~11 x > 1~12
+		function getLastDay(year, month) {
+			var d = new Date(year, month - 1 + 1); //+한달 -하루 (일 얻어오기)
+			d.setDate(d.getDate() - 1);
+			return d.getDate();
+		}
+	</script>
+</body>
+</html>

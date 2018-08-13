@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="ex07.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	//$("#cmbNumber").자식추가 append(), appendTo();
+	for (var i = 1; i <=10; i++) {
+		//$("#cmbNumber").append("<option>"+i+"</option>");
+		$("#cmbNumber").append("<option "+(i==5?"selected":"")+">"+i+"</option>");
+	}
+});
+</script>
+</head>
+<body>
+	<select id="cmbNumber">
+	</select>
+	<select name="" id="cmbYear" >
+	</select>년
+	<select name="" id="cmbMonth">
+	</select>월
+	<p id="demo"></p>
+<script>
+	
+		
+var today = new Date();
+var curr_year = today.getFullYear();
+var curr_month = today.getMonth()+1;
+//alert(currYear);
+//cmbYear.selectedIndex  = currYear;
+//cmbMonth.selectedIndex = currMonth;
+
+	//년select
+	var cmbYear = document.getElementById("cmbYear");
+	for (var i = 1950; i <=2050 ; i++) {
+		 var option	= new Option(i,i);
+		// option.value = i;
+		// option.text = i+"년";
+		 cmbYear.options[i-1950] = option;
+		 if(curr_year == i ) option.selected="selected";
+		}
+	
+	//월select
+	var cmbMonth = document.getElementById("cmbMonth");
+	
+	for (var i = 1; i <=12 ; i++) {
+	 var option	= new Option();
+	 option.value = i;
+	 option.text = i;
+	 cmbMonth.options[i-1] = option;
+	 if(curr_month == i ) option.selected="selected";
+	}
+	
+	
+	//p #demo 에 1일의 수요일과 마지막 31날짜 출력
+	proc_calendar(curr_year,curr_month);
+	
+	function proc_calendar(year,month){
+		var dayOfWeek = getDayOfWeek(year, month);
+		var lastDay = getLastDay(year,month);
+		
+		var weeks= "일월화수목금토";
+		console.log(weeks.charAt(dayOfWeek)+"요일");
+		console.log("마지막 날짜"+lastDay);
+
+	}
+</script>
+</body>
+</html>

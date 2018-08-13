@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js Array 자바스크립트배열</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script>
+	/* 
+	var m = [];
+	
+	m[0]=1;
+	m[1]=10;
+	m[2]=15;
+	 */
+	 
+	 //꼭 같은 자료형이 들어가지 않아도 된다. object형태가 들어가기만 하면 댐 !
+	 var m = ["hyang",10,15];
+	// var m = new Array()[1,10,15]; //권장 xxxx 성능저하
+	console.log(m.toString()); //1,10,15
+	var len= m.length;
+	for (var i = 0; i <len; i++) {
+		console.log(m[i]);		
+	}
+	
+	//
+	var arr = [100];
+	arr[1] = 200;
+	arr[2]= 300;
+	//>>>>>>
+	var arr = [100]; //arr.length==1
+	arr[arr.length] = 200;
+	arr[arr.length]= 300;
+	
+	//push();
+	arr.push(400);
+	arr.push(500);
+	
+	arr[8]=800; //건너띄워서 값을 집어넣을 때 빈공간이 생기고 그값은 undefined
+	document.write(arr.toString());
+	
+	//Array객체 isArray() 메서드
+	document.write(Array.isArray(arr));
+	document.write((arr instanceof Array));
+	
+	var person = [];
+	person["frame"]="xxx";
+	person["lrame"]="yyy"; // 명명된 이름으로 값을 출력해야한다.
+	//alert(person[0]); //undefined
+	alert(person["frame"]); //xxx
+</script>
+</body>
+</html>

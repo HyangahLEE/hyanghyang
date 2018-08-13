@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js 형변환 : Number(), parseInt(), parseFloat()</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+	<script>
+		//MIN_VALUE , MAX_VALUE
+		var x = Number.MAX_VALUE;
+		document.write(x+ "<br>"); //1.7976931348623157e+308
+		var x = Number.MIN_VALUE;
+		document.write(x+ "<br>"); //5e-324
+	
+		//Number
+		document.write(Number(true) + "<br>");//1
+		document.write(Number(false) + "<br>");//0 
+		
+		document.write(Number("100") + "<br>");//100
+		document.write(Number("10      ") + "<br>"); //0 
+		document.write(Number("  10    200  ") + "<br>");//NaN
+		document.write(Number("10abc") + "<br>"); //NaN
+		
+		
+		//parseInt
+		document.write(parseInt("10    20") + "<br>"); //10
+		document.write(parseInt("10abc") + "<br>"); //10
+		document.write(parseInt("abc10") + "<br>"); //NaN
+		document.write(parseInt("10.1234") + "<br>"); //10
+		
+		//parseFloat
+		document.write(parseFloat("10    20") + "<br>"); //10
+		document.write(parseFloat("10abc") + "<br>"); //10
+		document.write(parseFloat("abc10") + "<br>"); //NaN
+		document.write(parseFloat("10.1234") + "<br>"); //10.1234
+		
+		//Number(Date) 1970.1.1~ 밀리세컨드 출력
+		document.write(Number(new Date()) + "<br>"); //1533688419246
+		
+		//날짜 ->밀리세컨드
+		//밀리세컨드 -> 날짜
+		document.write(new Date(1533688419246) + "<br>"); //Wed Aug 08 2018 09:33:39 GMT+0900 (한국 표준시)
+	</script>
+</body>
+</html>

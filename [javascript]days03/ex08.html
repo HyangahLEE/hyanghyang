@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js Date 객체</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+	 	var d =new Date();
+	 	d.setFullYear(2000);
+	 	d.setFullYear(2000,0,1);
+	 	d.setMonth(11); //0~11
+	 	d.setDate(20);
+	 	//d.setTime(밀리세컨드);
+	 	/* 
+	 	console.log(d.getFullYear());
+	 	console.log(d.getYear()+1900); //1900+ [118]
+	 	console.log(d.getMonth()+1); //0~11월까지
+	 	console.log(d.getDate()); //일
+	 	console.log(d.getHours());
+	 	console.log(d.getMinutes());
+	 	console.log(d.getSeconds());
+	 	console.log(d.getMilliseconds());
+	 	console.log(d.getTime()); //1970년 1월1일부터 밀리세컨드를 계산한 값.
+	 	console.log(d.getDay()); //요일 (0일요일6)
+	 	console.log(Date.now()); //== getTime() */
+	
+		//[Date.parse()]
+		var str = "2018.12.5";
+		// = new Date(str);
+		Date.parse(str); //****
+
+		// [날짜 객체 만드는 방법]
+		// 1.
+		var d = new Date();
+		document.write(d); //Wed Aug 08 2018 11:29:23 GMT+0900 (한국 표준시)
+
+		//2.
+		//var d = new Date(년,월,일,시간,분,초,밀리세컨드);
+		var d = new Date(2018, 11, 15); //월(0~11)
+		document.write(d);
+
+		//3.
+		//var d = new Date(밀리세컨드);
+
+		//4. 
+		//var d = new Date(날짜형 문자열);
+		var d = new Date("2018.12.15 9:0:0");
+		document.write(d);
+
+		/////////////////////////////////////////////////////EXAMPLE
+		var d = new Date("2018.12"); //Sat Dec 01 2018 00:00:00 GMT+0900 (한국 표준시)
+		var d = new Date("2018.12.01");
+		document.write(d);
+
+		var d = new Date("2018"); //Sat Jan 01 2018 00:00:00 GMT+0900 (한국 표준시)
+		var d = new Date("2018.01.01");
+		document.write(d);
+
+		var d = new Date(2018); //"2018" > 20180101 but! 2018 > 19700101 (밀리세컨드로 계산된다.)
+
+		var d = new Date(18, 11, 15); //1918 12 15 (년도 1~2자리수만 주면 1900년도로 인식한다.)
+
+		var d = new Date(8, 11, 15);
+		document.write(d.toString()); //Tue Dec 15 1908 00:00:00 GMT+0830 (한국 표준시)
+		document.write(d.toUTCString()); //Mon, 14 Dec 1908 15:30:00 GMT
+		document.write(d.toDateString()); //Tue Dec 15 1908
+	</script>
+</body>
+</html>
