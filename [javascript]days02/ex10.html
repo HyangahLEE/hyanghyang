@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+문자열 입력:  <input type="text" id="rrn" value="123456-7891234" /><br>
+<button type="button" onclick="btn_slice();">문자열 잘라오기</button>
+<button type="button" onclick="btn_substring();">문자열 잘라오기2</button>
+<button type="button" onclick="btn_substr();">문자열 잘라오기3</button>
+
+<script type="text/javascript">
+/* js 문자열 잘라오기 : slice(s,e) / substring(s,e) / substr(s,length) */
+var rrn = document.getElementById("rrn").value; 
+function btn_slice(){ //음수값 ㄱ사용가능
+	// string rrn.slice(start,end);
+	//alert(rrn.slice(0,6)); 주민 앞자리6
+	//alert(rrn.slice(7));
+}
+function btn_substring(){
+	alert(rrn.substring(0,6));//*음수값 사용 못한다.
+	
+}
+function btn_substr(){//음수사용가능
+	alert(rrn.substr(0,2));
+}
+</script>
+</body>
+</html>

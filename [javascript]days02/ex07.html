@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	/* $("#btn1").click(btn1_click);
+	function btn1_click(){
+		alert("btn1_click");
+	} */
+});
+</script>
+</head>
+<body>
+<button id="btn1" type="button" onclick="btn_logon(this);">로그인</button><br>
+<button id="btn2" type="button">로그아웃</button><br>
+<hr>
+<input type="button" value="동적버튼" id="btn3" />
+<script>
+function btn_logon(btn){
+	alert("로그인 성공");
+	//1. btn.innerText="로그아웃";
+	
+	//2. 동적 이벤트 등록...
+	document.getElementById("btn2").onclick= btn_logout;
+	
+	//3. js html DOM EventListener(이벤트 리스너)이벤트 등록
+	
+}
+function btn_logout(){
+	alert("로그아웃 성공");
+	document.getElementById("btn2").onclick= null; //이벤트 취소 
+}
+</script>
+</body>
+</html>

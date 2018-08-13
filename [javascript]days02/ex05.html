@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+/* 	$("h1").click(function(){		
+		// this.innerText="wooow"; 
+		
+		//제이쿼리 객체에 사용 할 수 있는 text() 함수
+		//this.text("hahahha"); <-이거슨 DOM객체의 this이기 때문에 사용 xx
+		$(this).text("hahahha");
+	}) */
+	
+	$("h1").hover(
+			//mouseover
+			function(){
+				 
+				// $( this ).css( "color", "white" );
+				// $( this ).css( "backgroundColor", "black" ); 
+				 
+				//$( this ).css( "color", "white" )
+				//		 .css( "backgroundColor", "black" );
+				
+				//$( this ).css({속성명:속성값, 속성명:속성값...});
+				
+				$( this ).css({"color":"white", "backgroundColor":"black" });
+				
+			},
+			//mouseleave
+			function(){
+				$( this ).css({"color":"black", "backgroundColor":"white" });
+		}
+	);
+});
+</script>
+</head>
+<body>
+<!-- h1*5>{Click$} -->
+ <h1>Click1</h1>
+ <h1>Click2</h1>
+ <h1>Click3</h1>
+ <h1>Click4</h1>
+ <h1>Click5</h1>
+<!-- 
+<h1 onmouseover="h1_mouseover(this)" onmouseleave="h1_mouseleave(this)">Click 1</h1>
+<h1 onmouseover="h1_mouseover(this)" onmouseleave="h1_mouseleave(this)">Click 2</h1>
+<h1 onmouseover="h1_mouseover(this)" onmouseleave="h1_mouseleave(this)">Click 3</h1>
+<h1 onmouseover="h1_mouseover(this)" onmouseleave="h1_mouseleave(this)">Click 4</h1>
+<h1 onmouseover="h1_mouseover(this)" onmouseleave="h1_mouseleave(this)">Click 5</h1> -->
+<!-- 
+<h1 onclick="changeText(this);">Click 1</h1>
+<h1 onclick="changeText(this);">Click 2</h1>
+<h1 onclick="changeText(this);">Click 3</h1>
+<h1 onclick="changeText(this);">Click 4</h1>
+<h1 onclick="changeText(this);">Click 5</h1>  
+-->
+<script type="text/javascript">
+function h1_mouseover(obj){
+	obj.style.backgroundColor = "black";
+	obj.style.color = "white";
+	
+}
+
+function h1_mouseleave(obj){
+	obj.style.backgroundColor = "white";
+	obj.style.color = "black";
+	
+}
+function changeText(obj){
+	obj.innerText = 'woow';	
+}
+
+</script>
+<!-- 
+<h1 onclick="this.innerText='WwoooooooowW'">Click 2</h1>
+<h1 onclick="this.innerText='WwoooooooowW'">Click 3</h1>
+<h1 onclick="this.innerText='WwoooooooowW'">Click 4</h1>
+<h1 onclick="this.innerText='WwoooooooowW'">Click 5</h1>  -->
+</body>
+</html>

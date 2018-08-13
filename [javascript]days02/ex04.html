@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js 이벤트 처리</title>
+<style>
+.p_box{
+background-color: white;
+color: red;
+border: solid 2px green;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<!-- onload 브라우저가 웹 페이지를 메모리상에 로딩 했을 때 일어나는 이벤트 ... load이벤트 -->
+<!-- <body onload="alert('로딩후')"> -->
+<body onload="init();">
+<!--[js 이벤트 처리]
+
+1. html요소에 이벤트 발생하면 처리....
+	ㄱ. html 웹 페이지가 로딩... 이벤트 
+	ㄴ. html 웹 페이지가 닫힐 때... 이벤트  ->세션 끊기
+	ㄷ. html 입력 필드가 변경 될 때 ... 이벤트
+	ㄹ. html 버튼 클릭 ... 이벤트 
+2. 이벤트 처리
+	<element oneventname="js coding"></element>
+	<button onclick="btn_click()"></button>
+  -->
+  <!-- html5에 추가된 기능 -->
+ <!--  <input type="number" min="0" max="100"/> -->
+ <select name="cmb" id="cmbcolor" onchange="cmbcolor_chage(this);">
+ 	<option value="1">white</option>
+ 	<option value="2">red</option>
+ 	<option value="3">green</option>
+ 	<option value="4">blue</option>
+ <!-- 	<option value="4" selected>blue</option> -->
+ </select>
+ <hr>
+<!--  선택된 인덱스값/ 선택된 옵션의 val값/ 선택된 text -->
+ <p id="demo" onclick="demo_click(this);"></p>
+ <script type="text/javascript">
+ //메모리 초기화
+ function init(){
+	/*  alert("로딩후 "); //순서 : 1 */
+	 document.bgColor="blue";//2
+	 
+	 //js : option blue selected
+	 //options 컬렉션
+	//  document.getElementById("cmbcolor").options[3].selected=true; 
+	 document.getElementById("cmbcolor").selectedIndex = 3;
+ }
+ 
+ //
+ function demo_click(pElement){
+	/*   >> js로  css 설정
+	 pElement.style.backgroundColor = "white"; //css에서 쓰던  '-'는 js에서는 대문자로 바뀜 ***
+	 pElement.style.color = "red";
+	 pElement.style.border = "solid 2px green"; */
+	 
+	 /* class .p_box선언 */
+ 	 pElement.className = "p_box"
+ }
+ 
+ //
+ function cmbcolor_chage(obj){
+	 document.getElementById("demo").innerText
+	 =obj.selectedIndex +" / "+obj.options[obj.selectedIndex].value +" / "+obj.options[obj.selectedIndex].text;
+	
+	 //배경색 변경
+	 document.bgColor = obj.options[obj.selectedIndex].text;
+	 
+ }
+ </script>
+</body>
+</html>

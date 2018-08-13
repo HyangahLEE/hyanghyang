@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[js Object : number, String , object, boolean]</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+/* var msg = "hello~";
+alert(typeof msg); // STRING
+
+var emp ={};
+alert(typeof emp);// object */
+
+var emp = {
+		
+			empno: 7566,				//속성 - 필드
+			ename:'smith',
+			deptno: 10,
+			toString : function(){ //함수 - 메서드
+				return this.deptno+ " / "+ this.empno+ " / "+this.ename;
+			}
+};
+/* Uncaught ReferenceError: empno is not defined -> this. 붙여줘라!!*/
+
+//Objectname.속성명
+//document.getElementById("demo").innerText=	emp.empno;
+document.getElementById("demo").innerText=	emp["ename"];
+
+// js객체의 메소드 호출 emp.toString();
+//document.getElementById("demo").innerText=	emp.toString();
+
+//emp.toString 메서드의 정의가 반환된다. **
+var f_name = emp.toString;
+//document.getElementById("demo").innerText=	f_name;
+/*>>결과값 
+function(){ //함수 - 메서드
+	return this.deptno+ " / "+ this.empno+ " / "+this.ename;
+	} */
+	
+</script>
+
+</body>
+</html>

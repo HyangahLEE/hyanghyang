@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js 변수선언</title>
+<style>
+</style>
+<script type="text/javascript">
+var name; //전역변수 -> window(최상위) 객체의 변수로 설정
+//name; //전역변수
+function btn1_click(){
+	//var name; //지역변수 
+	
+	name = "admin"; // 함수안에 선언하더라도 var 키워드를 사용하지 않으면 '전역변수'로 선언
+	document.getElementById("demo").innerText =window.name;
+	name ="hong";
+	
+}
+function btn2_click(){
+	document.getElementById("demo").innerText =window.name;
+
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<button type="button" onclick="btn1_click();">버튼 1</button>
+<button type="button" onclick="btn2_click();">버튼 2</button>
+
+<hr>
+<p id="demo"></p>
+</body>
+</html>

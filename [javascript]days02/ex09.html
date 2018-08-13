@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input:focus{
+background-color: pink;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+
+<hr>
+<input type="text" id="rrn6" autofocus="autofocus" maxlength="6"/>-<input type="text" id="rrn7" maxlength="7"/><br>
+<p id="demo">RESULT : </p>
+<script type="text/javascript">
+var p = document.getElementById("demo");
+var rrn6 = document.getElementById("rrn6");
+var rrn7 = document.getElementById("rrn7");
+
+
+p.addEventListener("click",function(){
+	//rrn6문자열 길이 
+	conrrn6.value.length	
+});
+
+rrn7.onkeyup = function(){
+	var len = rrn7.value.length;
+	checkNumberRRN(this);
+	if(len==7 ){
+		p.innerHTML = "<b>"+ rrn6.value+ " - "+rrn7.value+"</b>";
+	}
+}
+
+rrn6.onkeyup = function(){
+	var len = rrn6.value.length;
+	checkNumberRRN(this);
+	if(len == 6){
+		rrn7.focus();
+	}
+}
+
+//숫자인지 체크
+function checkNumberRRN(txtbox){
+	var pattern = /^[0-9]+$/;
+	if(!pattern.test(txtbox.value) ){
+		alert("숫자만 입력하세요!");
+		txtbox.value=	txtbox.value.substr(0, txtbox.value.length-1);
+	};
+}
+</script>
+</body>
+</html>

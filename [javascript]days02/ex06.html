@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태 관리 - 사용자(로그인) 정보 저장...</title>
+<style>
+.box{
+color: red;
+font-size: 20px;
+border: solid 1px gray;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body onload="init();">
+<!-- - 서버에 상태관리 -세션
+- 클라에서 상태관리 - 쿠키 (파일형태로 )
+  쿠키를 사용하려면 브라우저에서  -->
+<p id="demo"></p>
+<script>
+//1. 지금까지 이벤트 처리 html 요소 안에 js코딩으로 처리
+//2. 이제부터 html DOM 이벤트 처리 ㄱㄱ
+/* 
+document.getElementById("demo").onclick=demo_click;//등록   //demo_click() ->호출
+function demo_click(){
+	alert("demo click");
+} */
+
+//function(){} 익명(무명)메소드
+document.getElementById("demo").onclick=function(){
+	alert("demo click");	
+};
+
+function init(){
+	//초기화설정
+	var isCookie = checkCookies(); //쿠키사용 설정했는지 안했는지 함수 생성
+	if( isCookie){
+		msg = "쿠키 사용 가능";
+	}else{
+		msg= "쿠키 사용 불가능";
+	}
+	document.getElementById("demo").innerHTML= "<span class='box'>"+msg+"</span>";
+}
+
+
+function checkCookies(){
+	return navigator.cookieEnabled; // 쿠키사용 가능한지 여부를 알려주는 navigator
+	
+}
+</script>
+</body>
+</html>

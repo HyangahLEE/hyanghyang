@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js 문자열 다루는 메소드</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<!-- 
+js 문자열 다루는 메소드
+1. length
+2. substr, substring, slice -->
+<input type="text" id="data" onkeydown="data_split(this);" value="a  , b ,   c, d, e "/>
+<p id="demo"></p>
+<script type="text/javascript">
+var p = document.getElementById("demo");
+function data_split(tbox){
+	if(event.keyCode==13){
+	//console.log(tbox.value);
+	var names = tbox.value.split(",");
+	//console.log(names.length);
+	//p.innerHTML = "<li>"+names[0]+"</li>"+"<li>"+ names[1]+"</li>";
+	p.innerHTML ="";
+/* 	for (var i = 0; i < names.length; i++) {
+		p.innerHTML += "<li>"+names[i].trim()+"</li>"
+	} */
+	
+	//join 함수
+	p.innerHTML= "<li>"+names.join("</li><li>")+"</li>";
+	}
+}
+</script>
+</body>
+</html>

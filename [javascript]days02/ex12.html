@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script>
+var url = "www.naver.com";
+alert(url.startsWith("http://"));
+var path = "c:\\test\\";
+alert(path.endsWith(\\)); // true;
+
+document.write("hyangahlee".toUpperCase());
+document.write("hyangahlee".toLowerCase());
+
+
+//"   abc ".trim() = "abc"
+
+var test="The rain in \"SPAIN\" stays \'mainly\' in the plain";
+//String.match(정규표현식)
+//g 글 속에 있는 모든 그 단어를 찾아라 
+// i 대소문자 구분 ㄴㄴ
+var result = test.match(/ain/ig); //일치 하는지 안하는지 null아니면 그 값
+var result = test.search(/ain/ig);// 일치하는 인덱스 위치값 반환
+
+document.write(result);
+
+
+</script>
+	<script>
+/* 	length
+	substr~
+	charAt
+	fromCharCode
+	spit
+	concat
+	indexOf()
+	lastIndexOf()
+	replace()
+	repeat()
+	startsWith() 
+	endsWith()
+	toUpperCase()
+	toLowerCase()
+	*/
+	
+	
+	
+	var msg = "안녕하세요. 저는 이향아이고 저 분은 김향아입니다.";
+	alert(msg.indexOf("향아"));
+	alert(msg.lastIndexOf("향아"));
+	document.write(msg.replace("향아","향긔"));
+	document.write("향긔".repeat(10));
+	
+	 var code = 97;
+	 //fromCharCode()
+	// document.write(code + "/" +String.fromCharCode(code));
+	 
+	 var msg = "Hello! I'm Hannah!";
+	 
+	 var str1 = "HAHAHA";
+	 var str2 = " BAAAMMMMM~"
+	 var str = str1.concat(str2);
+	 document.write(str);
+	 
+	 //Number
+	 var x =100 + "";
+	 alert(typeof x);
+	 
+	 var y ="100";// String
+	 alert(typeof (y-0)); //Number
+	 
+	/*  document.write(msg.charAt(0)+"<br>");
+	 document.write(msg.charAt(1)+"<br>");
+	 document.write(msg.charAt(2)+"<br>"); */
+	/*  
+	 for (var i = 0; i < msg.length; i++) {
+		 document.write(msg.charAt(i)+"<br>");
+		 document.write(msg[i]+"<br>");
+	 } */
+	</script> 
+</body>
+</html>

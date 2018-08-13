@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 등록 : 이벤트 리스너 / 이벤트 버블링(Bubbling) / 캡처링(Capturing)</title>
+<style>
+div {
+	border: solid 1px gray;
+	padding: 50px;
+}
+
+#out {
+	background: orange;
+	width: 300px;
+}
+
+#in {
+	background: white;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<!-- 
+* 이벤트 버블링 : 자식에게서 부모까지 이벤트가 전달된다 .
+* 캡처링 : 부모에게서 자식까지 이벤트가 발생한다.  -->
+	<div id="out">
+		<h3>Bubbling</h3>
+		<div id="in">Click</div>
+	</div>
+
+	<script>    
+	//> BOM(브라우저가 제공하는 내장객체) : window, document, navigator
+	window.addEventListener("resize",function(){
+	//	document.getElementById("in")
+	
+	//Math 내장객체
+	//i.innerHTML = Math.random();
+	
+	//크로스브라우징
+	i.innerHTML = (window.innerWidth || document.body.clientWidth || document.documentElement.clientWidth) //크로스 브라우징
+					+ " / " + window.innerHeight;
+	
+	}); //onresize (X)
+
+	//전역변수 
+	var o = document.getElementById("out");
+    var i = document.getElementById("in");
+ 
+ //o.onclick = test;
+ //function test(){};
+ //o.onclick = function(){};
+ 
+ //[이벤트 리스너 등록]-리스너 쓸때는 on을 쓰지 않는다. 
+ //i.addEventListener("on없이 이벤트명", 함수명 또는 무명함수, true캡처링 or false버블링(default));
+ //** 크로스 브라우징 js코딩
+ if(i.addEventListener){ //모든브라우저
+ i.addEventListener("click",function(){
+	 alert("In Div Click1");
+ 	},true);
+
+ } else { //IE 8. 이전
+	 i.attachEvent("onclick",function(){})
+ }
+ 
+ //
+ o.addEventListener("click",function(){
+		 alert("Out Div Click1");	
+	},true); 
+
+ /* 
+ i.addEventListener("click",function(){
+	 alert("In Div Click1");	 
+ });
+ i.addEventListener("click",function(){
+	 alert("In Div Click2");	 
+ });
+ i.addEventListener("click",function(){
+	 alert("In Div Click3");	 
+ });//여러개 등록 가능
+ 
+ //[이벤트 리스너 제거]
+ i.removeEventListener("click",함수명)// 무명메소드는 제거 못함 */
+</script>
+</body>
+</html>
