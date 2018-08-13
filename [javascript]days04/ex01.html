@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 객체</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		//select
+		//option
+
+		//제이쿼리 객체 / 생성하고자 하는 객체 
+		//var $cmb = $("<select id='cmbNumber'></select>");
+		var $cmb = $("<select id='cmbNumber'></select>");
+		$cmb.attr("id", "cmbNumber");
+		for (var i = 1; i <= 15; i++) {
+			//var $op = $("<option value="i">"+i+"</option>");
+			var $op = $("<option></option>");
+			$op.attr("value", i);
+			$op.text(i);
+			$cmb.append($op);
+			if (i == 10)
+				$op.attr("selected", "selected");
+
+		}
+		$('#box').append($cmb);
+
+		//var lottos = /^[0-9]$/ //js정규표현식
+		//var lottos = {}; // js객체
+		var lottos2 = [];
+		var lottos = []; //js배열
+		$cmb.change(function() { //원래 선택되어 있는 것을 바꾸지 않으면 change함수는 적용되지 않는다. -> 10에서 10ㅇ
+			lottos = [];
+			var i = 0;
+			var j = 0;
+			while (j < $cmb.val()) {
+				i=0;
+				lottos=[];
+				while (i < 6) {
+					var n = getRandomInteger(1, 45);
+					if (lottos.indexOf(n) == -1) {
+						lottos.push(n);
+						i++;
+					}
+				}
+				lottos2.push(lotto);
+				j++;
+			}
+			//alert('test');
+			/* 	for (var i = 1; i <=6; i++) {
+				isDuplicationCheck(lottos,i);
+				lottos.push(getRandomInteger(1,10));
+			} */
+			//출력
+			/* for (var i = 1; i <=6; i++) {
+				document.write("["+lottos[i]+"]");
+			}
+			document.write("<br>"); */
+
+			j=0;
+			var result = "";
+			while (j<$cmb.val()) {
+				lottos= lottos2[j];
+				lottos.sort(function(a , b) { a - b });
+				
+				result +=lottos.join(" - ") +"<br>";
+				j++
+
+			}
+			$("#demo").html(result);
+			
+			
+		});
+	});
+</script>
+<script type="text/javascript">
+	//로또 번호 					1    45
+	function getRandomInteger(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+
+	}
+</script>
+</head>
+<body>
+	<div id="box"></div>
+	<p id="demo"></p>
+	<p id="demodemo"></p>
+</body>
+</html>

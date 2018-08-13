@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js this개념</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+//"use strict"
+var x = this;
+//document.getElementById("demo").innerText= x; //output> [object Window]
+
+function test(){
+	return this; //최상위 객체 [object Window]
+				//"use strict"일 때는 undefined
+}
+x= test();
+document.getElementById("demo").innerText= x; //output> [object Window]
+
+var emp = {empno: 1111, ename : "hyang" , deptno: 10
+			disp: function (){
+				//return this.empno + " / "+ this.ename;
+				return this;
+			}
+		};
+		document.getElementById("demo").innerHTML = emp.disp();//[object Object]
+		
+</script>
+</body>
+</html>

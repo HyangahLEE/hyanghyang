@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js 지역/전역 범위(변수)</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+		//var name1;//전역변수
+		//name2;//전역변수
+		/* 
+		test("hong");
+		function test(name){
+			//var name3; //지역변수
+			//name4//전역변수
+			name5 = name;
+			document.write(name5);
+		}
+		 */	
+		 
+		 (
+		 function test(name){
+			 document.write(name);
+		 })("hyang");
+		 
+		 //전역변수는 모두 윈도우(window) 객체에 속하게 된다.
+</script>
+
+<script type="text/javascript">
+	
+	/* js hoisting 개념? 자동으로 변수 선언 부분을 코딩 맨위로 끌어 올려놓는다. */
+			
+	x = 5; //2. 변수값 할당(대입)
+	document.getElementById("demo").innerText = x;
+	var x ; //1. 변수선언
+</script>
+
+<script type="text/javascript">
+	var a = 5; //변수a 선언 5로 초기화.
+	//var b = 7; //output> 5 / 7
+	document.getElementById("demo").innerText = a + " / "+ b;
+	
+	var b = 7; //output>undefined  ??변수 선언만 hoisting하는거지 값을 초기화 하는건 밑에 그대로 있음~!!
+</script>
+
+<script type="text/javascript">
+"use strict"
+//엄격히 문법을 지키겠다 선언!
+var man;
+//mam ="이향아";
+man ="이향아";
+document.getElementById(man);
+
+disp();
+function disp(){
+	//"use strict" >요 지역안에서만 문법을 엄격히 지키겠다.
+	alert("aaa");
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script type="text/javascript">
+/* 
+1. js Data Type : String, number, boolean, function, object
+2. js Object : Date, Array, Object 
+3. js 형변환 
+	ㄱ. 자동형변환
+	ㄴ. 숫자-> 문자열 : String(), "".toString()
+	       날짜 -> 문자열 : String(new Date()) .toString()
+	       문자열 -> 숫자 : Number(), parseint(), parseFloat()
+	       날짜 -> 숫자 : Number(날짜형) == new Date().getTime();
+*/
+
+
+//주의 ***********
+var x = "0";
+//document.write(Boolean(x) + "<br>"); //true *******
+x= "000";
+//document.write(Boolean(x) + "<br>");// true
+x="";
+//document.write(Number(x) + "<br>");// 0
+//document.write(Boolean(x) + "<br>");// true
+x = [];
+document.write(Number(x)+"<br>"); //0
+x = [10];
+document.write(Number(x)+"<br>"); //10
+x = [10,20,30];
+document.write(Number(x)+"<br>"); //NaN
+X= null;
+document.write(Number(x)+"<br>"); //0
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<input type="text" id="n" />
+<button type=button onclick="test();">exec</button>
+<p id="demo"></p>
+<script type="text/javascript">
+function test(){
+	//js 예외처리구문
+	//try catch finally throw
+	var num = document.getElementById("n").value;
+	var pbox = document.getElementById("demo");
+	//5~10 정수를 입력받음...
+	// 5보다 작으면
+	// 10 보다 크면
+	try{
+		if(num =="") throw "empty";
+		if(isNaN(num)) throw "not a number";
+		num =Number(num);
+		if(num < 5) throw "too low";
+		if(num > 10) throw "too high";
+		
+		pbox.innerText = num;
+		
+	}catch(err){
+		pbox.innerText = err;
+	}finally{
+		
+		
+	}
+
+}
+</script>
+</body>
+</html>

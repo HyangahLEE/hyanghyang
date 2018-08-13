@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js비교연산자</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+	<input type="text" id="n" value="10" onkeydown="n_kd(this.value)" />
+	<script type="text/javascript">
+		document.write((2 < 12) + "<br>"); //true
+		document.write((2 < "12") + "<br>"); //true
+		document.write((2 < "hyang") + "<br>"); //false
+		document.write(("2" < "12") + "<br>"); //false /문자열 2와 문자열1을 비교
+		document.write(("2" > "12") + "<br>"); //true
+
+		function n_kd(num) {
+			if (event.keyCode == 13) {
+				alert(num);
+				//정규표현식
+				if (isNaN(num)) {
+					alert("number type 입력하세요.")
+				}else{
+					alert("입력완료")
+				}
+			}
+
+		}
+	
+	</script>
+</body>
+</html>
+

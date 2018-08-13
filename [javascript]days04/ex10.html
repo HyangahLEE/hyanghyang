@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js let</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script type="text/javascript">
+ 
+//[let]사용
+var name = "WOW"; 
+document.write(name +"<br>");//WOW
+{//영역
+	let name = "hyang" //블럭안에 독립적인 name변수 따로 선언하겠다.
+	document.write(name +"<br>"); //hyang
+	}
+document.write(name +"<br>");//WOW
+
+/*
+var name = "hong"; //블럭 밖에 선언된 name변수 
+document.write(name +"<br>");//hong
+{//영역
+	var name = "hyang" //블럭 안에 선언된 name변수 
+	document.write(name +"<br>"); //hyang
+	}
+document.write(name +"<br>");//hyang
+*/
+
+/* 
+var i = 5;
+for (var i = 0; i < 10; i++) { //var i =0은 for블럭안에서만 사용하는 지역변수 
+	document.write(i+" / "); // > 0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9 / 
+	
+}
+document.write("<br>"+i);//> 10
+ */
+ 
+//[let]사용/* 
+var i = 5;
+for (let i = 0; i < 10; i++) {
+	document.write(i+" / "); // > 0 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9 / 
+	
+}
+document.write("<br>"+i); //> 5 */
+</script>
+<script type="text/javascript">
+	var z =5;
+	let z =10;
+	{
+		let z= 20;
+		
+	}
+	{
+		let z = 30;
+	}
+	//document.write(z); //오류> Uncaught SyntaxError: Identifier 'z' has already been declared
+	//같은영역에 var과 let같이 못씀. 
+</script>
+<script type="text/javascript">
+//[상수]
+ const PI =3.141592;
+ //PI =3.14; //오류 > Uncaught TypeError: Assignment to constant variable.
+ document.write(PI);
+</script>
+<script type="text/javascript">
+ var x = 0;
+ // x ==10 주의***
+ // if(x = 10) >"O" 
+ // if(x = "") >"X"
+ if(x = "") { alert("O")}
+ else {alert("X")}
+</script>
+</body>
+</html>

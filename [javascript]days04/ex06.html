@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>정규표현식</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<script type="text/javascript">
+//  정규표현식? 검색 패턴을 형성하는 일련의 문자 / 문자검색, 문자변경작업
+// js 정규표현식 선언 형식? /패턴/모드
+var pattern = /w3c/i; //i대소문자 구분x
+// js 메서드 
+//search() : 정규표현식을 사용해서 일치하는 항목을 검색하고 위치를 반환.
+//replace() : 정규표현식을 사용해서 일치하는 항목을 검색하고 변경
+
+var str ="hyang w3c ah";
+var pattern = /w3c/i;
+var idx = str.search(pattern);
+//document.write(idx);
+if(idx !=-1){
+	str2= str.replace(pattern,'xxx');
+	//document.write(str2);
+}
+// [js 패턴] / 표현식/모드(img)
+// i모드 : 대소문자 구분x
+// g모드 
+var str = "Is this all there is\nI IS..."; //Is,is,is,IS
+var pattern =/is/igm;
+var result = str.match(pattern);
+//document.write(result);
+/*
+[0-9] ==\d
+[^0-9] == 0~9가 나오면 안된다.
+/^[0-9]{1,2}$/ = 0-9가나와야한다.
+ 반복횟수 : + * ?
+{n}, {n,m}		 
+ */
+ 
+ //match() is,Is 찾은 문자열 반환/ search(regexp) 위치 / replace(regxp) 변경
+ //test() true/false 반환메소드
+ var str = "Is this all there is\nI IS..."; //Is,is,is,IS
+var pattern =/is/;
+ document.write(pattern.test(str)); //true
+ //if(입력 유효성 검사 pattern.test(regexp)){}
+ 
+ //exec() 패턴에 일치하는 항목을 찾으면 그 항목을 반환하고 못찾으면 null반환
+ document.write(pattern.exec(str)); //str
+ 
+</script>
+</body>
+</html>

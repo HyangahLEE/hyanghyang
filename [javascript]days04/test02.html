@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+		//-*-*-*-*-*-*-*-*-*-*
+		//변수 선언 차이점
+		//１) a = 1; (전역변수)
+		//２) var a = 1; (자바스크립트 변수)
+		//３) var $a = 1; (제이쿼리 변수, 제이쿼리 내장함수 모두 사용 가능)
+		//-*-*-*-*-*-*-*-*-*-*
+		//３) 변수 선언은 .css(), .hide(), .show() 등 사용 가능
+		//２) 변수로 선언 시 위의 내장함수(메소드) 사용 불가
+
+
+
+		//var $변수; => JQuery 변수로 사용 JQuery의 내장 함수 사용 가능
+
+		var $cmb = $("<select></select>"); //문서 객체 생성
+		$cmb.attr("id", "cmbnumber");
+
+		for (var i = 1; i <= 15; i++) {
+			var $option = $("<option></option>");
+			$option.attr("value", i);
+			$option.text(i);
+			$cmb.append($option);
+			if (i == 10) $option.attr("selected", "selected")
+		}
+
+
+		$("#box").append($cmb);
+
+		var lotto = [];
+		var lottos = []; //lotto배열의 값을 다시 lottos배열의 값에 담기 위해 변수 선언 [ 2차원 배열이 안됨! ]
+
+		$cmb.change(function() {
+
+			lotto = [];
+
+			/* 			for (i = 1; i <= 6; i++) {
+
+							lotto.push(getRandomInteger(1, 45)); 
+						}*/
+
+
+			var i = 0;
+			var j = 0;
+
+			while (j < $cmb.val()) {
+				i = 0; //초기화
+				lotto = []; //초기화
+
+				while (i < 6) {
+
+
+					var n = getRandomInteger(1, 45);
+					if (lotto.indexOf(n) == -1) {
+						lotto.push(n);
+						i++;
+					}
+				}
+				lottos.push(lotto); // lotto 값을 lottos에 삽입
+				j++;
+			}
+			;
+
+
+
+			/* for(i=1; i<=6; i++){
+						 
+				document.wrtie("[" + lotto[0] + "]");
+			} */
+
+			j = 0;
+			var result = "";
+			while (j < $cmb.val()) {
+
+				lotto = lottos[j];
+
+				lotto.sort(function(a, b) {
+					return a - b;
+				}); //오름차순 정렬
+
+				result += lotto.join(" - ") + "<br/>";
+				j++;
+			}
+			$("#demo").html(result);
+		});
+	});
+</script>
+
+<script>
+	function getRandomInteger(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	;
+</script>
+<style></style>
+</head>
+<body>
+	<div id="box"></div>
+	<p id="demo"></p>
+</body>
+</html>

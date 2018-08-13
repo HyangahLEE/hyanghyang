@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  table, th, td{
+     border:solid 1px gray;
+     /* border-collapse: collapse; */
+  }
+  table{
+    /* width: 100%; */
+  }
+  
+  td.prev {
+    color: red;
+  }
+  td.next {
+    color:blue;
+  }
+</style>
+<script src="/webPro/javascript/days03/ex07.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		/* 
+		$('button').click(function (){
+			alert( $(this).text() );
+		});
+		 */
+
+		$("#n").keydown(function (){
+			 $("span").css("display","none");
+		 });
+		// if
+		$('button:first-of-type').click(function() {
+			// 유효성 검사 1) 필수입력
+			//          2) 숫자(정수)   0~ 100
+			var n = $("#n").val().trim();
+	        if( n.length == 0){
+	        	alert("필수 입력!!!");
+	        	$("span").css("display","inline-block");
+	        	return;
+	        }
+	        
+	        // 0~100 정수
+	        var pattern = /(^[0-9]{1,2}$|100)/     //  /정규표현식/모드(igm)
+	        if( !pattern.test(n) ){
+	        	alert("입력 잘못( 0~ 100 사이 )!!!");
+	        	$("#n").val("").focus();
+	        	return; 
+	        }
+	        
+	        if( n >=90 ) grade="수";
+	        else if( n >=80 ) grade="우";
+	        else if( n >=70 ) grade="미";
+	        else if( n >=60 ) grade="양";
+	        else   grade="가";
+	        
+	        $("#demo").text("score : \'"+ n +"\"은 " + grade);
+			
+			/* 
+			// alert($(this).text());
+			var n = $("#n").val();
+			var sum = 0;
+			// 1+2+3+---- +10=55
+			var data = "";
+			for(var i=1 ; i<=n ; i++){
+				sum += i;
+				data += i+ (i==n?"":"+");
+			}
+			data +="="+sum;
+			$("#demo").text(data);
+			 */
+		});
+		// switch
+		$('button:nth-of-type(2)').click(function() {
+			var n = $("#n").val().trim();
+	        if( n.length == 0){
+	        	alert("필수 입력!!!");
+	        	$("span").css("display","inline-block");
+	        	return;
+	        }
+	        
+	        // 0~100 정수
+	        var pattern = /(^[0-9]{1,2}$|100)/     //  /정규표현식/모드(igm)
+	        if( !pattern.test(n) ){
+	        	alert("입력 잘못( 0~ 100 사이 )!!!");
+	        	$("#n").val("").focus();
+	        	return; 
+	        }
+	        
+	        // switch 문 코딩 수정..
+	        switch( Math.floor( n/10 ) ){
+	           default: grade="가"; break;
+	           case 10:case 9: grade="수"; break;       
+	           case 8: grade="우"; break;
+	           case 7: grade="미"; break;
+	           case 6: grade="양"; break;
+	        }
+	        
+	        $("#demo").text("score : \'"+ n +"\"은 " + grade);
+		});
+		// for
+		$('button:nth-of-type(3)').click(function() {
+			// 구구단
+			var out = [];
+			out.push("<table>");
+			out.push("<tr>");			
+			for( dan=2 ; dan<=9; dan++){
+				out.push("<th>");
+				out.push(dan+"단");
+				out.push("</th>");
+			}
+			out.push("</tr>");
+			//
+			out.push("<tr>");			
+			for( dan=2 ; dan<=9; dan++){
+				out.push("<td style='padding-left:15px;'>");
+				//
+				for( i=1; i<=9; i++){
+					 out.push(dan+"*"+i+"="+ dan * i );
+					 out.push("<br>");
+				}
+				out.push("</td>");
+				out.push("</th>");
+			}
+			out.push("</tr>");
+			//
+			out.push("</table>");
+			
+			$("#demo").html( out.join("") );
+		});
+		// while
+		$('button:nth-of-type(4)').click(function() {
+			var year =  new Date().getFullYear();
+			var month = $("#n").val().trim() ; // new Date().getMonth()+1;
+			
+			var out = [];
+			out.push("<table>");
+			out.push("<caption>");
+			out.push(year + " / " + month);
+			out.push("</caption>");
+			var weeks = "일월화수목금토";
+			out.push("<tr>");
+			var i= 0;
+			while(i < weeks.length){
+				out.push("<th>");
+				out.push( weeks[i++] );
+				out.push("</th>");
+			}
+			out.push("</tr>");
+			// 1~31 날짜 코딩.
+		var dayOfWeek = getDayOfWeek(year, month);
+	    var lastDay = getLastDay(year, month);
+	    
+	    var start_day = new Date(
+	    		      year
+	    		    , month-1
+	    		    ,1);
+	   start_day.setDate(start_day.getDate()- (dayOfWeek==0?7:dayOfWeek)-1 );
+	   
+	   // alert(start_day.toString() ); 
+	   
+			for(r=1; r<=6;r++){
+				out.push("<tr>");
+				for(c=1; c<=7;c++){
+					start_day.setDate( start_day.getDate() + 1  );
+			if(month > start_day.getMonth()+1 ){
+				out.push("<td class='prev'>");
+			}else if( month < start_day.getMonth()+1 ){
+				out.push("<td class='next'>");
+			}else{
+				out.push("<td>");
+			}
+					out.push(start_day.getDate());
+					console.log(start_day.toString());
+					// out.push( (r-1)*7+c-1 );
+					out.push("</td>");
+				}
+				out.push("</tr>");
+			}
+			
+			out.push("</table>");
+			
+			$("#demo").html(out.join(""));
+		});
+		
+		//do-WHILE
+		$('button:nth-of-type(5)').click(function() {
+			/* do{
+				
+			}while(조건식)
+			 */
+			 var meats = ["chicken","beef","pork","lamp"];
+			var len = meats.length;
+			var i =0;
+			xxx: // 반복문 빠져나오기 위한 라벨 지정
+			do {
+				var meat = meats.pop();
+				if(meat == undefined) break xxx; //break 라벨명
+				document.write(meat+"<br>");
+				i++;
+			} while (meat != undefined);
+			document.write("END");
+		});
+		// foreach
+		$('button:last-of-type').click(function() {
+			/*  var meats = ["chicken","beef","pork","lamp"];
+			 // java : 배열 또는 컬렉션에 사용한다. 
+			 var meat;
+			 for(meat in meats){
+				 document.write(meats[meat]+"<br>");// meat을 출력했을때는 인덱스값만 나옴
+			 } */
+			 
+			 //js 객체
+			 var emp = {empno : 7566, ename: "hong", deptno:10};
+			 //document.write(emp.empno+"<br>");
+			 //document.write(emp["empno"]+"<br>");
+			 for(x in emp){ 
+				// document.write(x +"<br>");
+				 document.write(emp[x] +"<br>");
+			 }
+			 
+		});
+	});
+</script>
+</head>
+<body>
+	<input type="text" id="n" value="10" />
+	<span style="color:red;display: none">*</span>
+	<br>
+	<button type="button">if</button>
+	<button type="button">switch</button>
+	<button type="button">for</button>
+	<button type="button">while</button>
+	<button type="button">do~while</button>
+	<button type="button">foreach</button>
+	<p id="demo"></p>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table, th, td{
+border: solid 2px blue;
+border-collapse: collapse;}
+table {
+width: 50%;}
+.prev,.next{
+background-color: black;
+color: white;
+}
+
+</style>
+<script src="../days03/ex07.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('button:first-of-type').click(function() {
+			var n = $("#n").val().trim();
+	        if( n.length == 0){
+	        	alert("필수 입력!!!");
+	        	$("span").css("display","inline-block");
+	        	return;
+	        }
+	        
+	        //0~100정수 
+	        var pattern =/(^[0-9]{1,2}$|100)/;
+	        if(!pattern.test(n)){
+	        	alert("입력 잘못!! (0~100사이)");
+	        	$("#n").val("").focus();
+	        	return;
+	        }
+	        
+	        if( n >=90 ) grade="수";
+	        else if( n >=80 ) grade="우";
+	        else if( n >=70 ) grade="미";
+	        else if( n >=60 ) grade="양";
+	        else   grade="가";
+	        
+	        $("#demo").text(grade);
+		});
+		//switch
+		$('button:nth-of-type(2)').click(function() {
+			
+				var n = $("#n").val().trim();
+		        if( n.length == 0){
+		        	alert("필수 입력!!!");
+		        	$("span").css("display","inline-block");
+		        	return;
+		        }
+		        
+		        //0~100정수 
+		        var pattern =/(^[0-9]{1,2}$|100)/;
+		        if(!pattern.test(n)){
+		        	alert("입력 잘못!! (0~100사이)");
+		        	$("#n").val("").focus();
+		        	return;
+		        }
+		        
+		        switch (Math.floor(n/10)) {
+				case 10:case 9:
+						grade="수";
+					break;
+				case 8:
+					grade="우";
+				break;
+				case 7:
+					grade="미";
+				break;
+				case 6:
+					grade="양";
+				break;
+				default:
+					grade="가";
+					break;
+				}
+		        $("#demo").text(grade);
+		});
+		//for
+		$('button:nth-of-type(3)').click(function() {
+		var out = [];
+		out.push("<table>");
+		out.push("<tr>");
+		for (var dan = 2; dan <=9; dan++) {
+			out.push("<th>");
+			out.push(dan +"단");
+			out.push("</th>");
+		}
+		out.push("</tr>");
+		//
+		out.push("<tr>");
+		for (var dan = 2; dan <=9; dan++) {
+			out.push("<td>");
+		for (var i = 1; i <=9; i ++) {
+		
+			out.push(dan +"*"+i+"="+dan*i);
+			out.push("<br>");
+		}
+		out.push("</td>");
+		}
+		out.push("</tr>");
+		
+		out.push("</table>");
+		
+		 $("#demo").html(out.join(""));
+		})
+		
+		
+		//while
+		$('button:nth-of-type(4)').click(function() {
+		 var year = new Date().getFullYear();
+		 var month = new Date().getMonth()+1;
+		 
+		 var out = [];
+		 out.push("<table>");
+		 out.push("<caption>");
+		 out.push(year+"년 "+month+"월");
+		 out.push("</caption>");
+		 var weeks = "일월화수목금토";
+		 out.push("<tr>");
+		 var i =0;
+		 while (i<weeks.length) {
+			 out.push("<th>");
+			 out.push(weeks[i]);
+			 out.push("</th>");
+			i++;
+		}
+		 out.push("</tr>");
+		// out.push("</table>");
+		 
+		 var dayOfWeek = getDayOfWeek(year,month);
+		 var lastDay =getLastDay(year,month);
+		 var startDay = new Date(year, month-1, 1 );
+		 startDay.setDate(startDay.getDate()- (dayOfWeek==0?7:dayOfWeek)-1 );
+		 for (r = 1; r <=6; r++) {
+			 out.push("<tr>")
+			 for (c = 1; c <=7; c++) {
+				 startDay.setDate(startDay.getDate()+1);
+				
+				 if(month< startDay.getMonth()+1)
+					 out.push("<td class='prev'>")
+				else if(month>startDay.getMonth()+1){
+					 out.push("<td class='next'>")
+				}else{	out.push("<td>") }
+				 out.push(startDay.getDate());
+				 out.push("</td>")
+			}out.push("</tr>")
+			
+		}
+		 out.push("</table>");
+		 
+		 $("#demo").html(out.join(""));
+		})
+				
+		$('button:nth-of-type(5)').click(function() {
+
+		})
+		$('button:last-of-type').click(function() {
+
+		});
+	});
+</script>
+</head>
+<body>
+	<input type="text" id="n" value="10" />
+	<span style="display: none">*</span>
+	<br>
+	<button type="button">if</button>
+	<button type="button">switch</button>
+	<button type="button">for</button>
+	<button type="button">while</button>
+	<button type="button">do-while</button>
+	<button type="button">foreach</button>
+	<p id="demo"></p>
+</body>
+</html>
