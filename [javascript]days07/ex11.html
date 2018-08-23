@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우편번호 검색</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	 $("#dong").val(default_dong); 
+
+});
+</script>
+</head>
+<body onunload="opener_unload();">
+<table border="1" style="width: 500px; margin:0 auto ;">
+	<tr>
+		<td>우편번호</td>
+		<td>
+		<input type="text" id="zipcode1" name = "zipcode1" maxlength="3"/>
+		-
+		<input type="text" id="zipcode2" name = "zipcode2" maxlength="6"/>
+		<input type="button" value = "우편번호검색" onclick="search_zipcode()"/></td>
+	</tr>
+	<tr>
+		<td>주소</td>
+		<td><input type="text" id="addr1" name="addr1" style="width: 90%;" /></td>
+	</tr>
+	<tr>
+		<td>상세주소</td>
+		<td><input type="text" id="addr2" name="addr2" style="width: 90%;" /></td>
+	</tr>
+</table>
+<script type="text/javascript">
+var zipwindow;
+function search_zipcode(){
+	if(!zipwindow){ //true가 되면
+		zipwindow= window.open("ex12.html","","width=600 , height =500, top=200, left=200;");
+		zipwindow.default_dong = "권선"//초기값 변수선언
+	}else{
+		zipwindow.focus();
+	}
+}
+function opener_unload(){
+	if(zipwindow){
+		zipwindow.close();
+	}
+}
+</script>
+</body>
+</html>

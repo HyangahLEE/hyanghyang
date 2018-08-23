@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<!-- [BOM]
+
+1. window    최상위 객체...
+2. screen    스크린정보
+3. location  웹 페이지 정보
+4. history   방문자 정보
+5. navigator 방문자 브라우저에 대한 정보... -->
+<script type="text/javascript">
+document.getElementById("demo").innerHTML = navigator.appName+"<br>"+navigator.appVersion +"<br>" 
+										+ navigator.cookieEnabled +"<br>" + navigator.platform // ****중요
+//>		Netscape 	5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36	    
+//> 	Win32  true	 
+</script>
+</body>
+</html>

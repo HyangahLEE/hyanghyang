@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Accodion 아코디언 구현 [메뉴 펼치기]</title>
+<style>
+.accordion {
+	background: #eee;
+	color: #444;
+	cursor: pointer;
+	width: 100%;
+	padding: 18px;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+}
+
+.accordion::after {
+	content: '\002B'; /* + */
+	color: #777;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.panel {
+	padding: 0 18px;
+	background: white;
+	width: 100%;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.4s ease-out;
+}
+p{
+width: 100%;}
+.active::after {
+	content: "\2212"; /* - */
+}
+
+.avtive, .accordion:hover {
+	background: #ccc;
+	font-weight: bold;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {});
+</script>
+</head>
+<body>
+	<!--button.accordion*5>{Section $}+div.panel>p>lorem -->
+	<button class="accordion">Section 1</button>
+	<div class="panel">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
+			unde quaerat soluta explicabo ut molestias totam in nobis aspernatur
+			iste obcaecati impedit harum necessitatibus deleniti id quia placeat
+			officiis modi.</p>
+	</div>
+
+	<button class="accordion">Section 2</button>
+	<div class="panel">
+		<p>Accusantium tempore incidunt sapiente sunt adipisci omnis quae
+			perferendis rem natus atque qui esse suscipit laudantium non quia
+			commodi ratione doloremque cum architecto reiciendis alias fugit
+			cupiditate culpa quis molestias!</p>
+	</div>
+
+	<button class="accordion">Section 3</button>
+	<div class="panel">
+		<p>Perspiciatis accusamus voluptates laborum accusantium nihil
+			quaerat optio mollitia unde neque ducimus fugiat eligendi animi saepe
+			culpa sint fugit deleniti quasi. Omnis corporis temporibus quibusdam
+			eveniet exercitationem ad maxime modi!</p>
+	</div>
+
+	<button class="accordion">Section 4</button>
+	<div class="panel">
+		<p>Nemo quibusdam modi inventore quam deleniti ad distinctio
+			dolorem fugit error nisi quos cumque atque omnis corporis cum.
+			Suscipit voluptates et itaque voluptate dicta corporis fugiat libero
+			ipsa esse quisquam.</p>
+	</div>
+
+	<button class="accordion">Section 5</button>
+	<div class="panel">
+		<p>Sit voluptate mollitia et quidem inventore eveniet cum qui
+			vitae aliquam rem veritatis quas neque ducimus eaque nam velit
+			aspernatur ratione asperiores quaerat sequi in quod possimus maiores
+			temporibus quam.</p>
+	</div>
+
+</body>
+<script type="text/javascript">
+
+	var accordionBtns = document.getElementsByClassName("accordion");
+	for (var i = 0; i < accordionBtns.length; i++) {
+		//accordionBtns[i].onclick = function(){}
+		accordionBtns[i].addEventListener("click", function(e) {
+			this.classList.toggle("active");
+			//클릭된 버튼의 다음 형제  div.panel
+			var panel = this.nextElementSibling;
+			if (panel.style.maxHeight) { //메뉴닫기
+				panel.style.maxHeight = null;
+			} else {
+				panel.style.maxHeight = panel.scrollHeight + "px";
+			}
+
+
+		}, true);
+
+	}
+</script>
+</html>

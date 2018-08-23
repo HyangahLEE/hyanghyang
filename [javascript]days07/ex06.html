@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<table border="1" style="width: 100%">
+<tr>
+	<td>절대위치</td>
+	<td onclick="fun_moveto();">moveTo()</td>
+</tr>
+<tr>
+	<td>상대위치</td>
+	<td onclick="fun_moveby();">moveBy()</td>
+</tr>
+<tr>
+	<td>절대크기</td>
+	<td onclick="fun_resizeto();">resizeTo()</td>
+</tr>
+<tr>
+	<td>상대크기</td>
+	<td onclick="fun_resizeby();">resizeBy()</td>
+</tr>
+<tr>
+	<td>상대크기</td>
+	<td onclick="fun_shake();">shake()</td>
+</tr>
+</table>
+<script type="text/javascript">
+function fun_moveto(){
+	window.moveTo(10, 10);
+	
+}
+function fun_moveby(){
+	window.moveBy(30,30);
+	
+}
+function fun_resizeto(){
+	window.resizeTo(300, 300);
+}
+function fun_resizeby(){
+	window.resizeBy(30, 30)(30, 30);
+}
+function fun_shake(){
+	var cnt = 0;
+	
+		var x = Math.random()*50-25;
+		var y = Math.random()*50-25;
+		window.moveBy(x,y);
+		cnt++;
+		timer = window.setTimeout(fun_shake,50)
+		if(cnt==100){
+			window.clearTimeout(timer);
+			window.moveTo(200,100);
+			cnt=0;
+		}	
+		
+}
+
+</script>
+</body>
+</html>

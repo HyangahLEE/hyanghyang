@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOM - location 객체</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<!-- 1. 현재 페이지 주소(URL)를 가져오고 브라우저를 새 페이지로 리디렉션 하는데 사용함. 
+2. 
+	ㄱ.window.location.href =이동할 url: 현재 페이지의 href 속성을 반환 및 설정.
+	ㄴ. location.hostname : 웹 호스트의 도메인 명을 반환.
+	ㄷ. location.pathname : 현재 페이지의 경로와 파일명 반환
+	ㄹ. location.protocol : 웹 프로토콜 반환 -->
+	<p id="demo"></p>
+	<button onclick="page_move()">페이지 이동</button>
+</body>
+<script type="text/javascript">
+document.getElementById("demo").innerHTML = location.herf +"<br>" +location.hostname +"<br>"+ location.protocol+ "<br>"+location.pathname;
+//undefined | localhost | http: | /webPro/javascript/days07/ex08.html
+
+function page_move(){
+	//location.href = "http://www.naver.com"; 
+	location.href = "ex07.html"; 
+	//새문서를 로딩.. (잘안씀)
+	//location.assign("http://www.naver.com");
+}
+</script>
+</html>

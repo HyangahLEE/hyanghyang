@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {});
+</script>
+</head>
+<body>
+	<!-- 
+[js 팝업 상자]
+1.  alert();
+2. confirm() : 확인상자 //yes or no
+3. prompt(message, value);
+	
+	
+	 -->
+	<script type="text/javascript">
+		/* var result =  window.confirm("정말 닫으시겠습니까?");
+		//alert(result);// 넵 ==true / 놉 == false
+		if(result){ //t
+			self.close();
+		//	window.close();
+		} */
+		var res = window.prompt("내가 화를 안낼 확률?", "50");
+		//alert(res); //50
+		if (res) { //res == null 취소 ==false
+			alert(res + "%")
+		}
+	</script>
+</body>
+</html>

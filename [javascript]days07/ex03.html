@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>디데이(D-day)</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<h3 id="demo"></h3>
+<script type="text/javascript">
+ //var completionDay = new Date(2018,10,22,18,0,0);
+ var completionDay = new Date("2018/11/22 18:00:00").getTime();
+ var demo =document.getElementById("demo");
+ //var now = new Date();
+ //console.log(completionDay);//1542877200000
+ window.onload = function(){
+	 //중첩메소드 
+	 window.setInterval(function(){
+		 var now = new Date().getTime();	
+		 var distance = completionDay -now; 
+		 //1초 = 1000ms
+		 //1분 = 60초 6000ms
+		 //1시간 = 60분 = 60*60*1000ms
+		 //(하루)24시간 = 24*60*60*1000ms
+		var days = Math.floor( distance / ( 24*60*60*1000));
+		var hours = Math.floor( distance %( 24*60*60*1000) / ( 60*60*1000));
+		var minutes = Math.floor( distance %( 60*60*1000) / ( 60*1000));
+		var seconds = Math.floor( distance%( 60*1000) / 1000);
+		 demo.innerHTML = days+"일 "+hours+"시간 "+ minutes+"분 "+seconds+"초";
+	 },1000);
+	 
+ }
+ 
+</script>
+</body>
+</html>

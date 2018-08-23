@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우편번호 검색창 (새로운창)</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+/* $(document).ready(function(){
+	$("#dong").val(default_dong);
+}); */
+</script>
+</head>
+<body onunload="win_unload();">
+<table border="1" style="width: 100%">
+<tr>
+	<td> 검색할 동 입력 : 
+	<input type="text" id="dong" name="dong" value=""/>
+	<input type="button" value="검색" onclick="search_dong()" />
+	</td>
+</tr>
+<tr>
+	<td>
+	<div id="searchResult" style="visibility: hidden">
+	<a href="javascript: sendAddress('123','451','경기도 수원시 권선구 권선1동')">123-451</a>경기도 수원시 권선구 권선1동<br>
+	<a href="javascript: sendAddress('123','452','경기도 수원시 권선구 권선2동')">123-452</a>경기도 수원시 권선구 권선2동<br>
+	<a href="javascript: sendAddress('123','453','경기도 수원시 권선구 권선3동')">123-453</a>경기도 수원시 권선구 권선3동<br>
+	<a href="javascript: sendAddress('123','454','경기도 수원시 권선구 권선4동')">123-454</a>경기도 수원시 권선구 권선4동<br>
+	<a href="javascript: sendAddress('123','455','경기도 수원시 권선구 권선5동')">123-455</a>경기도 수원시 권선구 권선5동<br>
+	<a href="javascript: sendAddress('123','456','경기도 수원시 권선구 권선6동')">123-456</a>경기도 수원시 권선구 권선6동<br>
+	</div>
+	</td>
+</tr>
+<tr> 
+	<td>'권선' 검색 결과 10개 검색 되었습니다.</td>
+</tr>
+</table>
+<script type="text/javascript">
+function search_dong(){
+	document.getElementById("searchResult").style.visibility="visible";
+}
+function sendAddress(zipcode1,zipcode2,addr1 ){
+	//opener//window에 현재 창을 띄운 창
+	//자식창이 부모창을 사용할 때 opener객체를 사용
+	opener.document.all.zipcode1.value =zipcode1;
+	//모든 element모두 가져와서 이름이 zipcode1인 거 가져오겠다
+	opener.document.getElementById("zipcode2").value =zipcode2;
+	opener.document.getElementById("addr1").value =addr1;
+	
+	self.close();
+	opener.document.getElementById("addr2").focus();
+	
+}
+function win_unload(){
+	opener.zipwindow = null;
+}
+</script>
+</body>
+</html>

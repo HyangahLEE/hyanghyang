@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>x표시 메뉴</title>
+<style>
+.bar1 , .bar2, .bar3{
+width: 35px;
+height: 5px;
+background: #333;
+margin: 6px 0; 
+transition = 0.4s ; 
+}
+.style_change .bar2{
+opacity: 0;
+}
+.style_change .bar1{
+transform: rotate(-45deg) translate(-9px, 6px);
+-webkit-transform: rotate(-45deg) translate(-9px, 6px);
+}
+.style_change .bar3{
+transform: rotate(45deg) translate(-8px, -8px);
+-webkit-transform: rotate(45deg) translate(-8px, -8px);
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+
+</head>
+<body>
+<div class="container">
+<div class="bar1"></div>
+<div class="bar2"></div>
+<div class="bar3"></div>
+</div>
+<script type="text/javascript">
+var container = document.getElementsByClassName("container");
+container[0].onclick = function (){
+	
+	this.classList.toggle("style_change");
+	
+}
+</script>
+</body>
+</html>

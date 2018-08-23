@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>검색어 자동완성</title>
+<style>
+#txtSearch {
+	border: solid 1px black;
+	width: 250px
+}
+
+#searchList {
+	visibility: hidden;
+	width: 250px;
+	height: 200px;
+	border: solid 1px gray;
+	position: absolute;
+	left: 70px;
+	top: 30px;
+	width: 250px;
+}
+
+#searchList_Header {
+	width: 96%;
+	height: 16px;
+	background: #d3d3d3;
+	padding: 5px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.item {
+	color: red;
+	font-weight: bold;
+}
+
+#searchList_Items {
+	
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {});
+</script>
+</head>
+<body>
+	<div>
+		검색어 : <input type="text" id="txtSearch" name="txtSearch"
+			onkeyup="txtSearch_keyup();" />
+		<div id="searchList">
+			<div id="searchList_Header">검색어 자동 완성</div>
+			<div id="searchList_Items"></div>
+		</div>
+	</div>
+	<hr>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<p>.</p>
+	<script type="text/javascript">
+		var items; //검색결과 저장할 배열 변수...
+		function txtSearch_keyup() {
+			var searchList = document.getElementById("searchList");
+			var searchList_Items = document.getElementById("searchList_Items");
+	
+			var searchWord = document.getElementById("txtSearch").value;
+			searchList_Items.innerHTML = ""; // 초기화 
+	
+			if (searchWord.trim() == "") {
+				searchList.style.visibility = "hidden";
+	
+				return;
+			}
+	
+			//DB where like '%차은우%';
+			switch (searchWord) {
+			case "가":
+				items = [ "가", "가격", "가격비교", "가격비교사이트", "가자미", "가자향아", "가판대", "가수" ];
+				break;
+			case "가격":
+				items = [ "가격", "가격비교", "가격비교사이트" ];
+				break;
+			case "가격비":
+				items = [ "가격비교", "가격비교사이트" ];
+				break;
+			case "가자":
+				items = [ "가자미", "가자향아" ];
+				break;
+			}
+	
+			var len = items.length;
+			for (var i = 0; i < len; i++) {
+				var item = document.createElement("div");
+				item.innerHTML = items[i].replace(searchWord, "<span class='item'>" + searchWord + "</span>");
+	
+				item.onmouseover = function() {
+					this.style.backgroundColor = "#ffcc66";
+				}
+				item.onmouseout = function() {
+					this.style.backgroundColor = "#fff"
+				}
+				searchList_Items.appendChild(item);
+			} //for
+	
+	
+			searchList.style.visibility = "visible";
+		}
+	</script>
+</body>
+</html>

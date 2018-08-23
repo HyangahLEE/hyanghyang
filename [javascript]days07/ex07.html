@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOM- window</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+
+<button onclick="history.back();">history의 back() 메소드</button>
+<!-- history.forward() == history.go(1) -->
+<!-- history.back() == history.go(-1) -->
+<hr>
+<p id="demo"></p>
+
+<!-- 
+1.window
+2. screen 객체 - 사용자 화면에 대한 정보를 포함하는 객체.ㅇㅅㅇ
+ -->
+<script type="text/javascript">
+var demo = document.getElementById("demo");
+var screeninfo ="";
+screeninfo += "> screen width : "+screen.width+"<br>";
+screeninfo += "> screen Height : "+screen.height+"<br>";
+/*작업 표시줄과 같은 인터페이스 기능을 뺸 너비, 높이  */
+screeninfo += "> screen availWidth : "+screen.availWidth+"<br>";
+screeninfo += "> screen availHeight : "+screen.availHeight+"<br>";
+/* 화면의 생각수를 비트 단위르 표현한 수  */
+screeninfo += "> screen colorDepth : "+screen.colorDepth+"<br>";
+/* 화면의 픽셀 깊이를 비트 단위로 표시한 값 */
+screeninfo += "> screen pixelDepth : "+screen.pixelDepth+"<br>";
+/*> 최신 컴퓨터는 위의 두 속성값이 동일하다.  */
+demo.innerHTML= screeninfo;
+</script>
+</body>
+</html>
