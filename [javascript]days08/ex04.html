@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<table id="tblLogin" border="1">
+	<tr>
+		<td>아이디</td>
+		<td><input type="text" id="txtid"/></td>
+		<td rowspan="2">
+		<input type="checkbox" id="ckbLogin"/>
+		<lable for="ckbLogin">ID 저장</lable>
+		<br>
+		<input type="button" id="btnLogin" value="로그인" onclick="btnLogin_click();"/>
+		</td>
+	</tr>
+	<tr>
+		<td>비밀번호</td>
+		<td><input type="password" id="txtpwd" /></td>
+	</tr>
+</table>
+<script type="text/javascript">
+window.onload = function(){
+	//쿠키이름 : "autoid"	쿠키 값 : "dlgiddk20"
+	//1. 쿠키이름 : "autoid"
+	// 		ㄱ.null -> autoid화면에 뿌리기
+	//		ㄴ. 쿠키 존재하면 txtid 	[쿠키값 dlgiddk20]
+	//			ckbLogin 체크
+	var txtid = document.getElementById("txtid");
+	var txtpwd = document.getElementById("txtpwd")
+	var autoid= getCookie(txtid);
+	if(autoid){
+		autoid=txtid.value;//쿠키이름 
+		document.getElementById("ckbLogin").checked = "checked";
+	}
+	else{ //null
+		txtid.value=autoid;
+	}
+}
+function btnLogin_click(){
+	// id: dlgiddk20 / pwd: 1234
+	//	ㄱ. 로그인 성공
+	//		1) 체크박스 체크된 경우에만 쿠키저장(autoid, dlgiddk20)
+	//		2) 	체크 안된 경우 쿠키 삭제 
+	// ㄴ. 로그인 실패 
+	//		alert("로그인 실패~~~");
+	var ckbLogin = document.getElementById("ckbLogin");
+	
+	if(ckbLogin.checked=="checked"){
+		autoid = this.value;
+		setCookie("txtid",autoid);
+		setCookie("txtpwd",pwdvalue);
+	}else{
+		delCookie(cname);
+		alert("쿠키 삭제");
+	}
+
+	
+}
+</script>
+</body>
+</html>

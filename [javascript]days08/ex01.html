@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input{
+width: 100%;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<!-- javascript Cookie (쿠키) 
+1. 인터넷 웹사이트의 방문기록을 남겨 사용자와 웹사이트 사이를 매개해 주는 정보.
+2. 고객이 특정 홈페이지를 접속할 떄 [생성되는 정보]를 담은 임시[텍스트 파일]로 크기는 4kb 이하로 작다.
+3. 쿠키는 사용하는 웹브라우저+ 서버(jsp)가 [자동으로 만들기]도 하고 [갱신]하기도 하며 웹사이트로[기록을 전달](웹서버)하기도 한다. 
+		ex) 공지사항 오늘하루 보지않기
+4. 상태를 유지하는 클라이언트 방법 -> 쿠키,hidden 태그 <input type="hidden" />
+   > 게시판(Spring + MVC패턴) + 상태관리(쿠키, 세션) 
+5. 상태관리 하지 않으면...
+	웹구조 
+	[ IE / Crome ] -> request(요청) -> 웹서버 (IIS,톰캣).html 
+				   <- response (404오류) 			.jsp +<% 자바코딩 %> WAS(페이지내에 있는 자바코드 처리)
+				   									자바코드 에러시 500번줄에 오류났다고 알랴줌(response)
+				   									
+	네이버 logon.html
+		id/pwd 로그인버튼 -> 		DB 로그인체크
+	동아일보.html 상태관리x, 로그인정보x  	 		때문에 세션, application, DB 사용해서 세션 유지
+	상태 정보 저장: 쿠키, 히든태크
+6.javascript 쿠키 생성
+	document.cookie="속성명=속성값;,속성명=속성값;... " 속성을 사용해서 쿠키생성, 읽기, 삭제...			   
+	
+encodeURI()b b
+사용방법 : encodeURI(uri);
+-인터넷 주소에 사용되는 일부 특수문자(:,;,/,=,?,& 등)를 제외 문자만 인토딩
+-한그링 꺠지는 것을 방비하기 위하여 사용
+-
+				   
+-->
+
+<input type="text" id="demo" autofocus="autofocus" value="hyang 이향아 123 & %" />
+<br>
+<button onclick="func_escape()">escape()</button>
+<button onclick="func_unescape()">unescape()</button>
+<br>
+<input type="text" id="result" />
+<script type="text/javascript">
+var txt1=	document.getElementById("demo");
+var txt2=	document.getElementById("result");
+
+function func_escape(){
+	txt2.value=escape(txt1.value);
+	txt1.value="";
+}
+function func_unescape(){
+	txt1.value=unescape(txt2.value);
+	txt2.value="";
+}
+
+
+</script>
+</body>
+</html>

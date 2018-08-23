@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="cookie.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+쿠키 이름(key) : <input type="text" id="c_name" value="admin"/><br>
+쿠키 값(value) : <input type="text" id="c_value" value="이향아"/><br>
+<!-- cookie.js -->
+<button onclick="create_cookie();">쿠키 생성</button>
+<button onclick="select_cookie()">모든쿠키 확인</button>
+<button onclick="get_Cookie();">쿠키 확인</button>
+<button onclick="delete_Cookie();">쿠키 삭제</button>
+<hr>
+<p id="demo"></p>
+<script type="text/javascript">
+function delete_Cookie(){
+	var name = document.getElementById("c_name").value;
+	//그 쿠키 이름(name)으로 만료시점을 과거로 해서 저장...
+	 delCookie(name);
+	alert("쿠키 삭제");
+}
+
+function get_Cookie(){
+	var name = document.getElementById("c_name").value;
+	var value = getCookie(name);
+	if(value){demo.innerHTML= value;}
+	else alert("쿠키 존재 x");
+	
+}
+
+var demo = document.getElementById("demo");
+function select_cookie(){
+	var cookies= document.cookie;	
+	/* alert(cookies); */
+	demo.innerHTML = cookies;
+}
+
+function create_cookie(){
+	var name = document.getElementById("c_name").value;
+	var value = document.getElementById("c_value").value;
+	setCookie(name,value);
+	alert("쿠키생성");
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="cookie.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<table border="1" style="background: white; width: 400px; margin: 0 auto">
+<tr>
+	<td><img src="../images/item01.gif" alt="" /></td>
+	<td><img src="../images/item02.gif" alt="" /></td>
+	<td><img src="../images/item03.gif" alt="" /></td>
+</tr>
+<tr>
+	<td><input type="radio" id="item01" value="item01" name="bgImages" checked="checked"/>item01</td>
+	<td><input type="radio" id="item02" value="item02" name="bgImages"/>item02</td>
+	<td><input type="radio" id="item03" value="item03" name="bgImages"/>item03</td>
+</tr>
+</table>
+<script type="text/javascript">
+window.onload = function(){
+	//쿠키 배경이미지 관련 저장
+	//쿠키 이름 bgimg
+	//쿠키값 item01, item02, item03
+	//1. bgimg 쿠키의 값을 읽어오는 작업
+	//		ㄱ.그전에 세팅된게 없으면 null반환 -> item01 이미 배경으로 설정
+	//		ㄴ. 쿠키의 값으로 배경이미지 설정...
+	var cvalue= getCookie("bgImg");
+	if(cvalue){
+		document.body.style.backgroundImage = "url(../images/"+cvalue+".gif)";
+		//2. 라디오 버튼 -쿠키의 설정된 이름의 라디오 버튼 checked="checked"
+		document.getElementById(cvalue).checked = "checked";
+	}
+	else{ //null
+		document.body.style.backgroundImage = "url(../images/item01.gif)";
+	}
+	
+	//3. 라디오 버튼 클릭하면 클릭된 라디오 버튼의 id/value 으로 bgimg 쿠키저장.
+	var radioButtons = document.getElementsByName("bgImages");
+	var len = radioButtons.length;
+	for (var i = 0; i < len ; i++) {
+		radioButtons[i].onclick= function(){
+			cvalue = this.value;
+			setCookie("bgImg", cvalue);
+			
+			document.body.style.backgroundImage = "url(../images/"+cvalue+".gif)";
+		}
+	}
+}
+</script>
+</body>
+</html>
