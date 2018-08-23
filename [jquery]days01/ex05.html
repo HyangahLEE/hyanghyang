@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>append vs appendTo (html추가)</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+<body>
+<a href="https://jquery.com">default click action is prevented</a>
+<div id="log"></div>
+<script type="text/javascript">
+$("a").click(function( event ){
+	event.preventDefault();
+	//$("#log").append("<button>appended button</button>");
+	$("<button>")
+	.html("append <button>")
+	.appendTo("#log");//#log를 자식으로 추가해라
+	
+	//document.createElement("button")
+	//<button>append button</button>
+	// a-> b a.appendTo(b) :a를 b(부모)의 자식으로 추가
+	//	== b.append(a);
+	//<div id="log">
+	//	<div><button>test</button>
+	//	</div>
+	//</div>    
+	//>ex)$('<div>').append(<button>test</button>).appendTo('#log')
+/* 	$("button")//버튼객체를 찾아라
+	$("<button>")//버튼 객체를 생성하라 */
+})
+</script>
+</body>
+</html>

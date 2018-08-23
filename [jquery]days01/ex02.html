@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>숨기기 펼치기</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		/* $("p").click(function(){
+				$(this).hide();
+		});	 */
+		
+		 $("#btn01").click(function(){
+			$("p").toggle();
+		});	 
+		
+	});
+</script>
+</head>
+<body>
+<input id="btn01" type="button" value="hide" />
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Eaque necessitatibus vitae minima.</p>
+	<p>Libero distinctio sequi amet.</p>
+	<p>Consectetur totam mollitia eum.</p>
+	<p>Laudantium consectetur ad fugiat?</p>
+
+	<script type="text/javascript">
+		//js -> jquery
+	/* 	var ptags = document.getElementsByTagName("p");
+		for (var i = 0; i < ptags.length; i++) {
+			ptags[i].onclick = function(){
+				this.style.display="none";			
+			}
+		} 
+	*/
+	var ptags = document.getElementsByTagName("p");
+	var btn = document.getElementById("btn01");
+	var sw = true;
+	btn.onclick= function(){
+		this.value = sw ? "show": "hide";
+		
+		for (var i = 0; i < ptags.length; i++) {
+				ptags[i].style.display= (sw ? "none": "block");
+			}
+	sw=!sw;
+	}
+	</script>
+</body>
+</html>
