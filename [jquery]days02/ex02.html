@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	// 선택자로* : 모든 요소들 
+	//$("*").css("background-color","yellow");
+	//$("body *").css("background-color","yellow"); // body 안에 있는 모든 요소
+	$("ul *").css("background-color","yellow");
+	
+	$(".intro").css("width","-=100");
+	
+	$("h1, p, ul, li").css("padding","10px");
+});
+</script>
+</head>
+<body>
+<h1>Lorem ipsum dolor sit amet.</h1>
+<p class="intro">Lorem ipsum dolor sit.</p>
+<p>Lorem ipsum dolor sit.</p>
+<p>Voluptatem alias odit ab.</p>
+
+<ul class="choose">
+	<li>Lorem.</li>
+	<li>Nobis!</li>
+	<li>Quisquam.</li>
+	<li>Quis.</li>
+</ul>
+</body>
+</html>

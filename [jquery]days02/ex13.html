@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$(".inner")
+	.prepend("Test ") //text
+	.prepend("<button>종료</button>") //htmlString
+	.prepend(["AA","BB"]) //Array
+	.prepend($("h2"));
+});
+</script>
+</head>
+<body>
+<h2>Greetings</h2>
+<div class="container">
+  <div class="inner">Hello</div>
+  <div class="inner">Goodbye</div>
+</div>
+</body>
+</html>

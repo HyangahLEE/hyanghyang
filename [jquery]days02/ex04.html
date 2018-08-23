@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		// div 태그 중에 첫번 째, 마지막 
+		//$("div:first, div:last").css("background-color","pink"); //순서 상관없이 어디있든 첫번째 or마지막
+		//$("div:first-child, div:last-child").css("background-color","red");
+		//$("div:first-of-type, div:last-of-type").css("background-color","blue");
+	
+		//$("p:first, p:last").css("background-color","yellow");
+		$("p:first-of-type, p:last-of-type").css("background-color","green");//자식중의 첫번째,마지막
+	});
+</script>
+</head>
+<body>
+<p>Lorem ipsum dolor sit.</p>
+<div>
+	<p>Lorem ipsum dolor sit amet.</p>
+	<p>Dignissimos amet temporibus atque consequatur.</p>
+	<p>Repudiandae pariatur nulla dolorem maxime?</p>
+</div>
+<div>
+	<p>Lorem ipsum dolor sit amet.</p>
+	<p>Dignissimos amet temporibus atque consequatur.</p>
+	<p>Repudiandae pariatur nulla dolorem maxime?</p>
+</div>
+<!-- 
+<div>first-child : Lorem ipsum dolor sit amet.</div>
+<p>Lorem ipsum dolor sit amet.</p>
+	<div>first : Lorem ipsum dolor sit amet.</div>
+	<div>Eaque a aliquam est suscipit.</div>
+	<div>Magni consequatur eius molestias odit?</div>
+	<div>Asperiores quis in quam labore.</div>
+	<div>Odio soluta similique possimus et!</div>
+<p>Lorem ipsum dolor sit amet.</p>
+	<div>last : Odio soluta similique possimus et!</div>
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Lorem ipsum dolor sit amet.</p> -->
+</body>
+</html>

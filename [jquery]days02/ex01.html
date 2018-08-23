@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+/* prepend()/ append(); */
+/*   $("tr").each(function(idx,value){
+	  $(this).prepend("<td> "+idx+" </td>");
+	  idx++;
+  }) */
+  $("<td>").prepend($("tr")).each(function(index,el){
+	  $(this).text(index);
+  })
+ 
+});
+</script>
+</head>
+<body>
+<table border="1">
+	<caption>jquery</caption>
+<tr>
+	<td>선택자</td>
+	<td>설명</td>
+</tr>
+<tr>
+	<td>*</td>
+	<td>모든 요소들</td>
+</tr>
+<tr>
+	<td>#id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>.class</td>
+	<td></td>
+</tr>
+<tr>
+	<td>element</td>
+	<td></td>
+</tr>
+<tr>
+	<td>el, el, el...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>:first :last 
+	:first-child :last-child
+	:first-of-type :last-of-type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>:even :odd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>:nth-child(2, even,odd, 수식) :nth-last-child(n)
+	:nth-of-type(2) :nth-last-of-type(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>:only-child
+	:only-of-type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	parent > child(직계)
+	parent child(후손자식)
+	parent +child(next)
+	parent ~child(siblings)
+	</td>
+	<td>
+	div > span
+	div span
+	div + span
+	div ~ span</td>
+</tr>
+<tr>
+	<td>
+	:eq(index 0 시작)
+	:gt(n) <!--  > n -->
+	:lt(n)<!--   < n   -->
+	:not(선택자)
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	h1~h6 :header
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	:animated
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	:focus :blur
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	:input 
+	:text   		 input[type=??]
+	:password
+	:radio
+	:checkbox
+	:submit
+	:reset
+	:button
+	:file
+	:image
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	:disabled
+	:enabled
+	:checked
+	:selected
+	:contains()
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	:has(선택자);
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	:hidden :visible :root
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	[attribute]
+	[attribute=value]
+	[attribute!=value]
+	[attribute$=value]
+	[attribute|=value]
+	[attribute^=value]
+	[attribute~=value]
+	[attribute*=value]
+	
+	</td>
+	<td></td>
+</tr>
+</table>
+</body>
+</html>

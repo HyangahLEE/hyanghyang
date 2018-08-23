@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+width: 100px;
+height: 100px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("div").click(function (){
+		/*1.
+		var color = $(this).css("background-color");//배경색 '얻어오기'
+		$("#demo").html(color).css("color",color); */
+	
+	 var styles = $(this).css(["width","height","background-color"]);
+	 console.log(styles);
+	 console.log(styles.width);
+	 console.log(styles["height"]);
+		
+	//2.   [ .each ] - 각자 반복하면서 가져오겠다. 일일히 .width 안써도댐
+	var result =[];
+	$.each(styles,function(property,value){
+		result.push(property + ":" + value);
+	});
+	$("#demo").html(result.join("<br>"));
+	});
+	
+	//3.	[ .on ] -ajax 처리로 이벤트 설정 할 때 on(); ***
+	$("#btn2").on("click",function(){
+		alert("2");
+	});
+	
+	//4. [.one] - 한번만 이벤트 발생
+	$("#btn3").one("click",function(){
+		alert("3");
+	});
+
+});
+</script>
+</head>
+<body>
+<button id="btn1">A</button>
+<button id="btn2">B</button>
+<button id="btn3">C</button>
+<hr>
+<p id="demo"></p>
+<div style="background: red"></div>
+<div style="background: green"></div>
+<div style="background: blue"></div>
+</body>
+</html>

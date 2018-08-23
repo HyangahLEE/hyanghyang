@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	/*
+	$("tr:even").css("background-color","pink");
+	$("tr:odd").css("background-color","gray"); 
+	*/
+	/* 
+	each() == $().each() - 그냥 나오면 어떤 객체를 받은 후에 반복하겠다ㅏ.
+	jquery.each() == $.each(); - 제이쿼리 전역변수를 쓰겠다*/
+	
+	$("tr").each(function(index, element){
+		if(index %2==0){
+			//$(this).css("background-color","yellow");
+			//element.css("background-color","yellow");xxxx element이거 제이 쿼리 아님
+			element.style.backgroundColor="yellow";
+		}
+	});
+});
+</script>
+</head>
+<body>
+<table border="1">
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Suscipit officia.</td>
+		<td>Animi recusandae?</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Fugiat fuga.</td>
+		<td>Excepturi autem?</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Debitis natus.</td>
+		<td>Esse harum.</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Totam iusto.</td>
+		<td>Illo reprehenderit!</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Eligendi provident.</td>
+		<td>Voluptatum ab.</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Nesciunt a!</td>
+		<td>Ipsam vero!</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Veniam deserunt.</td>
+		<td>Ea minus.</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Quaerat exercitationem.</td>
+		<td>Nulla perspiciatis.</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>Quibusdam ab.</td>
+		<td>Similique possimus?</td>
+	</tr>
+	<tr>
+		<td>Lorem ipsum.</td>
+		<td>A consequatur?</td>
+		<td>Earum quos.</td>
+	</tr>
+</table>
+</body>
+</html>

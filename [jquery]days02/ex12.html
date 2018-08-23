@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	//$("p:contains(is)").css("background","pink");
+	$("p").each(function (index,element){
+		if($(this).text().indexOf("is") !=-1){
+			$(this).css("background","pink");
+		}
+	})
+});
+</script>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Magnam expedita minima magni optio.</p>
+<p>Ipsam odio consectetur adipisci fugit.</p>
+<p>Nesciunt dolores adipisci distinctio quia!</p>
+<p>Illo voluptate quia enim alias.</p>
+<p>Accusamus impedit distinctio ipsum eligendi.</p>
+<p>Dicta autem voluptate debitis non.</p>
+<p>Nesciunt numquam voluptatibus nihil aliquid?</p>
+<p>Soluta blanditiis eos pariatur consectetur.</p>
+<p>Nisi maxime aliquid mollitia blanditiis.</p>
+</body>
+</html>

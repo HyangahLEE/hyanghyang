@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("button").on("click",function(){
+		var selector = $(this).text();
+		$("p").css("background-color","white");
+		//$("p"+selector).css("background-color","lightblue");
+		$("#demo p"+selector).css("background-color","lightblue");
+	});
+});
+</script>
+</head>
+<body>
+<div id="demo">
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Voluptatibus ut magnam nulla.</p>
+	<p>Atque sit blanditiis tempora.</p>
+	<p>Qui praesentium aspernatur corrupti.</p>
+	<p>Minima voluptates delectus voluptatibus.</p>
+	<p>Quo quas qui aspernatur!</p>
+	<p>Quo odit atque sed.</p>
+	<p>Iste saepe quod placeat.</p>
+	<p>Rerum aliquam accusamus unde!</p>
+	<p>Commodi dignissimos culpa alias.</p>
+</div>
+<hr>
+<h1>Lorem ipsum dolor sit amet.</h1>
+<p>Lorem ipsum dolor sit.</p>
+<p>Sequi suscipit est earum.</p>
+<div style="border:solid 1px gray">
+	<span>Lorem ipsum dolor sit.</span>
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Lorem ipsum dolor sit.</p>
+	<span>Lorem ipsum dolor sit.</span>
+</div>
+<div style="border:solid 1px gray">	
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Lorem ipsum dolor sit.</p>
+	<p>Lorem ipsum dolor sit.</p>	
+</div>
+<p>Lorem ipsum dolor sit amet, consectetur.</p>
+<button>:nth-child(2)</button>
+<button>:nth-last-child(2)</button>
+<button>:nth-of-type(2)</button>
+<button>:nth-last-of-type(2)</button>
+
+<button>:nth-child(even)</button>
+<button>:nth-child(odd)</button>
+<button>:nth-child(3n+2)</button>
+</body>
+</html>

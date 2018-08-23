@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var flip = 0;
+	$( "button" ).click(function() {
+		// $( "p" ).toggle();
+		console.log(flip + "/"+ ( flip++ % 2 === 0 ));
+		$( "p" ).toggle( flip++ % 2 === 0 );
+	});
+});
+</script>
+</head>
+<body>
+<button>Toggle</button>
+<p>Hello</p>
+<p style="display: none">Good Bye</p>
+
+
+</body>
+</html>

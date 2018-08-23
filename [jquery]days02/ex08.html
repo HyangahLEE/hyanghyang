@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+border: solid 1px gray;
+margin :10px;}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('div').css({
+			"border":"solid 1px gray",
+			"margin":"10px"			
+		});		
+		$('button').click(function(){
+			$("p"+$(this).text()).css("background-color","yellow");
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<p>Lorem ipsum dolor sit.</p>
+		<p>Lorem ipsum dolor sit.</p>
+	</div>
+	<div>
+		<p>Lorem ipsum dolor sit.</p>
+	</div>
+	<div>
+		<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Labore mollitia esse ea officiis sequi fugiat dicta! Tenetur est
+			consequatur nulla nisi quisquam dolore iure perspiciatis placeat
+			repellendus ipsum consectetur laborum.</span>
+		<p>Lorem ipsum dolor sit.</p>
+	</div>
+	<button>:only-child</button><!-- 자식은 한개있지만  -->
+	<button>:only-of-type</button><!-- 자식이 여러개 있지만 p태그가 한개인것  -->
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("button").click(function(){
+		$("h1, h2, h3, h4, h5, h6")
+		$(":header").css("border","solid 1px gray");
+		$("p").css("background-color","white");
+		var selector = $(this).text();
+		$(selector).css("background-color","yellow");
+	})
+});
+</script>
+</head>
+<body>
+<h1></h1>
+<p>1 Lorem ipsum dolor sit.</p>
+<p>2 Accusantium esse dolorem beatae.</p>
+<p>3 Ipsa cumque vitae aspernatur!</p>
+<p>4 Quasi incidunt dolor laborum.</p>
+<p >5 Labore in asperiores distinctio.</p>
+<p class ="intro">6 Culpa adipisci voluptate officiis.</p>
+<p>7 Corporis doloremque rerum consequuntur?</p>
+<p class ="intro">8 Molestias nisi nihil repellendus!</p>
+<p>9 Expedita molestiae at cum.</p>
+<p>10 Facere deserunt perferendis eius.</p>
+<button>p:eq(4)</button>
+<button>p:gt(4)</button>
+<button>p:lt(4)</button>
+<button>p:not(.intro)</button>
+</body>
+</html>

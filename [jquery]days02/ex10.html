@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	function animateDiv(){
+		$("div:eq(0), div:last").animate({width:"50%"},"slow");
+		$("div:eq(0), div:last").animate({width:"100%"},"slow",animateDiv);
+	}
+	animateDiv();
+	$('.btn1').click(function(){
+		$(":animated").css("background-color","black");
+	});
+});
+</script>
+</head>
+<body>
+<button class="btn1">change color</button>
+<div style="background: red">box1</div>
+<div style="background: green">box2</div>
+<div style="background: blue">box3</div>
+</body>
+</html>

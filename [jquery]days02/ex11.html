@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	//선택된 항목 얻어올 때
+	$(":selected").css("background","red");
+	
+	//체크된 항목 얻어올때 
+	$(":checked").css({
+		"width":"50px",
+		"height":"50px"
+	})
+	
+	$(":disabled").css("background","red");
+	
+	//현재 포커스가 있는 객체만을 찾을 때 적용 가능
+	/* $(":focus").css({
+		"border":"solid 1px red"
+	}); */
+	//포커스를 얻을 때 이벤트 : focus 이벤트
+	$("input[type='text']").focus(function(){
+		$(this).css("background","yellow");
+	})
+	//포커스를 읽을 때 이벤트 : blur 이벤트
+	$("input[type='text']").blur(function(){
+		$(this).css("background","white");
+	});
+	
+	/* $(":text").focus(function(){
+		$(this).css("background","yellow");
+	}).blur(function(){
+		$(this).css("background","white");
+	}); */
+});
+</script>
+</head>
+<body>
+
+<select name="" id="">
+<option value="">Lorem.</option>
+<option value="">Sequi.</option>
+<option value="" selected="selected">Dicta!</option>
+<option value="">Amet!</option>
+<option value="">Mollitia!</option>
+</select>
+<hr>
+<input type="radio" name="gender"/>여자
+<input type="radio" name="gender" checked="checked"/>남자
+<input type="checkbox" name="food" checked="checked"/>차돌박이 된장찌개
+<input type="checkbox" name="food"/>비빔냉면
+<input type="checkbox" name="food"/>갈비탕
+<input type="checkbox" name="food"/>삼겹살
+<hr>
+<input type="text" autofocus="autofocus"/>
+<input type="text" disabled="disabled"/>
+<input type="text" />
+<input type="text" />
+<input type="text" />
+</body>
+</html>

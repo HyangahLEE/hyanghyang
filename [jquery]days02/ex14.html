@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('p:has(.box, span)').css("border","solid 1px red");
+	
+	// 빈 자식 요소, 텍스트 x
+	//$("td:empty").css("background","hotpink")
+	
+	// td 중에 자식(요소 , 문자열)요소를 가지고 있는 부모
+	//$("td:parent").css("background","blue");
+	
+	//
+	$('p:hidden').css("height","100px").show(3000); //3초동안 보여주기
+	
+	//$(":root").??  - html요소...
+	
+	
+});
+</script>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet.</p>
+<p style="display: none;">Nisi odit culpa quidem natus!</p>
+<p>Quidem quisquam illo officia totam.</p>
+<p>Nostrum rem atque molestias suscipit?</p>
+<p style="display: none;">Beatae quaerat ipsam vero tempora.</p>
+<hr>
+<table border="1">
+	<tr>
+		<td>Lorem.</td>
+		<td>Laborum.</td>
+		<td>Quasi.</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Lorem.</td>
+		<td>Incidunt!</td>
+		<td></td>
+		<td>Hic.</td>
+	</tr>
+	<tr>
+		<td>Lorem.</td>
+		<td></td>
+		<td>Sint.</td>
+		<td>Tempore.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Tenetur!</td>
+		<td>Tenetur.</td>
+		<td>Et!</td>
+	</tr>
+</table>
+<p>Lorem ipsum <span>dolor</span> sit amet.</p>
+<p>Quis dignissimos adipisci non tempora!</p>
+<p>Optio <b class="box">aperiam</b> vel ipsum animi.</p>
+</body>
+</html>

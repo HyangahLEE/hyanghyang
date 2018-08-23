@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	//$("[type]").css("background","darkblue");
+	//$("[id='ex15']").css("background","lightblue");
+	
+	//id속성이 ex로 시작하면 ... 배경생 노란색
+	//$("[id^=ex]").css("background","lightblue");
+	
+	//id속성이 01로 끝나면...
+	//$("[id$=01]").css("background","lightblue");
+	
+	//id속성중에 is가 있으면
+	$("[id*=is]").css("background","lightblue");
+});
+</script>
+</head>
+<body>
+<input  /><br>
+<input  /><br>
+<input type="text" /><br>
+<input /><br>
+<input type="text" /><br>
+<input  /><br>
+<input type="checkbox" /><br>
+<input id="ex15" /><br>
+<input id="sample15" /><br>
+<input id="ex15" /><br>
+<input id="ex15" /><br>
+<input id="is01" /><br>
+<input id="sample01" /><br>
+<input id="exis" /><br>
+</body>
+</html>

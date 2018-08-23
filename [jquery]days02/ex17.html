@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+span {
+	color: red;
+	cursor: pointer;
+}
+
+div {
+	margin: 3px;
+	width: 80px;
+	/*  display: none; */
+	height: 80px;
+	float: left;
+}
+
+#one {
+	background: #f00;
+}
+
+#two {
+	background: #0f0;
+}
+
+#three {
+	background: #00f;
+}
+</style>
+<style>
+div, p {
+	width: 80px;
+	height: 40px;
+	top: 0;
+	margin: 0;
+	position: absolute;
+	padding-top: 8px;
+}
+
+p {
+	background: #fcc;
+	text-align: center;
+}
+
+div {
+	background: blue;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$( document.body ).click(function() {
+		
+		//점점 사라짐 , 점점 나타나게
+		//$( "div:hidden:first" ).fadeIn( "slow" );
+		//$( "div:hidden:first" ).fadeIn( "slow" );
+		
+		//$( "div:visible:first" ).fadeOut(1000);
+		//$( "div" ).fadeToggle(1000);
+		
+		//fadeTo() 불투명도 값까지 천천히 조절
+		
+		});
+});
+</script>
+</head>
+<body>
+	<p>Wrong</p>
+	<div></div>
+	<p>Wrong</p>
+	<div></div>
+	<p>Right!</p>
+	<div></div>
+	<hr>
+	<span>Click here...</span>
+	<div id="one"></div>
+	<div id="two" style="display: none"></div>
+	<div id="three"></div>
+	<script>
+function getPos( n ) {
+		  return (Math.floor( n ) * 90) + "px";
+		};
+
+/* var getPos = function( n ) {
+  return (Math.floor( n ) * 90) + "px";
+}; */
+$( "p" ).each(function( n ) {
+  var r = Math.floor( Math.random() * 3 );
+  var tmp = $( this ).text();
+  $( this ).text( $( "p:eq(" + r + ")" ).text() );
+  $( "p:eq(" + r + ")" ).text( tmp );
+  $( this ).css( "left", getPos( n ) );
+});
+$( "div" )
+  .each(function( n ) {
+    $( this ).css( "left", getPos( n ) );
+  })
+  .css( "cursor", "pointer" )
+  .click( function() {
+    $( this ).fadeTo( 250, 0.25, function() {
+      $( this )
+        .css( "cursor", "" )
+        .prev()
+          .css({
+            "font-weight": "bolder",
+            "font-style": "italic"
+          });
+    });
+  });
+</script>
+</body>
+</html>
