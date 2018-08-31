@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+/* 	$("form").submit(function(){
+		//alert("유효성 검사/ 이벤트 취소")
+		
+		var n = $("#name").val();
+		if(n.trim.length==0){
+			alert("이름 반드시 입력!");
+			event.preventDefault();//submit이 기본적으로 수행하는 일 취소
+			n.focus();
+		}
+		
+		//나이 0~150 유효성 검사
+		var age = $("#age").val();
+				
+	}); */
+});
+</script>
+</head>
+<body> <!-- 폼에서는 name속성이 값이 넘어간다.  -->
+<form action="ex05_ok.jsp" method="get">
+name : <input type="text" required="required" id="name" name="name" autofocus="autofocus" /><br>
+age : <input required="required" type="number" min="1" max="150" id="age" name="age" /><br>
+<!-- <input type="text" required="required" id="age" name="age" /><br> -->
+<input type="submit" value="send" />
+<input type="reset" value="reset" />
+
+
+</form>
+</body>
+</html>
