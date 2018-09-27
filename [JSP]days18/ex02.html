@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var httpRequest;
+
+function getXMLHttpRequest(){
+	// IE : new ActiveXObject("Microsoft.XMLHTTP");
+	// 그외 : new XMLHttpRequest();
+	if(window.ActiveXObject){
+		try {
+			return new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {
+				return null;
+			}
+			
+		}
+		
+	}else if(window.XMLHttpRequest){
+		return new XMLHttpRequest();
+	}else{
+		return null;
+	}
+}
+
+function load(url){
+	//1. XMLHttpRequest 객체
+	httpRequest = getXMLHttpRequest();
+	//2
+	httpRequest.onreadystatechange = callback;
+	//3 url ("test.jsp?name="+encodeURIComponent("이향아"))
+	httpRequest.open("Get", url, true);
+	//4.
+	httpRequest.send(null);
+}
+
+function callback(){
+	if(httpRequest.readyState == 4){ //데이터
+		if(httpRequest.status == 200 ){//성공
+		alert(httpRequest.responseText);
+		}else{
+			alert("실패 : " + httpRequest.status);
+		}
+	}
+	
+}
+
+</script>
+<script>
+$(document).ready(function(){
+	$('#btnAjax').click(function(){
+		//alert("test");
+		$('#demo').load('sample01.txt'
+				//,data
+				,function(responseText,textStatus,jqXHR){//콜백함수
+					if(textStatus =="success"){
+						alert("요청 성공");
+					}else if(textStatus == "error"){
+						alert("요청 실패");
+					}
+			});
+	})
+});
+</script>
+</head>
+<body>
+<input type="button" value="javascript ajax" onclick="load('sample01.txt')"/><br>
+<input type="button" value="jquery ajax" id="btnAjax"/><br>
+<hr>
+<div id="demo"></div>
+
+</body>
+</html>

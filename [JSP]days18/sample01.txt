@@ -1,0 +1,62 @@
+[ ajax -에이잭스 ]
+1. [A]synchronous [J]avascript [A]nd [X]ml
+2. 자바스크립트를 사용해서 xml 된 데이타를 비동기적으로 처리하는 기술 
+3. jquery ajax method
+4. 비동기적인 처리 작업?
+5. ajax 장점
+	ㄱ. 페이지 이동없이 고속으로 화면 전환
+	ㄴ. 서버처리를 기다리지 않고 비동기 요청이 가능
+	ㄷ. 서버 측 처리를 각 pc에 분산 처리 가능
+	ㄹ. 수신하는 데이터의 양을 줄일 수 있다.
+6. ajax 단점
+	ㄱ. 보안에 더욱 신경써야한다.
+	ㄴ. 오픈 소스이기에 차별화 어렵다. 
+	ㄷ. 브라우저에 따라 사용여부 결정
+	ㄹ. 크로스 브라우저화 노하우 필요
+7. ajax 처리 방식
+ 	ex) 회원가입 페이지 
+ 	[유지]
+ 	[유지]
+ id [dlgiddk20] [id중복체크 버튼]
+ 	[]
+ 	[]
+ 	[]
+ 	[]
+ 	[id중복체크 버튼].click(function(){
+ 		1. DOM 입력받은 ID값
+ 		2. XMLHTTPRequest 객체 *** ->비동기적으로 페이지는 변동없이 서버에 요청하러감(브라우저에 내장된 객체 )
+ 		3. 콜백함수 
+ 		4. 성공 / 데이터 / -> span태그
+ 	})
+ 		
+ 		
+ 8. XMLHttpRequest 객체 얻어오기
+ 	ㄱ. IE : new ActiveXObject("Microsoft.XMLHTTP");
+ 	ㄴ. 그외 : new XMLHttpRequest();
+ 	var xmlhttpRequest;
+ 	ㄷ. 메서드 설명
+ 		abort()
+ 		getAllResponseHeaders()
+ 		getResponseheader()
+ 		open("Get/Post", "URL" ,[true]/false 비동기/동기적)
+ 		send()
+ 		setRequestHeader()
+ 	ㄹ. -get 방식
+ 		var xmlHttpRequest;
+ 		//open() ajax 처리에 필요한 설정
+ 		xmlHttpRequest.open("Get", "/test.jsp?id=hyang" ,true);
+ 		// send() 서버에 실제 요청을 하는 역할..
+ 		xmlHttpRequest.send(null);
+ 		-post방식
+ 		var xmlHttpRequest;
+ 		//open() ajax 처리에 필요한 설정
+ 		xmlHttpRequest.open("Post", "/test.jsp" ,true);
+ 		// send() 서버에 실제 요청을 하는 역할..
+ 		xmlHttpRequest.send("id=hyang");
+ 	ㅁ. 서버에서 응답 처리
+ 		1) onreadystatechange 속성 : 상태의 변경이 발생할 때 마다 일어나는 이벤트
+ 		2) readyState 속성 : 0,1,2,3,4   [4 : 데이터를 서버로부터 전부 받은 상태...]
+ 		3) 		responseText 속성 : 서버에서 응답 받은 것 ? 문자열
+ 		4) 		responseXML 속성  : 					xml
+ 		5) 		responseBody 속성 : 					이진코드문자열
+ 		6) status 속성 : 서버에서 응답받은 코드 (숫자)값
