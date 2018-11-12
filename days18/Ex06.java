@@ -3,6 +3,7 @@ package days18;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Ex06 {
 
@@ -18,7 +19,7 @@ public class Ex06 {
 		
 		FileReader fr = null;         // 파일 읽기 위한 객체
 		BufferedReader br = null; // 라인 단위 처리... 
-		String fileName = "C:\\D\\Test\\20180525(금)\\■ 수업자료.txt";
+		String fileName = "■ 수업자료.txt";
 		int lineNumber = 1;
 		
 		try {
@@ -46,5 +47,6 @@ public class Ex06 {
 	}
 
 }
+
 
 
